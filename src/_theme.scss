@@ -1,0 +1,74 @@
+
+@import './reset';
+
+/**THEME**/
+
+$faded: rgba(0, 0, 0, 0);
+$darker: #121212;
+$dark: #1C1C1C;
+$medium: #222;
+$light: #333;
+
+$blue1: rgba(90, 200, 255, 1);
+$blue9: rgba(90, 200, 255, 0.9);
+$blue8: rgba(90, 200, 255, 0.8);
+$blue7: rgba(90, 200, 255, 0.7);
+$blue6: rgba(90, 200, 255, 0.6);
+$blue5: rgba(90, 200, 255, 0.5);
+$blue4: rgba(90, 200, 255, 0.4);
+$blue3: rgba(90, 200, 255, 0.3);
+$blue2: rgba(90, 200, 255, 0.2);
+$blue01: rgba(90, 200, 255, 0.1);
+
+$green1: rgba(0, 255, 80, 1);
+
+$purple1: rgba(100, 50, 220, 1);
+
+$fmain: Calibri;
+
+$flarge: 3rem;
+$fmedium: 2rem;
+$fnormal: 1rem;
+
+.title {
+    color: $blue1;
+    font-size: $flarge;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    color: $blue9;
+    font-size: $fmedium;
+    margin-bottom: 1rem;
+}
+
+.box-wrapper {
+    background: $medium;
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: $fmain;
+}
+
+.title-box {
+    @extend .title ;    
+    @extend .box-wrapper ;
+}
+
+.subtitle-box {
+    @extend .box-wrapper ;
+    @extend .subtitle ;
+}
+
+.text-box {
+    @extend .box-wrapper ;
+    color: $blue7;
+    font-size: $fnormal;
+    display: auto;
+    text-align: justify;
+}

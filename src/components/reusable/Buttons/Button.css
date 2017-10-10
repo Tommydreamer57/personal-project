@@ -75,9 +75,56 @@ table {
   display: auto;
   text-align: justify; }
 
-.App {
-  background: #1C1C1C;
-  color: rgba(90, 200, 255, 0.6);
-  min-height: 100vh; }
-  .App .main {
-    padding: 3rem 15vw; }
+.FavoriteButton {
+  max-width: 28px;
+  max-height: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  transform: rotate(225deg); }
+  .FavoriteButton .square, .FavoriteButton .unfavsquare, .FavoriteButton .favsquare {
+    transition: background-color .5s, transform .5s, height .5s, width .5s; }
+  .FavoriteButton .unfavsquare {
+    width: 9.5px;
+    height: 9.5px;
+    background: rgba(90, 200, 255, 0.4);
+    animation-name: rotationtwo;
+    animation-duration: .8s;
+    animation-iteration-count: 1; }
+  .FavoriteButton .favsquare {
+    width: 12px;
+    height: 12px;
+    background: #5ac8ff;
+    animation: rotation;
+    animation-duration: .8s;
+    animation-iteration-count: 1; }
+
+.FavoriteButton:hover .unfavsquare {
+  height: 12px;
+  width: 12px;
+  background: #5ac8ff;
+  transform: rotate(90deg); }
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+    width: 12px;
+    height: 12px; }
+  50% {
+    width: 14px;
+    height: 14px; }
+  to {
+    transform: rotate(180deg);
+    width: 12px;
+    height: 12px; } }
+
+@keyframes rotationtwo {
+  from {
+    transform: rotate(0deg);
+    width: 12px;
+    height: 12px;
+    background: #5ac8ff; }
+  to {
+    transform: rotate(180deg);
+    width: 9.5px;
+    height: 9.5px;
+    background: rgba(90, 200, 255, 0.4); } }

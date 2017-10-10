@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import Navbar from '../../reusable/Navbar/Navbar';
 
-export default class Login extends Component {
+export default class AdminHome extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -9,8 +10,9 @@ export default class Login extends Component {
     }
     render() {
         return (
-            <div className='Login'>
-
+            <div className='AdminHome'>
+                
+                <Navbar />
             </div>
         )
     }

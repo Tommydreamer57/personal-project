@@ -1,0 +1,89 @@
+
+@import '../../../theme';
+
+.Button {
+
+}
+
+.NavigationButton {
+    
+}
+
+$favmax: 28px;
+$favsize: 12px;
+$unfavsize: 9.5px;
+$favan: 14px;
+
+.FavoriteButton {
+    max-width: $favmax;
+    max-height: $favmax;
+    display: flex;
+    flex-wrap: wrap;
+    transform: rotate(225deg);
+
+    .square {
+        transition: background-color .5s, transform .5s, height .5s, width .5s;
+    }
+
+    .unfavsquare {
+        @extend .square ;
+        width: $unfavsize;
+        height: $unfavsize;
+        background: $blue4;
+        animation-name: rotationtwo;
+        animation-duration: .8s;
+        animation-iteration-count: 1;
+    }
+
+    .favsquare {
+        @extend .square ;
+        width: $favsize;
+        height: $favsize;
+        background: $blue1;
+        animation: rotation;
+        animation-duration: .8s;
+        animation-iteration-count: 1;
+    }
+
+}
+
+.FavoriteButton:hover {
+    .unfavsquare {
+        height: $favsize;
+        width: $favsize;
+        background: $blue1;
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+    width: $favsize;
+    height: $favsize;
+  }
+  50% {
+    width: $favan;
+    height: $favan;
+  }
+  to {
+    transform: rotate(180deg);
+    width: $favsize;
+    height: $favsize;
+  }
+}
+
+@keyframes rotationtwo {
+  from {
+    transform: rotate(0deg);
+    width: $favsize;
+    height: $favsize;
+    background: $blue1;
+  }
+  to {
+    transform: rotate(180deg);
+    width: $unfavsize;
+    height: $unfavsize;
+    background: $blue4;
+  }
+}

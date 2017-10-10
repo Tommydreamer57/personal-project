@@ -75,9 +75,10 @@ table {
   display: auto;
   text-align: justify; }
 
-.App {
-  background: #1C1C1C;
-  color: rgba(90, 200, 255, 0.6);
-  min-height: 100vh; }
-  .App .main {
-    padding: 3rem 15vw; }
+.text-box {
+  position: relative; }
+
+.FavoriteButton {
+  position: absolute;
+  top: 1rem;
+  right: 1.7rem; }

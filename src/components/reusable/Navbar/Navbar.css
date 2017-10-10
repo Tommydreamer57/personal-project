@@ -75,9 +75,35 @@ table {
   display: auto;
   text-align: justify; }
 
-.App {
-  background: #1C1C1C;
-  color: rgba(90, 200, 255, 0.6);
-  min-height: 100vh; }
-  .App .main {
-    padding: 3rem 15vw; }
+.Navbar * {
+  font-family: Calibri; }
+
+.Navbar .navigation-bar {
+  background: #121212;
+  color: rgba(90, 200, 255, 0.5);
+  height: 100vh;
+  width: 15rem;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -13.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  transition: left .8s; }
+
+.Navbar .navigation-shadow {
+  background: linear-gradient(90deg, #121212, transparent);
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 1rem;
+  transition: left .8s, width .4s; }
+
+.Navbar .navigation-bar:hover {
+  left: 0; }
+  .Navbar .navigation-bar:hover + .navigation-shadow {
+    left: 15rem;
+    width: 100rem; }

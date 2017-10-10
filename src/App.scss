@@ -1,0 +1,13 @@
+
+@import './theme';
+
+.App {
+    background: $dark;
+    color: $blue6;
+    min-height: 100vh;
+
+    .main {
+        padding: 3rem 15vw;
+    }
+
+}

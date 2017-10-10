@@ -1,0 +1,14 @@
+
+@import '../../../theme';
+
+.Section {
+    * {
+        font-family: $fmain;
+    }
+
+    .post-box {
+        @extend .box-wrapper ;
+        flex-flow: row wrap;
+        justify-content: space-around;
+    }
+}

@@ -58,7 +58,7 @@ table {
   font-size: 2rem;
   margin-bottom: 1rem; }
 
-.box-wrapper, .title-box, .subtitle-box, .text-box {
+.box-wrapper, .title-box, .subtitle-box, .text-box, .Section .post-box {
   background: #222;
   width: 100%;
   padding: 1rem;
@@ -75,9 +75,9 @@ table {
   display: auto;
   text-align: justify; }
 
-.App {
-  background: #1C1C1C;
-  color: rgba(90, 200, 255, 0.6);
-  min-height: 100vh; }
-  .App .main {
-    padding: 3rem 15vw; }
+.Section * {
+  font-family: Calibri; }
+
+.Section .post-box {
+  flex-flow: row wrap;
+  justify-content: space-around; }
