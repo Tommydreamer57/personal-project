@@ -91,7 +91,8 @@ table {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  transition: left .8s; }
+  transition: left .8s;
+  transition-delay: .1s; }
 
 .Navbar .navigation-shadow {
   background: linear-gradient(90deg, #121212, transparent);
@@ -100,7 +101,8 @@ table {
   position: fixed;
   top: 0;
   left: 1rem;
-  transition: left .8s, width .4s; }
+  transition: left .8s, width .4s;
+  transition-delay: .1s; }
 
 .Navbar .navigation-bar:hover {
   left: 0; }

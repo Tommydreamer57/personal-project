@@ -20,6 +20,7 @@
         justify-content: space-around;
         align-items: center;
         transition: left .8s;
+        transition-delay: .1s;        
     }
 
     .navigation-shadow {
@@ -30,6 +31,7 @@
         top: 0;
         left: 1rem;
         transition: left .8s, width .4s;
+        transition-delay: .1s;
     }
 
     .navigation-bar:hover {
