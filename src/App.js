@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import logo from './logo.svg';
+import './reset.css';
 import './App.css';
 import Login from './components/pages/Login/Login';
 import Home from './components/pages/Home/Home';
@@ -16,9 +17,8 @@ class App extends Component {
         <div className='App'>
           <div className='main'>
             <Switch>
-              {/* <Route exact path='/' component={Login} /> */}
-              <Route exact path='/' component={Home} /> {/*CHANGE PATH TO /HOME/ AND REMOVE EXACT*/}
-              <Route path='/home/' component={Home} /> {/*REMOVE LATER*/}
+              <Route exact path='/' component={Login} />              
+              <Route path='/home' component={Home} />
               <Route path='/section/' component={Section} /> {/*ADD PARAM :/SECTION TO PATH*/}
               <Route path='/post/' component={Post} /> {/*ADD PARAM :/POST TO PATH*/}
               <Route exact path='/admin/' component={AdminHome} />

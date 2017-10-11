@@ -1,12 +1,12 @@
 
-@import './reset';
-
 /**THEME**/
+
+/**COLORS**/
 
 $faded: rgba(0, 0, 0, 0);
 $darker: #121212;
 $dark: #1C1C1C;
-$medium: #222;
+$medium: #262626;
 $light: #333;
 
 $blue1: rgba(90, 200, 255, 1);
@@ -24,11 +24,15 @@ $green1: rgba(0, 255, 80, 1);
 
 $purple1: rgba(100, 50, 220, 1);
 
+/**FONT**/
+
 $fmain: Calibri;
 
 $flarge: 3rem;
 $fmedium: 2rem;
 $fnormal: 1rem;
+
+/**CLASSES**/
 
 .title {
     color: $blue1;

@@ -2,11 +2,33 @@ import React, { Copmonent } from 'react';
 import { Link } from 'react-router-dom';
 import './Button.css';
 
+export function NavigationToggle(props) {
+    return (
+        <div />
+    )
+}
+
 export function NavigationButton(props) {
     return (
         <Link to={props.url} className='NavigationButton'>
             {props.children}
         </Link>
+    )
+}
+
+export function LoginButton(props) {
+    return (
+        <a href={process.env.REACT_APP_LOGIN}>
+            {props.children}
+        </a>
+    )
+}
+
+export function LogoutButton(props) {
+    return (
+        <a href={process.env.REACT_APP_LOGOUT}>
+            {props.children}
+        </a>
     )
 }
 

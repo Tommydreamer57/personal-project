@@ -14,7 +14,7 @@
         position: fixed;
         top: 0;
         bottom: 0;
-        left: -13.5rem;        
+        left: -13.5rem;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -34,12 +34,20 @@
         transition-delay: .1s;
     }
 
-    .navigation-bar:hover {
-        left: 0;
+    .navigation-bar-wrapper:hover {
+        .navigation-bar {
+            left: 0;
+        }
         + .navigation-shadow {
             left: 15rem;
             width: 100rem;
         }
     }
 
+}
+
+@media (max-width: 600px) {
+    .navigation-bar {
+        
+    }
 }
