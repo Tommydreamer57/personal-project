@@ -13,14 +13,15 @@
         width: 15rem;
         position: fixed;
         top: 0;
-        bottom: 0;
         left: -13.5rem;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
         transition: left .8s;
-        transition-delay: .1s;        
+        transition-delay: .1s;
+        z-index: 999;
+        
     }
 
     .navigation-shadow {
@@ -46,8 +47,94 @@
 
 }
 
-@media (max-width: 600px) {
-    .navigation-bar {
-        
+@media (max-width: 700px) {
+
+    $navheight: 2.75rem;
+    $opennav: 15rem;
+
+  .NavigationToggle {
+    position: fixed;
+    top: 0rem;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0.35rem;
+    height: 2rem;
+    align-items: center;
+    z-index: 10000;
+
+    .nav-line {
+      width: 2rem;
+      height: .25rem;
+      background: $blue5;
+      transition: width .5s, color .5s;
     }
+
+  }
+
+    .navigation-bar-wrapper {
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        height: $navheight;
+        display: block;
+        background: $darker;
+        z-index: 1000;
+
+        .navigation-bar {
+            position: fixed;
+            top: -$opennav;            
+            right: 0;
+            left: 0;
+            height: $opennav;
+            width: 100vw;
+            align-items: flex-start;
+            transition: top .5s;
+            padding-bottom: $navheight;
+        }
+
+    }
+
+    .navigation-shadow {
+        position: fixed;
+        top: $navheight;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        height: 0;
+        background: linear-gradient(0deg, $darker, $faded);
+        transition: top .8s, height .8s;
+        transition-delay: none;
+    }
+
+    .navigation-bar-wrapper:hover {
+        .navigation-bar {
+            width: 100vw;
+            display: flex;
+            top: $navheight;
+        }
+        + .navigation-shadow {
+            display: none;
+            top: $opennav;
+            height: 100vh;
+        }
+        .NavigationToggle {
+            .nav-line {
+                background: $blue5;
+                width: 0;
+            }
+        }
+    }
+
+    .main {
+        margin-top: ($navheight - 1rem);
+    }
+
+    .text-box {
+        position: static;
+    }
+
+    //BOX-WRAPPER QUERIED IN THEME.SCSS
+
 }

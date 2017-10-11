@@ -1,7 +1,10 @@
 /**THEME**/
 /**COLORS**/
-/**FONT**/
+/**FONTS**/
 /**CLASSES**/
+.none {
+  display: none; }
+
 .title, .title-box {
   color: #5ac8ff;
   font-size: 3rem;
@@ -15,14 +18,17 @@
 
 .box-wrapper, .title-box, .subtitle-box, .text-box {
   background: #262626;
-  width: 100%;
   padding: 1rem;
-  margin-bottom: 3rem;
+  margin: 0 15vw 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: Calibri; }
+
+@media (max-width: 700px) {
+  .box-wrapper, .title-box, .subtitle-box, .text-box {
+    margin: 0 8vw 3rem; } }
 
 .text-box {
   color: rgba(90, 200, 255, 0.7);

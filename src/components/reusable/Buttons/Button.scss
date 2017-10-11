@@ -5,16 +5,29 @@
 
 }
 
+/**NAVIGATION**/
+
 .NavigationButton {
-    
+  padding-left: 4rem;
+  font-size: $fmediumsmall;
 }
+
+.LoginButton {
+  @extend .NavigationButton ;
+}
+
+.LogoutButton {
+  @extend .LoginButton ;
+}
+
+/**FAVORITE**/
 
 $favmax: 28px;
 $favsize: 12px;
 $unfavsize: 9.5px;
 $favan: 14px;
 
-.FavoriteButton {
+.FavoriteButton { //RESPONSIVE CSS FOUND IN POST.CSS
     max-width: $favmax;
     max-height: $favmax;
     display: flex;

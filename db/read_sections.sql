@@ -1,0 +1,1 @@
+SELECT section FROM posts

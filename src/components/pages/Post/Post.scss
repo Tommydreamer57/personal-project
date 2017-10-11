@@ -9,4 +9,15 @@
     position: absolute;
     top: 1rem;
     right: 1.7rem;
+    z-index: 10000;
+}
+
+@media (max-width: 700px) {
+
+    .FavoriteButton {
+        position: fixed;
+        top: .35rem;
+        right: 1rem;
+    }
+
 }

@@ -7,6 +7,8 @@ const Auth0Strategy = require('passport-auth0');
 const cors = require('cors');
 require('dotenv').config();
 
+const uc = require('./user-controller');
+
 const PORT = process.env.PORT || 3001;
 const CONNECTION_STRING = process.env.CONNECTION_STRING
 
@@ -102,6 +104,11 @@ app.get(`/auth/logout`, (req, res, next) => {
 
 
 //MY OWN ENDPOINTS HERE
+
+app.get(`/sections`, uc.getSections)
+app.get(`/posts/:section`, uc.getPostsBySection)
+app.get(`/posts/:postid`, uc.getPostById)
+
 
 
 passport.serializeUser(function (id, done) {

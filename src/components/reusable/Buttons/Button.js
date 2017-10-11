@@ -4,7 +4,11 @@ import './Button.css';
 
 export function NavigationToggle(props) {
     return (
-        <div />
+        <div className='NavigationToggle'>
+            <div className='nav-line' />
+            <div className='nav-line' />
+            <div className='nav-line' />
+        </div>
     )
 }
 
@@ -18,7 +22,7 @@ export function NavigationButton(props) {
 
 export function LoginButton(props) {
     return (
-        <a href={process.env.REACT_APP_LOGIN}>
+        <a className='LoginButton' href={process.env.REACT_APP_LOGIN}>
             {props.children}
         </a>
     )
@@ -26,7 +30,7 @@ export function LoginButton(props) {
 
 export function LogoutButton(props) {
     return (
-        <a href={process.env.REACT_APP_LOGOUT}>
+        <a className='LogoutButton' href={process.env.REACT_APP_LOGOUT}>
             {props.children}
         </a>
     )

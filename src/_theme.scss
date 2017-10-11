@@ -24,15 +24,20 @@ $green1: rgba(0, 255, 80, 1);
 
 $purple1: rgba(100, 50, 220, 1);
 
-/**FONT**/
+/**FONTS**/
 
 $fmain: Calibri;
 
 $flarge: 3rem;
 $fmedium: 2rem;
+$fmediumsmall: 1.5rem;
 $fnormal: 1rem;
 
 /**CLASSES**/
+
+.none {
+    display: none;
+}
 
 .title {
     color: $blue1;
@@ -49,14 +54,19 @@ $fnormal: 1rem;
 
 .box-wrapper {
     background: $medium;
-    width: 100%;
     padding: 1rem;
-    margin-bottom: 3rem;
+    margin: 0 15vw 3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: $fmain;
+}
+
+@media (max-width: 700px) {
+    .box-wrapper {
+        margin: 0 8vw 3rem;
+    }
 }
 
 .title-box {
@@ -76,3 +86,5 @@ $fnormal: 1rem;
     display: auto;
     text-align: justify;
 }
+
+//RESPONSIVE CSS FOUND IN NAVBAR.CSS
