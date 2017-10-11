@@ -107,7 +107,7 @@ app.get(`/auth/logout`, (req, res, next) => {
 
 app.get(`/sections`, uc.getSections)
 app.get(`/posts/:section`, uc.getPostsBySection)
-app.get(`/posts/:postid`, uc.getPostById)
+app.get(`/post/:postid`, uc.getPostById)
 
 
 

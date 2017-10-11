@@ -42,4 +42,5 @@
   min-height: 100vh; }
   .App .main {
     min-height: 100vh;
-    padding: 3rem 0; }
+    padding-top: 3rem;
+    padding-bottom: 1rem; }

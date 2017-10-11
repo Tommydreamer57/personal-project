@@ -76,19 +76,20 @@
   .NavigationToggle {
     position: fixed;
     top: 0rem;
-    left: 0;
+    left: 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     padding: 0.35rem;
     height: 2rem;
     align-items: center;
-    z-index: 10000; }
+    z-index: 10000;
+    transition: left .5s, top .5s, height .5s; }
     .NavigationToggle .nav-line {
       width: 2rem;
       height: .25rem;
       background: rgba(90, 200, 255, 0.5);
-      transition: width .5s, color .5s; }
+      transition: width .5s, height .3s, color .5s, transform .5s, background-color .5s; }
   .navigation-bar-wrapper {
     position: fixed;
     top: 0;
@@ -125,9 +126,13 @@
     display: none;
     top: 15rem;
     height: 100vh; }
-  .navigation-bar-wrapper:hover .NavigationToggle .nav-line {
-    background: rgba(90, 200, 255, 0.5);
-    width: 0; }
+  .navigation-bar-wrapper:hover .NavigationToggle {
+    top: 18.75rem;
+    height: .25rem;
+    left: .5rem; }
+    .navigation-bar-wrapper:hover .NavigationToggle .nav-line {
+      background: rgba(90, 200, 255, 0.8);
+      transform: translate(0, -0.125rem); }
   .main {
     margin-top: 1.75rem; }
   .text-box {

@@ -13,7 +13,7 @@ export default class Home extends Component {
         return (
             <div className='Home'>
                 <div className='title-box'>
-                    Section Title
+                    Welcome
                 </div>
                 <div className='subtitle-box'>
                     This is the subtitle

@@ -55,7 +55,7 @@
   .NavigationToggle {
     position: fixed;
     top: 0rem;
-    left: 0;
+    left: 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -63,12 +63,13 @@
     height: 2rem;
     align-items: center;
     z-index: 10000;
+    transition: left .5s, top .5s, height .5s;    
 
     .nav-line {
       width: 2rem;
       height: .25rem;
       background: $blue5;
-      transition: width .5s, color .5s;
+      transition: width .5s, height .3s, color .5s, transform .5s, background-color .5s;
     }
 
   }
@@ -120,9 +121,13 @@
             height: 100vh;
         }
         .NavigationToggle {
+            top: $opennav + $navheight + 1rem ;
+            height: .25rem;
+            left: .5rem;
+
             .nav-line {
-                background: $blue5;
-                width: 0;
+                background: $blue8;
+                transform: translate(0, -.125rem);
             }
         }
     }

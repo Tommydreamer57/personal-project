@@ -14,7 +14,9 @@ export default class Login extends Component {
                 <div className='subtitle-box'>
                     <a href={process.env.REACT_APP_LOGIN}>LOGIN</a>
                 </div>
-                <Navbar />
+                <div className='subtitle-box'>
+                    <a href='/home'>Continue without logging in</a>
+                    </div>
             </div>
         )
     }
