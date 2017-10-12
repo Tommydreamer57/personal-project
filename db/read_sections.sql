@@ -1,1 +1,1 @@
-SELECT section FROM posts
+SELECT DISTINCT section FROM posts

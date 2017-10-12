@@ -103,12 +103,15 @@ app.get(`/auth/logout`, (req, res, next) => {
 })
 
 
-//MY OWN ENDPOINTS HERE
+// MY OWN ENDPOINTS HERE
 
 app.get(`/sections`, uc.getSections)
 app.get(`/posts/:section`, uc.getPostsBySection)
 app.get(`/post/:postid`, uc.getPostById)
+app.get(`/user/:username`, uc.getUserByUsername)
 
+
+// MY OWN ENDPOINTS ^^^
 
 
 passport.serializeUser(function (id, done) {
@@ -117,7 +120,7 @@ passport.serializeUser(function (id, done) {
 passport.deserializeUser(function (id, done) {
     app.get('db').find_user([id])
         .then(user => {
-            done(null, user[0].username);
+            done(null, user[0]);
         })
 })
 

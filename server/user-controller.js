@@ -20,5 +20,12 @@ module.exports = {
             .then(post => {
                 res.send(post)
             })
+    },
+    getUserByUsername: (req, res, next) => {
+        const db = req.app.get('db');
+        db.find_current_user(req.params.username)
+            .then(user => {
+                res.send(user)
+            })
     }
 }
