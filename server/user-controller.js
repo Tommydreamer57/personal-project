@@ -38,11 +38,19 @@ module.exports = {
     addFavoriteToUser: (req, res, next) => {
         const db = req.app.get('db');
         db.add_favorite([req.params.userid, req.params.postid])
-            .then()
+            .then(db.read_favorites([req.params.userid])
+                .then(favorites => {
+                    res.send(favorites)
+                })
+            )
     },
     removeFavorite: (req, res, next) => {
         const db = req.app.get('db');
         db.remove_favorite([req.params.userid, req.params.postid])
-            .then()
+            .then(db.read_favorites([req.params.userid])
+                .then(favorites => {
+                    res.send(favorites)
+                })
+            )
     }
 }

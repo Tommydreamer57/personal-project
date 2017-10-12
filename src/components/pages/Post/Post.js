@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Navbar from '../../reusable/Navbar/Navbar';
 import { FavoriteButton } from '../../reusable/Buttons/Button';
 import { connect } from 'react-redux';
-import { getUser, selectPost, getFavorites } from '../../../ducks/reducer';
+import { getUser, selectPost, getFavorites, addFavorite, removeFavorite } from '../../../ducks/reducer';
 import './Post.css';
 
 class Post extends Component {
@@ -18,9 +18,7 @@ class Post extends Component {
         this.toggleFav = this.toggleFav.bind(this);
     }
     toggleFav() {
-        this.setState({
-            fav: !this.state.fav
-        })
+
     }
     componentDidMount() {
         let { postid } = this.props.match.params
@@ -39,21 +37,28 @@ class Post extends Component {
     }
     render() {
         let isFavorite = () => {
-            let fave = this.props.favorites.filter(fav => fav.postid == this.props.selectedPost[0].id)
-            console.log(fave)
-            return fave.length > 0;
+            console.log(this.props.favorites)
+            if (this.props.favorites.length) {
+                let fave = this.props.favorites.filter(fav => fav.postid == this.props.selectedPost[0].id)
+                console.log(fave)
+                return fave.length > 0;
+            }
+            return false;
         }
         console.log(this.props)
         let post = this.props.selectedPost[0] || ``;
         // console.log(post)
         console.log(this.props.favorites)
+        let { addFavorite, removeFavorite } = this.props
+        let userid = this.props.user.id
+        let postid = post.id
         return (
             <div className='Post'>
                 <div className='title-box'>
                     {post.section || ``}
                 </div>
                 <div className='text-box'>
-                    <FavoriteButton onClick={() => this.toggleFav()} fav={isFavorite()} />
+                    <FavoriteButton onClick={() => isFavorite() ? removeFavorite(userid, postid) : addFavorite(userid, postid)} fav={isFavorite()} /> {/*COMPONENT DOES NOT RERENDER ON CLICK MAYBE USE LOCAL STATE TO RERENDER AND FIRE ANIMATIONS IMMEDIATELY AND MAYBE DISPLAY THE DB RESPONSE ON THE SCREEN TO LET USER KNOW IT DID OR DIDN'T WORK*/}
                     <div className='title'>
                         {post.title || ``}
                     </div>
@@ -79,7 +84,9 @@ function mapStateToProps(state) {
 const outActions = {
     getUser,
     selectPost,
-    getFavorites
+    getFavorites,
+    addFavorite,
+    removeFavorite
 }
 
 export default connect(mapStateToProps, outActions)(Post)

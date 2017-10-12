@@ -92,7 +92,7 @@ export function selectPost(postid) {
 export function getFavorites(userid) {
     let favorites = axios.get(`/favorites/${userid}`)
         .then(response => {
-        return response.data
+            return response.data
         })
     console.log('it worked');
     return {
@@ -101,6 +101,27 @@ export function getFavorites(userid) {
     }
 }
 
+export function addFavorite(userid, postid) {
+    let favorites = axios.post(`/favorites/${userid}/${postid}`)
+        .then(response => {
+            return response.data
+        })
+    return {
+        type: GET_FAVORITES,
+        payload: favorites
+    }
+}
+
+export function removeFavorite(userid, postid) {
+    let favorites = axios.delete(`/favorites/${userid}/${postid}`)
+        .then(response => {
+            return response.data
+        })
+    return {
+        type: GET_FAVORITES,
+        payload: favorites
+    }
+}
 
 //REDUCER
 
