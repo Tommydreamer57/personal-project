@@ -110,8 +110,14 @@ app.get(`/posts/:section`, uc.getPostsBySection)
 app.get(`/post/:postid`, uc.getPostById)
 app.get(`/user/:username`, uc.getUserByUsername)
 
+// FAVORITES
 
-// MY OWN ENDPOINTS ^^^
+app.get(`/favorites/:userid`, uc.getFavoritesByUser)
+app.post(`/favorites/:userid/:postid`, uc.addFavoriteToUser)
+app.delete(`/favorites/:userid/:postid`, uc.removeFavorite)
+
+
+// MY OWN ENDPOINTS ABOVE
 
 
 passport.serializeUser(function (id, done) {
