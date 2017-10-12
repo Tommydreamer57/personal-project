@@ -16,7 +16,7 @@
   font-size: 2rem;
   margin-bottom: 1rem; }
 
-.box-wrapper, .title-box, .subtitle-box, .text-box {
+.box-wrapper, .title-box, .subtitle-box, .text-box, .App .main .post-box {
   background: #262626;
   padding: 1rem;
   margin: 0 15vw 3rem;
@@ -27,7 +27,7 @@
   font-family: Calibri; }
 
 @media (max-width: 700px) {
-  .box-wrapper, .title-box, .subtitle-box, .text-box {
+  .box-wrapper, .title-box, .subtitle-box, .text-box, .App .main .post-box {
     margin: 0 8vw 3rem; } }
 
 .text-box {
@@ -44,3 +44,8 @@
     min-height: 100vh;
     padding-top: 3rem;
     padding-bottom: 1rem; }
+    .App .main * {
+      font-family: Calibri; }
+    .App .main .post-box {
+      flex-flow: row wrap;
+      justify-content: space-around; }

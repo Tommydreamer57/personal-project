@@ -10,6 +10,17 @@
         min-height: 100vh;
         padding-top: 3rem;
         padding-bottom: 1rem;
+
+        * {
+            font-family: $fmain;
+        }
+
+        .post-box {
+            @extend .box-wrapper ;
+            flex-flow: row wrap;
+            justify-content: space-around;
+        }
+
     }
 
     //RESPONSIVE CSS FOUND IN NAVBAR.SCSS

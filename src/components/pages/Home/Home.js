@@ -26,12 +26,12 @@ class Home extends Component {
                 <div className='subtitle-box'>
                     Please select a section
                 </div>
-                <div className='subtitle-box'>
+                <div className='post-box'>
                     {
                         this.props.sections.map((item, i) => {
-                            console.log(item.section);
+                            console.log(item);
                             return (
-                                <SectionTile url={`/section/${item.section || ''}`} title={item.section} key={i} function={this.props.selectSection} />
+                                <SectionTile url={`/section/${item.section || ``}`} title={item.section} key={i} function={this.props.selectSection} />
                             );
                         })
                     }

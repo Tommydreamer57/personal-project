@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Button.css';
 
+// NAVIGATION TOGGLE - MOBILE ONLY
+
 export function NavigationToggle(props) {
     return (
         <div className='NavigationToggle'>
@@ -12,6 +14,8 @@ export function NavigationToggle(props) {
     )
 }
 
+// NAVIGATION BUTTON
+
 export function NavigationButton(props) {
     return (
         <Link to={props.url} className='NavigationButton'>
@@ -19,6 +23,8 @@ export function NavigationButton(props) {
         </Link>
     )
 }
+
+// LOGIN BUTTON
 
 export function LoginButton(props) {
     return (
@@ -28,6 +34,8 @@ export function LoginButton(props) {
     )
 }
 
+// LOGOUT BUTTON
+
 export function LogoutButton(props) {
     return (
         <a className='LogoutButton' href={process.env.REACT_APP_LOGOUT}>
@@ -35,6 +43,8 @@ export function LogoutButton(props) {
         </a>
     )
 }
+
+// FAVORITE BUTTON <HEART>
 
 export function FavoriteButton(props) {
     return (
@@ -45,6 +55,8 @@ export function FavoriteButton(props) {
         </div>
     )
 }
+
+// DEFAULT BUTTON ?
 
 export default function Button(props) {
     return (

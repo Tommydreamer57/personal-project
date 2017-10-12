@@ -19,8 +19,8 @@ class App extends Component {
             <Switch>
               <Route exact path='/' component={Login} />              
               <Route path='/home' component={Home} />
-              <Route path='/section/:section' component={Section} /> {/*ADD PARAM :/SECTION TO PATH*/}
-              <Route path='/post/' component={Post} /> {/*ADD PARAM :/POST TO PATH*/}
+              <Route path='/section/:section' component={Section} />
+              <Route path='/posts/:postid' component={Post} />
               <Route exact path='/admin/' component={AdminHome} />
               <Route path='/admin/edit/:post' component={EditPost} />
             </Switch>

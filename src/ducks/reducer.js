@@ -4,9 +4,12 @@ import axios from 'axios';
 
 const initialState = {
     user: {},           // user object from /auth/me { id, username, favorites }
-    sections: [{}], // section object from /sections { section, id }
+    favorites: [],
+    sections: [{}],     // section object from /sections { section, id }
     selectedSection: 0, // selected section id
-    posts: [{}, {}],    // post object from /posts/section { id, title, subtitle, body, comments { username, date, body } }
+    posts: [{
+        title: 'refresh page to load posts'
+    }],    // post object from /posts/section { id, title, subtitle, body, comments { username, date, body } }
     selectedPost: 0,    // selected post id
     input: ''           // comment input
 }
@@ -74,7 +77,11 @@ export function getPosts(section) {
     }
 }
 
-export function selectPost(post) {
+export function selectPost(postid) {
+    let post = axios.get(`/post/${postid}`)
+        .then(response => {
+            return response.data
+        })
     return {
         type: SELECT_POST,
         payload: post
@@ -100,7 +107,7 @@ export default function reducer(state = initialState, action) {
         case GET_POSTS + FULFILLED:
             // console.log(action.payload)
             return Object.assign({}, state, { posts: action.payload });
-        case SELECT_POST:
+        case SELECT_POST + FULFILLED:
             return Object.assign({}, state, { selectedPost: action.payload });
         default:
             return state;
