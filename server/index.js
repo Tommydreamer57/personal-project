@@ -87,7 +87,7 @@ passport.use(new Auth0Strategy({
 
 app.get(`/auth/`, passport.authenticate(`auth0`));
 app.get(`/auth/callback`, passport.authenticate(`auth0`, {
-    successRedirect: `http://localhost:3000/home`,
+    successRedirect: `http://localhost:3000/posts/1`,
     failureRedirect: `/auth`
 }))
 app.get(`/auth/me`, (req, res, next) => {
@@ -113,8 +113,8 @@ app.get(`/user/:username`, uc.getUserByUsername)
 // FAVORITES
 
 app.get(`/favorites/:userid`, uc.getFavoritesByUser)
-app.post(`/favorites/:userid/:postid`, uc.addFavoriteToUser)
-app.delete(`/favorites/:userid/:postid`, uc.removeFavorite)
+app.post(`/favorites/:userid/:postid`, uc.addFavoriteToUser)    // FUNCTION NOT COMPLETE
+app.delete(`/favorites/:userid/:postid`, uc.removeFavorite)     // FUNCTION NOT COMPLETE
 
 
 // MY OWN ENDPOINTS ABOVE

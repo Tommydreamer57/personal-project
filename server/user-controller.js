@@ -30,8 +30,10 @@ module.exports = {
     },
     getFavoritesByUser: (req, res, next) => {
         const db = req.app.get('db');
-        db.read_favorites([req.params.user])
-            .then()
+        db.read_favorites([req.params.userid])
+            .then(favorites => {
+                res.send(favorites)
+            })
     },
     addFavoriteToUser: (req, res, next) => {
         const db = req.app.get('db');

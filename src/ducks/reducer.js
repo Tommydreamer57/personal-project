@@ -28,6 +28,7 @@ const SELECT_SECTION = 'SELECT_SECTION';
 const GET_ALL_POSTS = 'GET_ALL_POSTS';
 const GET_POSTS = 'GET_POSTS';
 const SELECT_POST = 'SELECT_POST';
+const GET_FAVORITES = 'GET_FAVORITES';
 const HANDLE_INPUT = 'HANDLE_INPUT';
 
 
@@ -68,7 +69,7 @@ export function selectSection(section) {
 export function getPosts(section) {
     let posts = axios.get(`/posts/${section}`)
         .then(response => {
-            console.log(response.data);
+            // console.log(response.data);
             return response.data
         })
     return {
@@ -85,6 +86,18 @@ export function selectPost(postid) {
     return {
         type: SELECT_POST,
         payload: post
+    }
+}
+
+export function getFavorites(userid) {
+    let favorites = axios.get(`/favorites/${userid}`)
+        .then(response => {
+        return response.data
+        })
+    console.log('it worked');
+    return {
+        type: GET_FAVORITES,
+        payload: favorites
     }
 }
 
@@ -109,6 +122,9 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, state, { posts: action.payload });
         case SELECT_POST + FULFILLED:
             return Object.assign({}, state, { selectedPost: action.payload });
+        case GET_FAVORITES + FULFILLED:
+            console.log(action.payload)
+            return Object.assign({}, state, { favorites: action.payload });
         default:
             return state;
     }
