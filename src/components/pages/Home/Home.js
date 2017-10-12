@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
 import Navbar from '../../reusable/Navbar/Navbar';
-//import './Home.css';
+import { connect } from 'react-redux';
+import { getUser } from '../../../ducks/reducer';
 
-export default class Home extends Component {
+class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
 
         }
     }
+    componentDidMount() {
+        this.props.getUser();
+    }
     render() {
+        console.log(this.props)
         return (
             <div className='Home'>
-                <div className='title-box'>
+                <div className='title-box' >
                     Welcome
                 </div>
                 <div className='subtitle-box'>
@@ -23,3 +28,16 @@ export default class Home extends Component {
         )
     }
 }
+
+function mapStateToProps(state) {
+    console.log(state)
+    return {
+        user: state.user
+    }
+}
+
+const outActions = {
+    getUser
+}
+
+export default connect(mapStateToProps, outActions)(Home);
