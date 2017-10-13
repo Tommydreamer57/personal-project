@@ -11,6 +11,7 @@ const initialState = {
         title: 'refresh page to load posts'
     }],    // post object from /posts/section { id, title, subtitle, body, comments { username, date, body } }
     selectedPost: 0,    // selected post id
+    postIsFavorite: false,
     input: ''           // comment input
 }
 
@@ -81,7 +82,7 @@ export function getPosts(section) {
 export function selectPost(postid) {
     let post = axios.get(`/post/${postid}`)
         .then(response => {
-            return response.data
+            return response.data[0]
         })
     return {
         type: SELECT_POST,
@@ -90,8 +91,9 @@ export function selectPost(postid) {
 }
 
 export function getFavorites(userid) {
-    let favorites = axios.get(`/favorites/${userid}`)
+    let favorites = axios.get(`/favorites/${userid || null }`)
         .then(response => {
+            console.log(response.data)
             return response.data
         })
     console.log('it worked');
@@ -128,24 +130,47 @@ export function removeFavorite(userid, postid) {
 export default function reducer(state = initialState, action) {
     // console.log(state)
     // console.log(action.type)
+    let postIsFavorite = false    
     switch (action.type) {
         case GET_USER + FULFILLED:
-            // console.log(action.payload)    
+            // console.log(action.payload);
             return Object.assign({}, state, { user: action.payload });
         case GET_SECTIONS + FULFILLED:
-            // console.log(action.payload)
+            // console.log(action.payload);
             return Object.assign({}, state, { sections: action.payload });
         case SELECT_SECTION:
             // console.log(action.payload);
             return Object.assign({}, state, { selectedSection: action.payload });
         case GET_POSTS + FULFILLED:
-            // console.log(action.payload)
+            // console.log(action.payload);
             return Object.assign({}, state, { posts: action.payload });
         case SELECT_POST + FULFILLED:
-            return Object.assign({}, state, { selectedPost: action.payload });
+            // CHECK FAVORITES TO SEE IF POST IS IN FAVORITES
+            if (state.favorites.length) {
+                if (state.favorites.filter(fav => fav.id == action.payload.id).length) {
+                    postIsFavorite = true;
+                }
+                else {
+                    postIsFavorite = false;
+                }
+            }
+            // RETURN SELECTED POST AND IF IT IS IN FAVORITES
+            return Object.assign({}, state, { selectedPost: action.payload, postIsFavorite });
         case GET_FAVORITES + FULFILLED:
-            console.log(action.payload)
-            return Object.assign({}, state, { favorites: action.payload });
+            // console.log(action.payload);
+            // CHECK SELECTED POST TO SEE IF POST IS IN FAVORITES
+            if (state.selectedPost) {
+                if (state.selectedPost.id) {
+                    if (action.payload.filter(fav => fav.id == state.selectedPost.id).length) {
+                        postIsFavorite = true;
+                    }
+                    else {
+                        postIsFavorite = false;
+                    }
+                }    
+            }
+            // RETURN FAVORITES AND IF SELECTED POST IS IN FAVORITES
+            return Object.assign({}, state, { favorites: action.payload, postIsFavorite });
         default:
             return state;
     }

@@ -21,6 +21,19 @@ $blue2: rgba(90, 200, 255, 0.2);
 $blue01: rgba(90, 200, 255, 0.1);
 
 $green1: rgba(0, 255, 80, 1);
+$green9: rgba(0, 255, 80, 0.9);
+$green8: rgba(0, 255, 80, 0.8);
+$green7: rgba(0, 255, 80, 0.7);
+
+$red1: rgba(255, 0, 0, 0.1);
+$red9: rgba(255, 0, 0, 0.9);
+$red8: rgba(255, 0, 0, 0.8);
+$red7: rgba(255, 0, 0, 0.7);
+
+$yellow1: rgba(200, 190, 0, 1);
+$yellow9: rgba(200, 190, 0, 0.9);
+$yellow8: rgba(200, 190, 0, 0.8);
+$yellow7: rgba(200, 190, 0, 0.7);
 
 $purple1: rgba(100, 50, 220, 1);
 
@@ -32,6 +45,10 @@ $flarge: 3rem;
 $fmedium: 2rem;
 $fmediumsmall: 1.5rem;
 $fnormal: 1rem;
+
+/**MARGINS**/
+
+$mbottom: 3rem;
 
 /**CLASSES**/
 
@@ -55,7 +72,8 @@ $fnormal: 1rem;
 .box-wrapper {
     background: $medium;
     padding: 1rem;
-    margin: 0 15vw 3rem;
+    margin: 0 15vw $mbottom;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -65,7 +83,7 @@ $fnormal: 1rem;
 
 @media (max-width: 700px) {
     .box-wrapper {
-        margin: 0 8vw 3rem;
+        margin: 0 8vw $mbottom;
     }
 }
 
@@ -85,6 +103,64 @@ $fnormal: 1rem;
     font-size: $fnormal;
     display: auto;
     text-align: justify;
+
+    .alert-box {
+        position: absolute;
+        top: -$mbottom;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: $mbottom - 1rem;
+        max-height: $mbottom;
+        padding: 0.5rem 1rem;
+        display: flex;
+        align-items: flex-end;
+        color: $faded;
+        animation-duration: 8s;        
+    }
+
+    .add-box {
+        @extend .alert-box ;
+        animation-name: added;
+    }
+
+    .remove-box {
+        @extend .alert-box ;
+        animation-name: removed;
+    }
+
+    .warning-box {
+        @extend .alert-box ;
+        animation-name: warning;
+    }
+
+}
+
+@keyframes added {
+    from {
+        color: $green8;
+    }
+    to {
+        color: $faded;
+    }
+}
+
+@keyframes removed {
+    from {
+        color: $red8
+    }
+    to {
+        color: $faded;
+    }
+}
+
+@keyframes warning {
+    from {
+        color: $yellow8;
+    }
+    to {
+        color: $faded;
+    }
 }
 
 //RESPONSIVE CSS FOUND IN NAVBAR.CSS

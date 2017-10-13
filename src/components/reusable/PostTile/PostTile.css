@@ -1,6 +1,7 @@
 /**THEME**/
 /**COLORS**/
 /**FONTS**/
+/**MARGINS**/
 /**CLASSES**/
 .none {
   display: none; }
@@ -20,6 +21,7 @@
   background: #262626;
   padding: 1rem;
   margin: 0 15vw 3rem;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,6 +37,43 @@
   font-size: 1rem;
   display: auto;
   text-align: justify; }
+  .text-box .alert-box, .text-box .add-box, .text-box .remove-box, .text-box .warning-box {
+    position: absolute;
+    top: -3rem;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 2rem;
+    max-height: 3rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: flex-end;
+    color: transparent;
+    animation-duration: 8s; }
+  .text-box .add-box {
+    animation-name: added; }
+  .text-box .remove-box {
+    animation-name: removed; }
+  .text-box .warning-box {
+    animation-name: warning; }
+
+@keyframes added {
+  from {
+    color: rgba(0, 255, 80, 0.8); }
+  to {
+    color: transparent; } }
+
+@keyframes removed {
+  from {
+    color: rgba(255, 0, 0, 0.8); }
+  to {
+    color: transparent; } }
+
+@keyframes warning {
+  from {
+    color: rgba(200, 190, 0, 0.8); }
+  to {
+    color: transparent; } }
 
 .PostTile {
   background: #333;

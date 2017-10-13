@@ -20,6 +20,7 @@ export default class Navbar extends Component {
                         <NavigationButton url='/admin/' className='navigation-button'>Admin</NavigationButton>
                         <NavigationButton url='/section/' className='navigation-button'>Section</NavigationButton>
                         <NavigationButton url='/post/' className='navigation-button'>Post</NavigationButton>
+                        <NavigationButton url='/favorites' className='navigation-button'>Favorites</NavigationButton>
                     </div>
                     <NavigationToggle />                    
                 </div>

@@ -9,6 +9,7 @@ import Section from './components/pages/Section/Section';
 import Post from './components/pages/Post/Post';
 import AdminHome from './components/admin/AdminHome/AdminHome';
 import EditPost from './components/admin/EditPost/EditPost';
+import Favorites from './components/pages/Favorites/Favorites';
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
               <Route path='/posts/:postid' component={Post} />
               <Route exact path='/admin/' component={AdminHome} />
               <Route path='/admin/edit/:post' component={EditPost} />
+              <Route path='/favorites' component={Favorites} />
             </Switch>
           </div>
         </div>

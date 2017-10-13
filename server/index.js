@@ -87,7 +87,7 @@ passport.use(new Auth0Strategy({
 
 app.get(`/auth/`, passport.authenticate(`auth0`));
 app.get(`/auth/callback`, passport.authenticate(`auth0`, {
-    successRedirect: `http://localhost:3000/posts/1`,       // CHANGE BACK TO /HOME 
+    successRedirect: `http://localhost:3000/home`,       // CHANGE BACK TO /HOME 
     failureRedirect: `/auth`
 }))
 app.get(`/auth/me`, (req, res, next) => {

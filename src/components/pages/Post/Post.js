@@ -9,56 +9,67 @@ class Post extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            section: 'Section Title',
-            title: 'Title',
-            subtitle: 'This is the subtitle',
-            body: '',
+            alertType: 'add-box',
+            alert: 'Added to favorites',
             fav: false
         }
         this.toggleFav = this.toggleFav.bind(this);
     }
     toggleFav() {
-
+        this.setState({
+            fav: !this.state.fav
+        })
+        this.props.postIsFavorite ?
+            this.props.removeFavorite(this.props.user.id, this.props.selectedPost.id).then(this.setState({
+                fav: this.props.postIsFavorite
+            }))
+            :
+            this.props.addFavorite(this.props.user.id, this.props.selectedPost.id).then(this.setState({
+                fav: this.props.postIsFavorite
+            }))
     }
     componentDidMount() {
+        // GETS POST FROM DB IF NOT ALREADY ON REDUX STATE
         let { postid } = this.props.match.params
         if (!this.props.selectedPost) {
             this.props.selectPost(postid)
         }
+        // GETS USER FROM DB IF NOT ALREADY ON REDUX STATE
+        // THEN GETS FAVORITES FROM REDUX STATE
         if (!this.props.user.id) {
             this.props.getUser().then(user => this.props.getFavorites(user.value.id))
         }
-        // console.log(this.props.user.id)
-        console.log(this.props)
-        if (this.props.user.id) {
+        // GETS FAVORITES FROM REDUX STATE
+        else if (!this.props.favorites.length) {
             let userid = this.props.user.id
             this.props.getFavorites(userid)
         }
+        // CHECK IF POST IS FAVORITE
+        // console.log(this.state)
+        // console.log(this.props.postIsFavorite)
+        // this.setState({
+        //     fav: this.props.postIsFavorite
+        // }, () => console.log(this.state))
+    }
+    componentWillReceiveProps(props) {
+        this.setState({
+            fav: props.postIsFavorite
+        })
     }
     render() {
-        let isFavorite = () => {
-            console.log(this.props.favorites)
-            if (this.props.favorites.length) {
-                let fave = this.props.favorites.filter(fav => fav.postid == this.props.selectedPost[0].id)
-                console.log(fave)
-                return fave.length > 0;
-            }
-            return false;
-        }
-        console.log(this.props)
-        let post = this.props.selectedPost[0] || ``;
-        // console.log(post)
-        console.log(this.props.favorites)
-        let { addFavorite, removeFavorite } = this.props
-        let userid = this.props.user.id
-        let postid = post.id
+        console.log(this.state.fav)
+        console.log(this.props.postIsFavorite)
+        let post = this.props.selectedPost || ``;
         return (
             <div className='Post'>
                 <div className='title-box'>
                     {post.section || ``}
                 </div>
                 <div className='text-box'>
-                    <FavoriteButton onClick={() => isFavorite() ? removeFavorite(userid, postid) : addFavorite(userid, postid)} fav={isFavorite()} /> {/*COMPONENT DOES NOT RERENDER ON CLICK MAYBE USE LOCAL STATE TO RERENDER AND FIRE ANIMATIONS IMMEDIATELY AND MAYBE DISPLAY THE DB RESPONSE ON THE SCREEN TO LET USER KNOW IT DID OR DIDN'T WORK*/}
+                    <div className={this.state.alertType} >
+                        {this.state.alert}
+                    </div>
+                    <FavoriteButton onClick={() => this.toggleFav()} fav={this.state.fav} />
                     <div className='title'>
                         {post.title || ``}
                     </div>
@@ -77,7 +88,8 @@ function mapStateToProps(state) {
     return {
         user: state.user,
         favorites: state.favorites,
-        selectedPost: state.selectedPost
+        selectedPost: state.selectedPost,
+        postIsFavorite: state.postIsFavorite
     }
 }
 

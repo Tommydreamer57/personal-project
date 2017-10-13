@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Navbar from '../../reusable/Navbar/Navbar';
 import { SectionTile } from '../../reusable/PostTile/PostTile';
 import { connect } from 'react-redux';
-import { getUser, getSections, selectSection } from '../../../ducks/reducer';
+import { getUser, getSections, selectSection, getFavorites } from '../../../ducks/reducer';
 
 class Home extends Component {
     constructor(props) {
@@ -12,7 +12,7 @@ class Home extends Component {
         }
     }
     componentDidMount() {
-        this.props.getUser();
+        this.props.getUser().then(user => this.props.getFavorites(user.value.id))
         this.props.getSections();
     }
     render() {
@@ -29,7 +29,7 @@ class Home extends Component {
                 <div className='post-box'>
                     {
                         this.props.sections.map((item, i) => {
-                            console.log(item);
+                            {/* console.log(item); */}
                             return (
                                 <SectionTile url={`/section/${item.section || ``}`} title={item.section} key={i} function={this.props.selectSection} />
                             );
@@ -53,7 +53,8 @@ function mapStateToProps(state) {
 const outActions = {
     getUser,
     getSections,
-    selectSection
+    selectSection,
+    getFavorites
 }
 
 export default connect(mapStateToProps, outActions)(Home);

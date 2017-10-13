@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import Navbar from '../../reusable/Navbar/Navbar';
 import PostTile from '../../reusable/PostTile/PostTile';
 import { connect } from 'react-redux';
-import { } from '../../../ducks/reducer';
-import './Section.css'
+import { getFavorites, selectPost } from '../../../ducks/reducer';
+import './Favorites.css'
 
-class Section extends Component {
+class Favorites extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -16,7 +16,7 @@ class Section extends Component {
     }
     render() {
         return (
-            <div className='Section'>
+            <div className='Favorites'>
                 <div className='title-box'>
                     Favorites
                 </div>
@@ -47,9 +47,8 @@ function mapStateToProps(state) {
 }
 
 const outActions = {
-    selectSection,
-    getPosts,
+    getFavorites,
     selectPost
 }
 
-export default connect(mapStateToProps, outActions)(Section)
+export default connect(mapStateToProps, outActions)(Favorites)
