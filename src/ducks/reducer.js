@@ -12,7 +12,9 @@ const initialState = {
     }],    // post object from /posts/section { id, title, subtitle, body, comments { username, date, body } }
     selectedPost: 0,    // selected post id
     postIsFavorite: false,
-    input: ''           // comment input
+    input: '',           // comment input
+    alertClass: 'add-box',  // style class for alerts of ading / removing favorites
+    alert: ''               // alert of adding or removing favorites
 }
 
 // PROMISE CONTROLS
