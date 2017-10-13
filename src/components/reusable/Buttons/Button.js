@@ -48,7 +48,7 @@ export function LogoutButton(props) {
 
 export function FavoriteButton(props) {
     return (
-        <div className='FavoriteButton' onClick={props.onClick} >
+        <div className='FavoriteButton' onClick={props.function} >
             <div className={props.fav ? 'favsquare' : 'unfavsquare'} />
             <div className={props.fav ? 'favsquare' : 'unfavsquare'} />
             <div className={props.fav ? 'favsquare' : 'unfavsquare'} />

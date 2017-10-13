@@ -6,7 +6,7 @@
 .none {
   display: none; }
 
-.title, .title-box {
+.title, .title-box, .PostTile .tile-title {
   color: #5ac8ff;
   font-size: 3rem;
   font-weight: bold;
@@ -79,6 +79,8 @@
   background: #333;
   padding: 1rem 0.5rem;
   margin: 1rem; }
+  .PostTile .tile-title {
+    margin: 0; }
 
 @media (max-width: 700px) {
   .PostTile {

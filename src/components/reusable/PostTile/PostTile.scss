@@ -5,6 +5,12 @@
     background: $light;
     padding: 1rem 0.5rem;
     margin: 1rem;
+
+    .tile-title {
+        @extend .title ;
+        margin: 0;
+    }
+
 }
 
 @media (max-width: 700px) {

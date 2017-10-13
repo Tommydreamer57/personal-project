@@ -13,8 +13,10 @@ class Favorites extends Component {
         }
     }
     componentDidMount() {
+
     }
     render() {
+        let { favorites } = this.props
         return (
             <div className='Favorites'>
                 <div className='title-box'>
@@ -25,12 +27,15 @@ class Favorites extends Component {
                 </div>
                 <div className='post-box'>
                     {
-                        this.props.posts.map((post, i) => {
-                            console.log(post)
-                            return (
-                                <PostTile url={`/posts/${post.id || ``}`} title={post.title || `Post #${i}`} key={post.id} id={post.id} function={this.props.selectPost} />
-                            )
-                        })
+                        favorites.length ?
+                            favorites.map((post, i) => {
+                                console.log(post)
+                                return (
+                                    <PostTile url={`/posts/${post.id || ``}`} title={post.title || `Post #${i}`} key={post.id} id={post.id} function={this.props.selectPost} />
+                                )
+                            })
+                            :
+                            <PostTile url='/home' title='Home' />    
                     }
                 </div>
                 <Navbar />
@@ -41,8 +46,7 @@ class Favorites extends Component {
 
 function mapStateToProps(state) {
     return {
-        selectedSection: state.selectedSection,
-        posts: state.posts
+        favorites: state.favorites
     }
 }
 

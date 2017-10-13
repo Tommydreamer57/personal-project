@@ -38,9 +38,11 @@ const HANDLE_INPUT = 'HANDLE_INPUT';
 export function getUser() {
     let user = axios.get(`/auth/me`)
         .then(response => {
-            // console.log(response.data);
+            console.log('redux got user')
+            console.log(response.data);
             return response.data
         })
+    console.log('redux getting user')
     return {
         type: GET_USER,
         payload: user
@@ -50,7 +52,8 @@ export function getUser() {
 export function getSections() {
     let sections = axios.get(`/sections`)
         .then(response => {
-            // console.log(response.data);
+            console.log('redux got sections')
+            console.log(response.data);
             return response.data
         })
     return {
@@ -70,9 +73,11 @@ export function selectSection(section) {
 export function getPosts(section) {
     let posts = axios.get(`/posts/${section}`)
         .then(response => {
-            // console.log(response.data);
+            console.log('redux got posts')
+            console.log(response.data);
             return response.data
         })
+    console.log('redux getting posts')
     return {
         type: GET_POSTS,
         payload: posts
@@ -82,8 +87,11 @@ export function getPosts(section) {
 export function selectPost(postid) {
     let post = axios.get(`/post/${postid}`)
         .then(response => {
+            console.log('redux got post')
+            console.log(response.data)
             return response.data[0]
         })
+    console.log('redux selecting post')
     return {
         type: SELECT_POST,
         payload: post
@@ -91,12 +99,13 @@ export function selectPost(postid) {
 }
 
 export function getFavorites(userid) {
-    let favorites = axios.get(`/favorites/${userid || null }`)
+    let favorites = axios.get(`/favorites/${userid || null}`)
         .then(response => {
+            console.log('redux got favorites')
             console.log(response.data)
             return response.data
         })
-    console.log('it worked');
+    console.log('redux getting favorites');
     return {
         type: GET_FAVORITES,
         payload: favorites
@@ -106,8 +115,11 @@ export function getFavorites(userid) {
 export function addFavorite(userid, postid) {
     let favorites = axios.post(`/favorites/${userid}/${postid}`)
         .then(response => {
+            console.log('redux added favorite')
+            console.log(response.data)
             return response.data
         })
+    console.log('redux adding favorite')
     return {
         type: GET_FAVORITES,
         payload: favorites
@@ -117,8 +129,11 @@ export function addFavorite(userid, postid) {
 export function removeFavorite(userid, postid) {
     let favorites = axios.delete(`/favorites/${userid}/${postid}`)
         .then(response => {
+            console.log('redux deleted favorite')
+            console.log(response.data)
             return response.data
         })
+    console.log('redux removing favorite')
     return {
         type: GET_FAVORITES,
         payload: favorites
@@ -129,8 +144,7 @@ export function removeFavorite(userid, postid) {
 
 export default function reducer(state = initialState, action) {
     // console.log(state)
-    // console.log(action.type)
-    let postIsFavorite = false    
+    console.log(action.type)
     switch (action.type) {
         case GET_USER + FULFILLED:
             // console.log(action.payload);
@@ -145,29 +159,31 @@ export default function reducer(state = initialState, action) {
             // console.log(action.payload);
             return Object.assign({}, state, { posts: action.payload });
         case SELECT_POST + FULFILLED:
+            var postIsFavorite = false            
             // CHECK FAVORITES TO SEE IF POST IS IN FAVORITES
             if (state.favorites.length) {
                 if (state.favorites.filter(fav => fav.id == action.payload.id).length) {
                     postIsFavorite = true;
                 }
-                else {
-                    postIsFavorite = false;
-                }
             }
             // RETURN SELECTED POST AND IF IT IS IN FAVORITES
             return Object.assign({}, state, { selectedPost: action.payload, postIsFavorite });
+        case GET_FAVORITES + PENDING:
+            var postIsFavorite = false
+            return Object.assign({}, state, { postIsFavorite: !state.postIsFavorite })
         case GET_FAVORITES + FULFILLED:
+            var postIsFavorite = false            
             // console.log(action.payload);
             // CHECK SELECTED POST TO SEE IF POST IS IN FAVORITES
             if (state.selectedPost) {
                 if (state.selectedPost.id) {
+                    console.log(state.user.id)
+                    console.log(state.selectedPost.id)
+                    console.log(action.payload)
                     if (action.payload.filter(fav => fav.id == state.selectedPost.id).length) {
                         postIsFavorite = true;
                     }
-                    else {
-                        postIsFavorite = false;
-                    }
-                }    
+                }
             }
             // RETURN FAVORITES AND IF SELECTED POST IS IN FAVORITES
             return Object.assign({}, state, { favorites: action.payload, postIsFavorite });
