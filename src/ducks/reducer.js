@@ -13,7 +13,7 @@ const initialState = {
     selectedPost: 0,    // selected post id
     postIsFavorite: false,
     input: '',           // comment input
-    alertClass: 'add-box',  // style class for alerts of ading / removing favorites
+    alertClass: 'add-box',  // style class for alerts of adding / removing favorites
     alert: ''               // alert of adding or removing favorites
 }
 

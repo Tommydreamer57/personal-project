@@ -25,7 +25,7 @@ $green9: rgba(0, 255, 80, 0.9);
 $green8: rgba(0, 255, 80, 0.8);
 $green7: rgba(0, 255, 80, 0.7);
 
-$red1: rgba(255, 0, 0, 0.1);
+$red1: rgba(255, 0, 0, 1);
 $red9: rgba(255, 0, 0, 0.9);
 $red8: rgba(255, 0, 0, 0.8);
 $red7: rgba(255, 0, 0, 0.7);
@@ -77,6 +77,7 @@ $mbottom: 3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
     align-items: center;
     font-family: $fmain;
 }
@@ -132,9 +133,33 @@ $mbottom: 3rem;
     .warning-box {
         @extend .alert-box ;
         animation-name: warning;
+        animation-iteration-count: 1;
     }
 
 }
+
+.content-wrapper {
+    display: flex;
+    
+}
+
+/**WELCOME BOX**/
+
+.welcome-letter {
+}
+
+/**WELCOME ANIMATION**/
+
+@keyframes welcome {
+    from {
+        color: $faded;
+    }
+    to {
+        color: $blue1;
+    }
+}
+
+/**ALERT ANIMATIONS**/
 
 @keyframes added {
     from {

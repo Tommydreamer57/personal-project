@@ -28,6 +28,15 @@ module.exports = {
                 res.send(user)
             })
     },
+    // COMMENTS
+    getCommentsByPost: (req, res, next) => {
+        const db = req.app.get('db');
+        db.read_comments(req.params.postid)
+            .then(comments => {
+                res.send(comments)
+            })
+    },
+    // FAVORITES
     getFavoritesByUser: (req, res, next) => {
         const db = req.app.get('db');
         db.read_favorites([req.params.userid])

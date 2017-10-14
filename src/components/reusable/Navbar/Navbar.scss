@@ -81,7 +81,7 @@
         height: $navheight;
         display: block;
         background: $darker;
-        z-index: 1000;
+        z-index: 1001;
 
         .navigation-bar {
             position: fixed;
@@ -107,6 +107,7 @@
         background: linear-gradient(0deg, $darker, $faded);
         transition: top .8s, height .8s;
         transition-delay: none;
+        z-index: 10001;
     }
 
     .navigation-bar-wrapper:hover {

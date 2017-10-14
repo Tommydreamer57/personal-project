@@ -110,6 +110,10 @@ app.get(`/posts/:section`, uc.getPostsBySection)
 app.get(`/post/:postid`, uc.getPostById)
 app.get(`/user/:username`, uc.getUserByUsername)
 
+// COMMENTS
+
+app.get(`/comments/:postid`, uc.getCommentsByPost)
+
 // FAVORITES
 
 app.get(`/favorites/:userid`, uc.getFavoritesByUser)

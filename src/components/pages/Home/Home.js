@@ -21,7 +21,15 @@ class Home extends Component {
         return (
             <div className='Home'>
                 <div className='title-box' >
-                    Welcome{name ? ` ${name}` : ``}!
+                    <div className='content-wrapper' >
+                        {`Welcome${name ? ` ${name}` : ``}!`.split(``).map((letter, i) => {
+                            return (
+                                <p className='welcome-letter' style={letter == ` ` ? { color: 'rgba(0,0,0,0)' } : {}} >
+                                    {letter == ` ` ? `.` : letter}
+                                </p>
+                            )
+                        })}
+                    </div>
                 </div>
                 <div className='subtitle-box'>
                     Please select a section
@@ -29,7 +37,7 @@ class Home extends Component {
                 <div className='post-box'>
                     {
                         this.props.sections.map((item, i) => {
-                            {/* console.log(item); */}
+                            {/* console.log(item); */ }
                             return (
                                 <SectionTile url={`/section/${item.section || ``}`} title={item.section} key={i} function={this.props.selectSection} />
                             );

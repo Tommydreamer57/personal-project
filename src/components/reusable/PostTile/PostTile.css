@@ -25,6 +25,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
   align-items: center;
   font-family: Calibri; }
 
@@ -55,8 +56,21 @@
   .text-box .remove-box {
     animation-name: removed; }
   .text-box .warning-box {
-    animation-name: warning; }
+    animation-name: warning;
+    animation-iteration-count: 1; }
 
+.content-wrapper {
+  display: flex; }
+
+/**WELCOME BOX**/
+/**WELCOME ANIMATION**/
+@keyframes welcome {
+  from {
+    color: transparent; }
+  to {
+    color: #5ac8ff; } }
+
+/**ALERT ANIMATIONS**/
 @keyframes added {
   from {
     color: rgba(0, 255, 80, 0.8); }

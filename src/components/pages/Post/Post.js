@@ -59,8 +59,17 @@ class Post extends Component {
                     </div>
                     <div className='subtitle'>
                         {post.subtitle || ``}
-                    </div>
+                    </div  >
                     {post.body || ``}
+                    <div className='author'>
+                        Written by {post.first_name || post.username}
+                    </div>
+                    <div className='date'>
+                        {post.date}
+                    </div>
+                    <div className='comments-box'>
+                        <div className='comment-tile' />
+                    </div>
                 </div>
                 <Navbar />
             </div>

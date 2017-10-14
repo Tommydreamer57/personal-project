@@ -25,6 +25,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
   align-items: center;
   font-family: Calibri; }
 
@@ -55,8 +56,21 @@
   .text-box .remove-box {
     animation-name: removed; }
   .text-box .warning-box {
-    animation-name: warning; }
+    animation-name: warning;
+    animation-iteration-count: 1; }
 
+.content-wrapper {
+  display: flex; }
+
+/**WELCOME BOX**/
+/**WELCOME ANIMATION**/
+@keyframes welcome {
+  from {
+    color: transparent; }
+  to {
+    color: #5ac8ff; } }
+
+/**ALERT ANIMATIONS**/
 @keyframes added {
   from {
     color: rgba(0, 255, 80, 0.8); }
@@ -136,7 +150,7 @@
     height: 2.75rem;
     display: block;
     background: #121212;
-    z-index: 1000; }
+    z-index: 1001; }
     .navigation-bar-wrapper .navigation-bar {
       position: fixed;
       top: -15rem;
@@ -156,7 +170,8 @@
     height: 0;
     background: linear-gradient(0deg, #121212, transparent);
     transition: top .8s, height .8s;
-    transition-delay: none; }
+    transition-delay: none;
+    z-index: 10001; }
   .navigation-bar-wrapper:hover .navigation-bar {
     width: 100vw;
     display: flex;
