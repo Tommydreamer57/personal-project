@@ -1,0 +1,11 @@
+
+@import '../../../../theme';
+
+.CommentBox {
+    background: $light;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $green1;
+}

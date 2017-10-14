@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Navbar from '../../reusable/Navbar/Navbar';
 import { FavoriteButton } from '../../reusable/Buttons/Button';
+import CommentBox from './CommentBox/CommentBox';
 import { connect } from 'react-redux';
-import { getUser, selectPost, getFavorites, addFavorite, removeFavorite } from '../../../ducks/reducer';
+import { getUser, selectPost, getComments, getFavorites, addFavorite, removeFavorite } from '../../../ducks/reducer';
 import './Post.css';
 
 class Post extends Component {
@@ -27,6 +28,8 @@ class Post extends Component {
             console.log('post selecting post')
             this.props.selectPost(postid)
         }
+        console.log('post getting comments')
+        this.props.getComments(postid)
         // GETS USER FROM DB IF NOT ALREADY ON REDUX STATE
         // THEN GETS FAVORITES FROM REDUX STATE
         if (!this.props.user.id) {
@@ -67,9 +70,7 @@ class Post extends Component {
                     <div className='date'>
                         {post.date}
                     </div>
-                    <div className='comments-box'>
-                        <div className='comment-tile' />
-                    </div>
+                    <CommentBox />  
                 </div>
                 <Navbar />
             </div>
@@ -89,6 +90,7 @@ function mapStateToProps(state) {
 const outActions = {
     getUser,
     selectPost,
+    getComments,
     getFavorites,
     addFavorite,
     removeFavorite

@@ -11,6 +11,7 @@ const initialState = {
         title: 'refresh page to load posts'
     }],    // post object from /posts/section { id, title, subtitle, body, comments { username, date, body } }
     selectedPost: 0,    // selected post id
+    comments: [],
     postIsFavorite: false,
     input: '',           // comment input
     alertClass: 'add-box',  // style class for alerts of adding / removing favorites
@@ -31,6 +32,7 @@ const SELECT_SECTION = 'SELECT_SECTION';
 const GET_ALL_POSTS = 'GET_ALL_POSTS';
 const GET_POSTS = 'GET_POSTS';
 const SELECT_POST = 'SELECT_POST';
+const GET_COMMENTS = 'GET_COMMENTS';
 const GET_FAVORITES = 'GET_FAVORITES';
 const HANDLE_INPUT = 'HANDLE_INPUT';
 
@@ -100,6 +102,24 @@ export function selectPost(postid) {
     }
 }
 
+// COMMENTS
+
+export function getComments(postid) {
+    let comments = axios.get(`/comments/${postid}`)
+        .then(response => {
+            console.log('redux got post')
+            console.log(response.data)
+            return response.data
+        })
+    console.log('redux getting comments')
+    return {
+        type: GET_COMMENTS,
+        payload: comments
+    }
+}
+
+// FAVORITES
+
 export function getFavorites(userid) {
     let favorites = axios.get(`/favorites/${userid || null}`)
         .then(response => {
@@ -161,7 +181,7 @@ export default function reducer(state = initialState, action) {
             // console.log(action.payload);
             return Object.assign({}, state, { posts: action.payload });
         case SELECT_POST + FULFILLED:
-            var postIsFavorite = false            
+            var postIsFavorite = false
             // CHECK FAVORITES TO SEE IF POST IS IN FAVORITES
             if (state.favorites.length) {
                 if (state.favorites.filter(fav => fav.id == action.payload.id).length) {
@@ -170,11 +190,13 @@ export default function reducer(state = initialState, action) {
             }
             // RETURN SELECTED POST AND IF IT IS IN FAVORITES
             return Object.assign({}, state, { selectedPost: action.payload, postIsFavorite });
+        case GET_COMMENTS + FULFILLED:
+            return Object.assign({}, state, { comments: action.payload });
         case GET_FAVORITES + PENDING:
             var postIsFavorite = false
             return Object.assign({}, state, { postIsFavorite: !state.postIsFavorite })
         case GET_FAVORITES + FULFILLED:
-            var postIsFavorite = false            
+            var postIsFavorite = false
             // console.log(action.payload);
             // CHECK SELECTED POST TO SEE IF POST IS IN FAVORITES
             if (state.selectedPost) {
