@@ -87,7 +87,7 @@ passport.use(new Auth0Strategy({
 
 app.get(`/auth/`, passport.authenticate(`auth0`));
 app.get(`/auth/callback`, passport.authenticate(`auth0`, {
-    successRedirect: `http://localhost:3000/home`,       // CHANGE BACK TO /HOME 
+    successRedirect: `http://localhost:3000/home`,
     failureRedirect: `/auth`
 }))
 app.get(`/auth/me`, (req, res, next) => {
@@ -105,6 +105,8 @@ app.get(`/auth/logout`, (req, res, next) => {
 
 // MY OWN ENDPOINTS HERE
 
+// CONTENT
+
 app.get(`/sections`, uc.getSections)
 app.get(`/posts/:section`, uc.getPostsBySection)
 app.get(`/post/:postid`, uc.getPostById)
@@ -113,6 +115,8 @@ app.get(`/user/:username`, uc.getUserByUsername)
 // COMMENTS
 
 app.get(`/comments/:postid`, uc.getCommentsByPost)
+app.post(`/comments/:postid`, uc.addCommentToPost)
+app.get(`/responses/:commentid`, uc.getResponsesByComment)
 
 // FAVORITES
 

@@ -3,9 +3,39 @@
 
 .CommentBox {
     background: $light;
-    width: 100%;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: $green1;
+    color: $green7;
+
+    .subtitle {
+        color: $green1;
+    }
+
+    .Comment {
+        width: 100%;
+        text-align: left;
+    }
+
+    .input {
+        width: 100%;
+        background: $dark;
+        color: white;
+        border: none;
+        overflow: wrap;
+    }
+
+    .input:active { // how to select input when active ? selected ?
+        border: none;
+    }
+
+    .comment-input {
+        @extend .input ;
+    }
+
+    .response-input {
+        @extend .input ;
+    }
+
 }

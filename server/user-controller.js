@@ -1,5 +1,6 @@
 
 module.exports = {
+    // CONTENT
     getSections: (req, res, next) => {
         const db = req.app.get('db');
         db.read_sections()
@@ -21,6 +22,7 @@ module.exports = {
                 res.send(post)
             })
     },
+    // USER
     getUserByUsername: (req, res, next) => {
         const db = req.app.get('db');
         db.find_current_user(req.params.username)
@@ -34,6 +36,21 @@ module.exports = {
         db.read_comments(req.params.postid)
             .then(comments => {
                 res.send(comments)
+            })
+    },
+    addCommentToPost: (req, res, next) => {
+        const db = req.app.get('db');
+        db.add_comment([req.body.userid, req.params.postid, req.body.body])
+            .then(() => db.read_comments(req.params.postid)
+                .then(comments => {
+                    res.send(comments)
+                }))
+    },
+    getResponsesByComment: (req, res, next) => {
+        const db = req.app.get('db');
+        db.read_responses([req.params.commentid])
+            .then(responses => {
+                res.send(responses)
             })
     },
     // FAVORITES

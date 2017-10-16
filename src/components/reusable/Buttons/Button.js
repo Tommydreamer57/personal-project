@@ -44,6 +44,26 @@ export function LogoutButton(props) {
     )
 }
 
+// REPLY TO COMMENT BUTTON
+
+export function Reply(props) {
+    return (
+        <div className='Reply' onClick={props.function} >
+            {props.children}
+        </div>
+    )
+}
+
+// SUBMIT RESPONSE BUTTON
+
+export function Submit(props) {
+    return (
+        <div className='Submit' onClick={props.function} >
+            {props.children}
+        </div>
+    )
+}
+
 // FAVORITE BUTTON <HEART>
 
 export function FavoriteButton(props) {

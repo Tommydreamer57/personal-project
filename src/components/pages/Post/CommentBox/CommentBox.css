@@ -91,8 +91,21 @@
 
 .CommentBox {
   background: #333;
-  width: 100%;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #00ff50; }
+  color: rgba(0, 255, 80, 0.7); }
+  .CommentBox .subtitle, .CommentBox .subtitle-box {
+    color: #00ff50; }
+  .CommentBox .Comment {
+    width: 100%;
+    text-align: left; }
+  .CommentBox .input, .CommentBox .comment-input, .CommentBox .response-input {
+    width: 100%;
+    background: #1C1C1C;
+    color: white;
+    border: none;
+    overflow: wrap; }
+  .CommentBox .input:active, .CommentBox .comment-input:active, .CommentBox .response-input:active {
+    border: none; }

@@ -11,8 +11,9 @@ const initialState = {
         title: 'refresh page to load posts'
     }],    // post object from /posts/section { id, title, subtitle, body, comments { username, date, body } }
     selectedPost: 0,    // selected post id
-    comments: [],
     postIsFavorite: false,
+    comments: [],
+    responses: [],
     input: '',           // comment input
     alertClass: 'add-box',  // style class for alerts of adding / removing favorites
     alert: ''               // alert of adding or removing favorites
@@ -107,11 +108,26 @@ export function selectPost(postid) {
 export function getComments(postid) {
     let comments = axios.get(`/comments/${postid}`)
         .then(response => {
-            console.log('redux got post')
+            console.log('redux got comments')
             console.log(response.data)
             return response.data
         })
     console.log('redux getting comments')
+    return {
+        type: GET_COMMENTS,
+        payload: comments
+    }
+}
+
+export function postComment(postid, userid, body) {
+    console.log(postid)
+    let comments = axios.post(`/comments/${postid}`, { userid, body })
+        .then(response => {
+            console.log('redux posted comment')
+            console.log(response.data)
+            return response.data
+        })
+    console.log('redux posting comment')
     return {
         type: GET_COMMENTS,
         payload: comments

@@ -89,6 +89,13 @@
   to {
     color: transparent; } }
 
+/**COMMENTS**/
+.Reply:hover {
+  cursor: pointer; }
+
+.Submit:hover {
+  cursor: pointer; }
+
 /**NAVIGATION**/
 .NavigationButton, .LoginButton, .LogoutButton {
   padding-left: 4rem;
