@@ -101,6 +101,10 @@
   .CommentBox .Comment {
     width: 100%;
     text-align: left; }
+    .CommentBox .Comment .response-box {
+      background: #262626;
+      color: rgba(0, 255, 80, 0.5);
+      margin: 0 1rem; }
   .CommentBox .input, .CommentBox .comment-input, .CommentBox .response-input {
     width: 100%;
     background: #1C1C1C;

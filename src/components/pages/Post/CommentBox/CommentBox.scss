@@ -16,6 +16,13 @@
     .Comment {
         width: 100%;
         text-align: left;
+
+        .response-box {
+            background: $medium;
+            color: $green5;
+            margin: 0 1rem;
+        }
+
     }
 
     .input {

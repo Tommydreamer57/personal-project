@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Reply } from '../../../../reusable/Buttons/Button';
+import Response from './Response/Response';
 import axios from 'axios';
 
 export default class Comment extends Component {
@@ -25,27 +26,41 @@ export default class Comment extends Component {
         })
     }
     componentDidMount() {
+        console.log('comment getting responses')
+        console.log(this.props.id)
         axios.get(`/responses/${this.props.id}`)
             .then(response => {
+                console.log('comment got responses')
+                console.log(response.data)
                 this.setState({
                     responses: response.data
                 })
             })
     }
     render() {
-        console.log(this.state)
+        // console.log(this.state)
+        let { responses } = this.state || null;
         return (
             <div className='Comment' >
                 {this.props.name}:
                 {this.props.body}
                 {this.props.date}
                 {
-                    this.state.responses.length ?
-                        this.state.responses.map((response, i) => {
-                            return (
-                                <div className='response' >{response.body}</div>
-                            )
-                        })
+                    responses ?
+                        <div className='response-box'>
+                            {
+                                responses.map((response, i) => {
+                                    {/* console.log(response) */}
+                                    return (
+                                        <Response >
+                                            {response.first_name || response.username}: 
+                                            {response.body}
+                                            {response.date}
+                                        </Response>
+                                    )
+                                })
+                            }
+                        </div>
                         :
                         null
                 }

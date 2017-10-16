@@ -22,7 +22,7 @@ class CommentBox extends Component {
         })
     }
     handleChange(val) {
-        console.log(val)
+        // console.log(val)
         this.setState({
             input: val
         })
