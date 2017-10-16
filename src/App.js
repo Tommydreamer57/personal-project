@@ -23,7 +23,7 @@ class App extends Component {
               <Route path='/section/:section' component={Section} />
               <Route path='/posts/:postid' component={Post} />
               <Route exact path='/admin/' component={AdminHome} />
-              <Route path='/admin/edit/:post' component={EditPost} />
+              <Route path='/admin/editpost/:postid' component={EditPost} />
               <Route path='/favorites' component={Favorites} />
             </Switch>
           </div>

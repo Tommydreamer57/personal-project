@@ -11,12 +11,13 @@ class Navbar extends Component {
         }
     }
     render() {
+        let { id } = this.props.user || ``
         return (
             <div className='Navbar'>
                 <div className='navigation-bar-wrapper' >
                     <div className='navigation-bar' >
                         {
-                            this.props.user.id ?
+                            id ?
                                 <LogoutButton>Logout</LogoutButton>
                                 :
                                 <LoginButton>Login</LoginButton>

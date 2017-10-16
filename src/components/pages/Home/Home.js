@@ -17,7 +17,9 @@ class Home extends Component {
     }
     render() {
         // console.log(this.props.user)
-        let name = this.props.user.first_name || this.props.user.username;
+        let { first_name, username } = this.props.user || ``
+        let name = first_name || ``
+        name ? name = username : name = ``;
         return (
             <div className='Home'>
                 <div className='title-box' >
@@ -36,12 +38,15 @@ class Home extends Component {
                 </div>
                 <div className='post-box'>
                     {
-                        this.props.sections.map((item, i) => {
-                            {/* console.log(item); */ }
-                            return (
-                                <SectionTile url={`/section/${item.section || ``}`} title={item.section} key={i} function={this.props.selectSection} />
-                            );
-                        })
+                        this.props.sections ?
+                            this.props.sections.map((item, i) => {
+                                {/* console.log(item); */ }
+                                return (
+                                    <SectionTile url={`/section/${item.section || ``}`} title={item.section} key={i} function={this.props.selectSection} />
+                                );
+                            })
+                            :
+                            null
                     }
                 </div>
                 <Navbar />

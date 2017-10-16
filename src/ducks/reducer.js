@@ -40,6 +40,8 @@ const HANDLE_INPUT = 'HANDLE_INPUT';
 
 // ACTION BUILDERS
 
+// USER
+
 export function getUser() {
     let user = axios.get(`/auth/me`)
         .then(response => {
@@ -53,6 +55,8 @@ export function getUser() {
         payload: user
     }
 }
+
+// CONTENT
 
 export function getSections() {
     let sections = axios.get(`/sections`)

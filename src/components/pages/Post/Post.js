@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from '../../reusable/Navbar/Navbar';
-import { FavoriteButton } from '../../reusable/Buttons/Button';
+import { FavoriteButton, EditPostButton } from '../../reusable/Buttons/Button';
 import CommentBox from './CommentBox/CommentBox';
 import { connect } from 'react-redux';
 import { getUser, selectPost, getComments, getFavorites, addFavorite, removeFavorite } from '../../../ducks/reducer';
@@ -50,6 +50,7 @@ class Post extends Component {
         // console.log(this.state.fav)
         console.log(this.props.postIsFavorite)
         let post = this.props.selectedPost || ``;
+        let { user } = this.props || ``;
         return (
             <div className='Post'>
                 <div className='title-box'>
@@ -73,8 +74,14 @@ class Post extends Component {
                     <div className='date'>
                         {post.date}
                     </div>
-                    <CommentBox />  
+                    <CommentBox />
                 </div>
+                {
+                    user.admin ?
+                        <EditPostButton postid={post.id} >Edit Post</EditPostButton>
+                        :
+                        null
+                }
                 <Navbar />
             </div>
         )

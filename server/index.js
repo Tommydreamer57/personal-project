@@ -8,6 +8,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const uc = require('./user-controller');
+const ac = require('./admin-controller.js');
 
 const PORT = process.env.PORT || 3001;
 const CONNECTION_STRING = process.env.CONNECTION_STRING
@@ -124,6 +125,10 @@ app.post(`/responses/:commentid`, uc.addResponseToComment)
 app.get(`/favorites/:userid`, uc.getFavoritesByUser)
 app.post(`/favorites/:userid/:postid`, uc.addFavoriteToUser)
 app.delete(`/favorites/:userid/:postid`, uc.removeFavorite)
+
+//ADMIN
+
+app.get(`/admin/posts`, ac.getPosts)
 
 
 // MY OWN ENDPOINTS ABOVE

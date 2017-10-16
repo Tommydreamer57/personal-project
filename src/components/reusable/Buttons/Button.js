@@ -14,7 +14,7 @@ export function NavigationToggle(props) {
     )
 }
 
-// NAVIGATION BUTTON
+// NAVIGATION BAR BUTTONS
 
 export function NavigationButton(props) {
     return (
@@ -61,6 +61,16 @@ export function Submit(props) {
         <div className='Submit' onClick={props.function} >
             {props.children}
         </div>
+    )
+}
+
+// EDIT POST BUTTON <ADMIN>
+
+export function EditPostButton(props) {
+    return (
+        <Link to={`/admin/editpost/${props.postid}`} className='EditPostButton' >
+            {props.children}
+        </Link>
     )
 }
 

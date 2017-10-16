@@ -96,6 +96,15 @@
 .Submit:hover {
   cursor: pointer; }
 
+/**EDIT POST**/
+.EditPostButton {
+  position: fixed;
+  top: 0.5rem;
+  right: 1rem; }
+
+.EditPostButton:hover {
+  cursor: pointer; }
+
 /**NAVIGATION**/
 .NavigationButton, .LoginButton, .LogoutButton {
   padding-left: 4rem;
