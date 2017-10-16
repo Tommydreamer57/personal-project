@@ -16,7 +16,7 @@ const initialState = {
     responses: [],
     input: '',           // comment input
     alertClass: 'add-box',  // style class for alerts of adding / removing favorites
-    alert: ''               // alert of adding or removing favorites
+    alert: 'Loaded post'               // alert of adding or removing favorites
 }
 
 // PROMISE CONTROLS

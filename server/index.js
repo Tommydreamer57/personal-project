@@ -117,6 +117,7 @@ app.get(`/user/:username`, uc.getUserByUsername)
 app.get(`/comments/:postid`, uc.getCommentsByPost)
 app.post(`/comments/:postid`, uc.addCommentToPost)
 app.get(`/responses/:commentid`, uc.getResponsesByComment)
+app.post(`/responses/:commentid`, uc.addResponseToComment)
 
 // FAVORITES
 

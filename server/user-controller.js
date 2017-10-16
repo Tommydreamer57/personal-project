@@ -53,6 +53,16 @@ module.exports = {
                 res.send(responses)
             })
     },
+    addResponseToComment: (req, res, next) => {
+        const db = req.app.get('db');
+        db.add_response([req.body.userid, req.params.commentid, req.body.body])
+            .then(() => {
+                db.read_responses([req.params.commentid])
+                    .then(responses => {
+                        res.send(responses)
+                    })
+            })
+    },
     // FAVORITES
     getFavoritesByUser: (req, res, next) => {
         const db = req.app.get('db');

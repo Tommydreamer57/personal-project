@@ -100,16 +100,19 @@
     color: #00ff50; }
   .CommentBox .Comment {
     width: 100%;
-    text-align: left; }
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #262626;
+    margin-bottom: 0.5rem; }
     .CommentBox .Comment .response-box {
-      background: #262626;
       color: rgba(0, 255, 80, 0.5);
       margin: 0 1rem; }
   .CommentBox .input, .CommentBox .comment-input, .CommentBox .response-input {
-    width: 100%;
+    display: block;
     background: #1C1C1C;
     color: white;
     border: none;
-    overflow: wrap; }
+    margin: 0 1rem; }
   .CommentBox .input:active, .CommentBox .comment-input:active, .CommentBox .response-input:active {
     border: none; }

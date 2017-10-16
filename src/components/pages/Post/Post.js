@@ -34,7 +34,10 @@ class Post extends Component {
         // THEN GETS FAVORITES FROM REDUX STATE
         if (!this.props.user.id) {
             console.log('post getting user')
-            this.props.getUser().then(user => this.props.getFavorites(user.value.id))
+            this.props.getUser()
+                .then(user => {
+                    this.props.getFavorites(user.value.id)
+                })
         }
         // GETS FAVORITES FROM REDUX STATE
         else if (!this.props.favorites.length) {
@@ -53,8 +56,8 @@ class Post extends Component {
                     {post.section || ``}
                 </div>
                 <div className='text-box'>
-                    <div className={this.state.alertType} >
-                        {this.state.alert}
+                    <div className={this.props.alertClass} >
+                        {this.props.alert}
                     </div>
                     <FavoriteButton onClick={() => console.log('clicked')} function={() => this.toggleFav()} fav={this.props.postIsFavorite} />
                     <div className='title'>
@@ -83,7 +86,9 @@ function mapStateToProps(state) {
         user: state.user,
         favorites: state.favorites,
         selectedPost: state.selectedPost,
-        postIsFavorite: state.postIsFavorite
+        postIsFavorite: state.postIsFavorite,
+        alertClass: state.alertClass,
+        alert: state.alert
     }
 }
 

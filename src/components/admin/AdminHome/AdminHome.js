@@ -11,6 +11,7 @@ export default class AdminHome extends Component {
     render() {
         return (
             <div className='AdminHome'>
+                <div className='title-box'>Welcome, Tommydreamer57</div>
                 
                 <Navbar />
             </div>

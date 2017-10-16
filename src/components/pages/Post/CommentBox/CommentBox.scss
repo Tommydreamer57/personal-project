@@ -15,10 +15,14 @@
 
     .Comment {
         width: 100%;
-        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        // align-content: stretch;
+        background: $medium;
+        margin-bottom: 0.5rem;
 
         .response-box {
-            background: $medium;
             color: $green5;
             margin: 0 1rem;
         }
@@ -26,11 +30,11 @@
     }
 
     .input {
-        width: 100%;
+        display: block;
         background: $dark;
         color: white;
         border: none;
-        overflow: wrap;
+        margin: 0 1rem;
     }
 
     .input:active { // how to select input when active ? selected ?
