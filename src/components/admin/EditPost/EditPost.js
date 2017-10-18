@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectPost, getComments } from '../../../ducks/reducer';
+import { adminSelectPost, getComments } from '../../../ducks/reducer';
 import Navbar from '../../reusable/Navbar/Navbar';
 import axios from 'axios';
+import './EditPost.css';
+import Quill from 'quill';
 
 class EditPost extends Component {
     constructor(props) {
@@ -17,7 +19,8 @@ class EditPost extends Component {
             imgurl: ``
         }
         this.handleChange = this.handleChange.bind(this);
-        this.submit = this.submit.bind(this);
+        this.save = this.save.bind(this);
+        this.publish = this.publish.bind(this);
     }
     handleChange(target, value) {
         // console.log(target)
@@ -27,29 +30,46 @@ class EditPost extends Component {
             [target]: value
         })
     }
-    submit() {
+    save() {
         axios.post(`/admin/editpost/${this.state.id}`, this.state)
             .then(response => {
                 console.log(response.data)
             })
+    }
+    publish() {
+        if (this.props.selectedPost.published) {
+            axios.post(`/admin/publish/${this.state.id}`)
+                .then(response => {
+                    console.log(response.data)
+                    this.props.adminSelectPost(this.props.match.params.postid)
+                })
+        }
+        else {
+            axios.post(`/admin/unpublish/${this.state.id}`)
+                .then(response => {
+                    console.log(response.data)
+                    this.props.adminSelectPost(this.props.match.params.postid)
+                })
+        }
     }
     componentDidMount() {
         let { postid } = this.props.match.params;
         let post = this.props.selectedPost || ``;
         if (!post) {
             console.log('edit post selecting post')
-            this.props.selectPost(postid).then(() => {
-                post = this.props.selectedPost
-                this.setState({
-                    id: postid,
-                    section: post.section,
-                    subsection: post.subsection,
-                    title: post.title,
-                    subtitle: post.subtitle,
-                    body: post.body,
-                    imgurl: post.imgurl
+            this.props.adminSelectPost(postid)
+                .then(() => {
+                    post = this.props.selectedPost
+                    this.setState({
+                        id: postid,
+                        section: post.section,
+                        subsection: post.subsection,
+                        title: post.title,
+                        subtitle: post.subtitle,
+                        body: post.body,
+                        imgurl: post.imgurl
+                    })
                 })
-            })
         }
         else {
             this.setState({
@@ -66,6 +86,17 @@ class EditPost extends Component {
         this.props.getComments(postid)
     }
     render() {
+
+        let options = {
+            modules: {
+                toolbar: true
+            },
+            bounds: '.text-box',
+            theme: 'bubble'
+        }
+
+        let editor = new Quill('.editor', options);
+
         let post = this.state || ``
         return (
             <div className='EditPost'>
@@ -77,11 +108,24 @@ class EditPost extends Component {
                     <input value={post.subtitle} onChange={e => this.handleChange('subtitle', e.target.value)} />
                     <textarea value={post.body} onChange={e => this.handleChange('body', e.target.value)} />
                 </div>
-                <div onClick={() => this.submit()} >
-                    <p>Save Changes</p>
+                <div className='subtitle-box'>
+                    <div onClick={() => this.save()} >
+                        <p>Save Changes</p>
+                    </div>
+                    <div onClick={() => this.publish()} >
+                        <p>{this.props.selectedPost.published ? 'unpublish' : 'publish'}</p>
+                    </div>
+                </div>
+                <div className='text-box'>
+                    <div className='editor'>
+                        <h1>Title</h1>
+                        <h1 className='title' >{post.title}</h1>
+                        <h2 className='subtitle' >{post.subtitle}</h2>
+                        <p>{post.body}</p>
+                    </div>
                 </div>
                 <Navbar />
-            </div>
+            </div >
         )
     }
 }
@@ -94,7 +138,7 @@ function mapStateToProps(state) {
 }
 
 const outActions = {
-    selectPost,
+    adminSelectPost,
     getComments
 }
 

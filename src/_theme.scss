@@ -1,4 +1,14 @@
 
+/**TAGS**/
+
+i {
+    font-style: italic;
+}
+
+b {
+    font-weight: bold;
+}
+
 /**THEME**/
 
 /**COLORS**/
@@ -107,7 +117,12 @@ $mbottom: 3rem;
     color: $blue7;
     font-size: $fnormal;
     display: auto;
-    text-align: justify;
+    text-align: left;
+
+    .text {
+        margin-bottom: 0.5rem;
+        text-align: left;
+    }
 
     .alert-box {
         position: absolute;
@@ -176,7 +191,7 @@ $mbottom: 3rem;
 
 @keyframes removed {
     from {
-        color: $red8
+        color: $yellow8
     }
     to {
         color: $faded;
@@ -185,7 +200,7 @@ $mbottom: 3rem;
 
 @keyframes warning {
     from {
-        color: $yellow8;
+        color: $red8;
     }
     to {
         color: $faded;

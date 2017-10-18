@@ -1,3 +1,10 @@
+/**TAGS**/
+i {
+  font-style: italic; }
+
+b {
+  font-weight: bold; }
+
 /**THEME**/
 /**COLORS**/
 /**FONTS**/
@@ -37,7 +44,10 @@
   color: rgba(90, 200, 255, 0.7);
   font-size: 1rem;
   display: auto;
-  text-align: justify; }
+  text-align: left; }
+  .text-box .text {
+    margin-bottom: 0.5rem;
+    text-align: left; }
   .text-box .alert-box, .text-box .add-box, .text-box .remove-box, .text-box .warning-box {
     position: absolute;
     top: -3rem;
@@ -79,13 +89,13 @@
 
 @keyframes removed {
   from {
-    color: rgba(255, 0, 0, 0.8); }
+    color: rgba(200, 190, 0, 0.8); }
   to {
     color: transparent; } }
 
 @keyframes warning {
   from {
-    color: rgba(200, 190, 0, 0.8); }
+    color: rgba(255, 0, 0, 0.8); }
   to {
     color: transparent; } }
 

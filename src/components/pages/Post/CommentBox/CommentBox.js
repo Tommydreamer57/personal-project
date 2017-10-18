@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getComments, postComment } from '../../../../ducks/reducer';
+import { getComments, postComment, alertWarning, alertAdd } from '../../../../ducks/reducer';
 import Comment from './Comment/Comment';
 import { Reply, Submit } from '../../../reusable/Buttons/Button';
 import './CommentBox.css';
@@ -17,9 +17,14 @@ class CommentBox extends Component {
         this.submitComment = this.submitComment.bind(this);
     }
     toggleCommenting() {
-        this.setState({
-            commenting: !this.state.commenting
-        })
+        if (this.props.user.id) {
+            this.setState({
+                commenting: !this.state.commenting
+            })
+        }
+        else {
+            this.props.alertWarning('please log in to post a comment')
+        }
     }
     handleChange(val) {
         // console.log(val)
@@ -83,6 +88,7 @@ function mapStateToProps(state) {
 }
 
 const outActions = {
+    alertWarning,
     getComments,
     postComment
 }

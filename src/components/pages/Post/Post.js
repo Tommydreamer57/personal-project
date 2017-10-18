@@ -3,7 +3,7 @@ import Navbar from '../../reusable/Navbar/Navbar';
 import { FavoriteButton, EditPostButton } from '../../reusable/Buttons/Button';
 import CommentBox from './CommentBox/CommentBox';
 import { connect } from 'react-redux';
-import { getUser, selectPost, getComments, getFavorites, addFavorite, removeFavorite } from '../../../ducks/reducer';
+import { getUser, adminSelectPost, selectPost, getComments, getFavorites, addFavorite, removeFavorite } from '../../../ducks/reducer';
 import './Post.css';
 
 class Post extends Component {
@@ -25,8 +25,14 @@ class Post extends Component {
         // GETS POST FROM DB IF NOT ALREADY ON REDUX STATE
         let { postid } = this.props.match.params
         if (!this.props.selectedPost) {
-            console.log('post selecting post')
-            this.props.selectPost(postid)
+            if (this.props.user.admin) {
+                console.log('post selecting admin post')
+                this.props.adminSelectPost(postid)
+            }
+            else {
+                console.log('post selecting post')
+                this.props.selectPost(postid)
+            }
         }
         console.log('post getting comments')
         this.props.getComments(postid)
@@ -60,7 +66,7 @@ class Post extends Component {
                     <div className={this.props.alertClass} >
                         {this.props.alert}
                     </div>
-                    <FavoriteButton onClick={() => console.log('clicked')} function={() => this.toggleFav()} fav={this.props.postIsFavorite} />
+                    <FavoriteButton function={() => this.toggleFav()} fav={this.props.postIsFavorite} />
                     <div className='title'>
                         {post.title || ``}
                     </div>
@@ -101,6 +107,7 @@ function mapStateToProps(state) {
 
 const outActions = {
     getUser,
+    adminSelectPost,
     selectPost,
     getComments,
     getFavorites,

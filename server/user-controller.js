@@ -7,6 +7,7 @@ module.exports = {
             .then(sections => {
                 res.send(sections)
             })
+            .catch(() => res.status(500).send('getSections broke'))
     },
     getPostsBySection: (req, res, next) => {
         const db = req.app.get('db');
@@ -14,6 +15,7 @@ module.exports = {
             .then(posts => {
                 res.send(posts)
             })
+            .catch(() => res.status(500).send('getPostsBySection broke'))
     },
     getPostById: (req, res, next) => {
         const db = req.app.get('db');
@@ -21,6 +23,7 @@ module.exports = {
             .then(post => {
                 res.send(post)
             })
+            .catch(() => res.status(500).send('getPostById broke'))
     },
     // USER
     getUserByUsername: (req, res, next) => {
@@ -29,6 +32,7 @@ module.exports = {
             .then(user => {
                 res.send(user)
             })
+            .catch(() => res.status(500).send('getUserByUsername broke'))
     },
     // COMMENTS
     getCommentsByPost: (req, res, next) => {
@@ -37,6 +41,7 @@ module.exports = {
             .then(comments => {
                 res.send(comments)
             })
+            .catch(() => res.status(500).send('getCommentsByPost broke'))
     },
     addCommentToPost: (req, res, next) => {
         const db = req.app.get('db');
@@ -44,7 +49,10 @@ module.exports = {
             .then(() => db.read_comments(req.params.postid)
                 .then(comments => {
                     res.send(comments)
-                }))
+                })
+                .catch(() => res.status(500).send('addCommentToPost read_comments broke'))
+            )
+            .catch(() => res.status(500).send('addCommentToPost broke'))
     },
     getResponsesByComment: (req, res, next) => {
         const db = req.app.get('db');
@@ -52,6 +60,7 @@ module.exports = {
             .then(responses => {
                 res.send(responses)
             })
+            .catch(() => res.status(500).send('getResponsesByComment broke'))
     },
     addResponseToComment: (req, res, next) => {
         const db = req.app.get('db');
@@ -61,7 +70,9 @@ module.exports = {
                     .then(responses => {
                         res.send(responses)
                     })
+                    .catch(() => res.status(500).send('addResponseToComment read_responses broke'))
             })
+            .catch(() => res.status(500).send('addResponseToComment broke'))
     },
     // FAVORITES
     getFavoritesByUser: (req, res, next) => {
@@ -70,6 +81,7 @@ module.exports = {
             .then(favorites => {
                 res.send(favorites)
             })
+            .catch(() => res.status(500).send('getFavoritesByUser broke'))
     },
     addFavoriteToUser: (req, res, next) => {
         const db = req.app.get('db');
@@ -78,7 +90,9 @@ module.exports = {
                 .then(favorites => {
                     res.send(favorites)
                 })
+                .catch(() => res.status(500).send('addFavoriteToUser read_favorites broke'))
             )
+            .catch(() => res.status(500).send('addFavoriteToUser broke'))
     },
     removeFavorite: (req, res, next) => {
         const db = req.app.get('db');
@@ -87,6 +101,8 @@ module.exports = {
                 .then(favorites => {
                     res.send(favorites)
                 })
+                .catch(() => res.status(500).send('removeFavorite read_favorites broke'))
             )
+            .catch(() => res.status(500).send('removeFavorite broke'))
     }
 }

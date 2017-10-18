@@ -36,6 +36,9 @@ const SELECT_POST = 'SELECT_POST';
 const GET_COMMENTS = 'GET_COMMENTS';
 const GET_FAVORITES = 'GET_FAVORITES';
 const HANDLE_INPUT = 'HANDLE_INPUT';
+const ALERT_ADD = 'ALERT-ADD';
+const ALERT_REMOVE = 'ALERT_REMOVE';
+const ALERT_WARNING = 'ALERT_WARNING';
 
 
 // ACTION BUILDERS
@@ -107,6 +110,20 @@ export function selectPost(postid) {
     }
 }
 
+export function adminSelectPost(postid) {
+    let post = axios.get(`/admin/post/${postid}`)
+        .then(response => {
+            console.log('redux selected admin post')
+            console.log(response.data)
+            return response.data[0]
+        })
+    console.log('redux selecting admin post')
+    return {
+        type: SELECT_POST,
+        payload: post
+    }
+}
+
 // COMMENTS
 
 export function getComments(postid) {
@@ -145,7 +162,7 @@ export function getFavorites(userid) {
         .then(response => {
             console.log('redux got favorites')
             console.log(response.data)
-            return response.data
+            return response.data || null
         })
     console.log('redux getting favorites');
     return {
@@ -182,7 +199,30 @@ export function removeFavorite(userid, postid) {
     }
 }
 
-//REDUCER
+// ALERTS
+
+export function alertAdd(alert) {
+    return {
+        type: ALERT_ADD,
+        payload: alert
+    }
+}
+
+export function alertRemove(alert) {
+    return {
+        type: ALERT_REMOVE,
+        payload: alert
+    }
+}
+
+export function alertWarning(alert) {
+    return {
+        type: ALERT_WARNING,
+        payload: alert
+    }
+}
+
+// REDUCER
 
 export default function reducer(state = initialState, action) {
     // console.log(state)
@@ -210,6 +250,10 @@ export default function reducer(state = initialState, action) {
             }
             // RETURN SELECTED POST AND IF IT IS IN FAVORITES
             return Object.assign({}, state, { selectedPost: action.payload, postIsFavorite });
+        case SELECT_POST + REJECTED:
+            var alertClass = 'warning-box'
+            var alert = 'could not load post, please refresh'
+            return Object.assign({}, state, { alertClass, alert })
         case GET_COMMENTS + FULFILLED:
             return Object.assign({}, state, { comments: action.payload });
         case GET_FAVORITES + PENDING:
@@ -231,6 +275,23 @@ export default function reducer(state = initialState, action) {
             }
             // RETURN FAVORITES AND IF SELECTED POST IS IN FAVORITES
             return Object.assign({}, state, { favorites: action.payload, postIsFavorite });
+        case GET_FAVORITES + REJECTED:
+            var postIsFavorite = false
+            var alertClass = 'warning-box'
+            var alert = 'please log in to add favorites'
+            return Object.assign({}, state, { alertClass, alert, postIsFavorite });
+        case ALERT_ADD:
+            var alertClass = 'add-box'
+            var alert = action.payload
+            return Object.assign({}, state, { alertClass, alert });
+        case ALERT_REMOVE:
+            var alertClass = 'remove-box'
+            var alert = action.payload
+            return Object.assign({}, state, { alertClass, alert });
+        case ALERT_WARNING:
+            var alertClass = 'warning-box'
+            var alert = action.payload
+            return Object.assign({}, state, { alertClass, alert })
         default:
             return state;
     }

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PostTile from '../../reusable/PostTile/PostTile';
 import Navbar from '../../reusable/Navbar/Navbar';
 import { LoginButton } from '../../reusable/Buttons/Button';
-import { selectPost } from '../../../ducks/reducer';
+import { adminSelectPost } from '../../../ducks/reducer';
 import axios from 'axios';
 
 class AdminHome extends Component {
@@ -36,7 +36,7 @@ class AdminHome extends Component {
                             this.state.posts.map((post, i) => {
                                 console.log(post)
                                 return (
-                                    <PostTile url={`/posts/${post.id || ``}`} title={post.title || `Post #${i}`} key={post.id} id={post.id} function={this.props.selectPost} />
+                                    <PostTile url={`/posts/${post.id || ``}`} title={post.title || `Post #${i}`} key={post.id} id={post.id} function={this.props.adminSelectPost} />
                                 )
                             })
                         }
@@ -65,7 +65,7 @@ function mapStateToProps(state) {
 }
 
 const outActions = {
-    selectPost
+    adminSelectPost
 }
 
 export default connect(mapStateToProps, outActions)(AdminHome);

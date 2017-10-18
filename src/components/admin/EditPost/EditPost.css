@@ -1,0 +1,101 @@
+/**TAGS**/
+@import 'https://cdn.quilljs.com/1.3.3/quill.snow.css';
+i {
+  font-style: italic; }
+
+b {
+  font-weight: bold; }
+
+/**THEME**/
+/**COLORS**/
+/**FONTS**/
+/**MARGINS**/
+/**CLASSES**/
+.none {
+  display: none; }
+
+.title, .title-box {
+  color: #5ac8ff;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem; }
+
+.subtitle, .subtitle-box {
+  color: rgba(90, 200, 255, 0.9);
+  font-size: 2rem;
+  margin-bottom: 1rem; }
+
+.box-wrapper, .title-box, .subtitle-box, .text-box {
+  background: #262626;
+  padding: 1rem;
+  margin: 0 15vw 3rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  font-family: Calibri; }
+
+@media (max-width: 700px) {
+  .box-wrapper, .title-box, .subtitle-box, .text-box {
+    margin: 0 8vw 3rem; } }
+
+.text-box {
+  color: rgba(90, 200, 255, 0.7);
+  font-size: 1rem;
+  display: auto;
+  text-align: left; }
+  .text-box .text {
+    margin-bottom: 0.5rem;
+    text-align: left; }
+  .text-box .alert-box, .text-box .add-box, .text-box .remove-box, .text-box .warning-box {
+    position: absolute;
+    top: -3rem;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 2rem;
+    max-height: 3rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: flex-end;
+    color: transparent;
+    animation-duration: 8s; }
+  .text-box .add-box {
+    animation-name: added; }
+  .text-box .remove-box {
+    animation-name: removed; }
+  .text-box .warning-box {
+    animation-name: warning;
+    animation-iteration-count: 1; }
+
+.content-wrapper {
+  display: flex; }
+
+/**WELCOME BOX**/
+/**WELCOME ANIMATION**/
+@keyframes welcome {
+  from {
+    color: transparent; }
+  to {
+    color: #5ac8ff; } }
+
+/**ALERT ANIMATIONS**/
+@keyframes added {
+  from {
+    color: rgba(0, 255, 80, 0.8); }
+  to {
+    color: transparent; } }
+
+@keyframes removed {
+  from {
+    color: rgba(200, 190, 0, 0.8); }
+  to {
+    color: transparent; } }
+
+@keyframes warning {
+  from {
+    color: rgba(255, 0, 0, 0.8); }
+  to {
+    color: transparent; } }
