@@ -63,7 +63,7 @@ class Post extends Component {
                     {post.section || ``}
                 </div>
                 <div className='text-box'>
-                    <div className={this.props.alertClass} >
+                    <div className={'alert-box ' + this.props.alertClass} >
                         {this.props.alert}
                     </div>
                     <FavoriteButton function={() => this.toggleFav()} fav={this.props.postIsFavorite} />

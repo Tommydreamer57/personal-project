@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getComments, postComment, alertWarning, alertAdd } from '../../../../ducks/reducer';
+import { getComments, postComment, resetAlert, alertWarning, alertAdd } from '../../../../ducks/reducer';
 import Comment from './Comment/Comment';
 import { Reply, Submit } from '../../../reusable/Buttons/Button';
 import './CommentBox.css';
@@ -23,7 +23,10 @@ class CommentBox extends Component {
             })
         }
         else {
-            this.props.alertWarning('please log in to post a comment')
+            this.props.resetAlert()
+            this.props.alertWarning('please log in to add a comment')
+            this.props.resetAlert()
+            // setTimeout(this.props.resetAlert, 8000)
         }
     }
     handleChange(val) {
@@ -48,13 +51,13 @@ class CommentBox extends Component {
         let { comments } = this.props || null;
         return (
             <div className='CommentBox'>
-                <div className='subtitle'>Comments</div>
+                <div className='subtitle'>{comments.length + ` ` || ``}Comments</div>
                 {
                     comments ?
                         comments.map((comment, i) => {
                             {/* console.log(comment) */ }
                             return (
-                                <Comment key={i} id={comment.id} body={comment.body} name={comment.first_name || comment.username} date={comment.date} />
+                                <Comment key={i} id={comment.id} imgurl={comment.imgurl} body={comment.body} name={comment.first_name || comment.username} date={comment.date} />
                             )
                         })
                         :
@@ -88,6 +91,7 @@ function mapStateToProps(state) {
 }
 
 const outActions = {
+    resetAlert,
     alertWarning,
     getComments,
     postComment

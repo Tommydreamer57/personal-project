@@ -59,15 +59,23 @@ b {
     padding: 0.5rem 1rem;
     display: flex;
     align-items: flex-end;
-    color: transparent;
-    animation-duration: 8s; }
+    color: #6432dc; }
   .text-box .add-box {
-    animation-name: added; }
+    animation-name: added;
+    animation-duration: 8s;
+    animation-iteration-count: 1; }
   .text-box .remove-box {
-    animation-name: removed; }
+    animation-name: removed;
+    animation-duration: 8s;
+    animation-iteration-count: 1; }
   .text-box .warning-box {
     animation-name: warning;
+    animation-duration: 8s;
     animation-iteration-count: 1; }
+  .text-box .alert-fadeout {
+    animation-name: fadeout;
+    animation-iteration-count: 1;
+    animation-duration: 4s; }
 
 .content-wrapper {
   display: flex; }
@@ -81,23 +89,29 @@ b {
     color: #5ac8ff; } }
 
 /**ALERT ANIMATIONS**/
+@keyframes fadeout {
+  from {
+    color: #6432dc; }
+  to {
+    color: transparent; } }
+
 @keyframes added {
   from {
     color: rgba(0, 255, 80, 0.8); }
   to {
-    color: transparent; } }
+    color: #6432dc; } }
 
 @keyframes removed {
   from {
     color: rgba(200, 190, 0, 0.8); }
   to {
-    color: transparent; } }
+    color: #6432dc; } }
 
 @keyframes warning {
   from {
     color: rgba(255, 0, 0, 0.8); }
   to {
-    color: transparent; } }
+    color: #6432dc; } }
 
 /**COMMENTS**/
 .Reply:hover {
@@ -118,7 +132,14 @@ b {
 /**NAVIGATION**/
 .NavigationButton, .LoginButton, .LogoutButton {
   padding-left: 4rem;
-  font-size: 1.5rem; }
+  font-size: 1.5rem;
+  border: 2px solid transparent;
+  border-radius: 2rem;
+  transition: border-color .3s, color .3s; }
+
+.NavigationButton:hover, .LoginButton:hover, .LogoutButton:hover {
+  color: #5ac8ff;
+  border-color: #5ac8ff; }
 
 /**FAVORITE**/
 .FavoriteButton {

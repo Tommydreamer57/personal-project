@@ -135,24 +135,34 @@ $mbottom: 3rem;
         padding: 0.5rem 1rem;
         display: flex;
         align-items: flex-end;
-        color: $faded;
-        animation-duration: 8s;        
+        color: $purple1;
     }
 
     .add-box {
         @extend .alert-box ;
         animation-name: added;
+        animation-duration: 8s;        
+        animation-iteration-count: 1;        
     }
 
     .remove-box {
         @extend .alert-box ;
         animation-name: removed;
+        animation-duration: 8s;
+        animation-iteration-count: 1; 
     }
 
     .warning-box {
         @extend .alert-box ;
         animation-name: warning;
+        animation-duration: 8s;        
         animation-iteration-count: 1;
+    }
+
+    .alert-fadeout {
+        animation-name: fadeout;
+        animation-iteration-count: 1;
+        animation-duration: 4s;
     }
 
 }
@@ -180,12 +190,21 @@ $mbottom: 3rem;
 
 /**ALERT ANIMATIONS**/
 
+@keyframes fadeout {
+    from {
+        color: $purple1;
+    }
+    to {
+        color: $faded;
+    }
+}
+
 @keyframes added {
     from {
         color: $green8;
     }
     to {
-        color: $faded;
+        color: $purple1;
     }
 }
 
@@ -194,7 +213,7 @@ $mbottom: 3rem;
         color: $yellow8
     }
     to {
-        color: $faded;
+        color: $purple1;
     }
 }
 
@@ -203,7 +222,7 @@ $mbottom: 3rem;
         color: $red8;
     }
     to {
-        color: $faded;
+        color: $purple1;
     }
 }
 

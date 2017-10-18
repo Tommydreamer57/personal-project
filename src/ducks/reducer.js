@@ -36,6 +36,7 @@ const SELECT_POST = 'SELECT_POST';
 const GET_COMMENTS = 'GET_COMMENTS';
 const GET_FAVORITES = 'GET_FAVORITES';
 const HANDLE_INPUT = 'HANDLE_INPUT';
+const RESET_ALERT = 'RESET_ALERT';
 const ALERT_ADD = 'ALERT-ADD';
 const ALERT_REMOVE = 'ALERT_REMOVE';
 const ALERT_WARNING = 'ALERT_WARNING';
@@ -201,7 +202,15 @@ export function removeFavorite(userid, postid) {
 
 // ALERTS
 
+export function resetAlert() {
+    console.log('redux resetting alert')
+    return {
+        type: RESET_ALERT
+    }
+}
+
 export function alertAdd(alert) {
+    console.log('redux alerting add')
     return {
         type: ALERT_ADD,
         payload: alert
@@ -209,6 +218,7 @@ export function alertAdd(alert) {
 }
 
 export function alertRemove(alert) {
+    console.log('redux alerting remove')
     return {
         type: ALERT_REMOVE,
         payload: alert
@@ -216,6 +226,7 @@ export function alertRemove(alert) {
 }
 
 export function alertWarning(alert) {
+    console.log('redux alerting warning')
     return {
         type: ALERT_WARNING,
         payload: alert
@@ -227,6 +238,10 @@ export function alertWarning(alert) {
 export default function reducer(state = initialState, action) {
     // console.log(state)
     console.log(action.type)
+    console.log(action.payload)
+    let postIsFavorite = false;
+    let alertClass = 'add-box';
+    let alert = '';
     switch (action.type) {
         case GET_USER + FULFILLED:
             // console.log(action.payload);
@@ -241,7 +256,6 @@ export default function reducer(state = initialState, action) {
             // console.log(action.payload);
             return Object.assign({}, state, { posts: action.payload });
         case SELECT_POST + FULFILLED:
-            var postIsFavorite = false
             // CHECK FAVORITES TO SEE IF POST IS IN FAVORITES
             if (state.favorites.length) {
                 if (state.favorites.filter(fav => fav.id == action.payload.id).length) {
@@ -251,16 +265,16 @@ export default function reducer(state = initialState, action) {
             // RETURN SELECTED POST AND IF IT IS IN FAVORITES
             return Object.assign({}, state, { selectedPost: action.payload, postIsFavorite });
         case SELECT_POST + REJECTED:
-            var alertClass = 'warning-box'
-            var alert = 'could not load post, please refresh'
+            alertClass = 'warning-box'
+            alert = 'could not load post, please refresh'
             return Object.assign({}, state, { alertClass, alert })
         case GET_COMMENTS + FULFILLED:
             return Object.assign({}, state, { comments: action.payload });
         case GET_FAVORITES + PENDING:
-            var postIsFavorite = false
+            postIsFavorite = false
             return Object.assign({}, state, { postIsFavorite: !state.postIsFavorite })
         case GET_FAVORITES + FULFILLED:
-            var postIsFavorite = false
+            postIsFavorite = false
             // console.log(action.payload);
             // CHECK SELECTED POST TO SEE IF POST IS IN FAVORITES
             if (state.selectedPost) {
@@ -276,22 +290,25 @@ export default function reducer(state = initialState, action) {
             // RETURN FAVORITES AND IF SELECTED POST IS IN FAVORITES
             return Object.assign({}, state, { favorites: action.payload, postIsFavorite });
         case GET_FAVORITES + REJECTED:
-            var postIsFavorite = false
-            var alertClass = 'warning-box'
-            var alert = 'please log in to add favorites'
+            postIsFavorite = false
+            alertClass = 'warning-box'
+            alert = 'please log in to add favorites'
             return Object.assign({}, state, { alertClass, alert, postIsFavorite });
+        case RESET_ALERT:
+            alertClass = ' alert-fadout'
+            return Object.assign({}, state, { alertClass });
         case ALERT_ADD:
-            var alertClass = 'add-box'
-            var alert = action.payload
+            alertClass = 'add-box'
+            alert = action.payload
             return Object.assign({}, state, { alertClass, alert });
         case ALERT_REMOVE:
-            var alertClass = 'remove-box'
-            var alert = action.payload
+            alertClass = 'remove-box'
+            alert = action.payload
             return Object.assign({}, state, { alertClass, alert });
         case ALERT_WARNING:
-            var alertClass = 'warning-box'
-            var alert = action.payload
-            return Object.assign({}, state, { alertClass, alert })
+            alertClass = 'warning-box'
+            alert = action.payload
+            return Object.assign({}, state, { alertClass, alert });
         default:
             return state;
     }

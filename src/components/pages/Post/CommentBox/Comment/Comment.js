@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { alertWarning, alertAdd } from '../../../../../ducks/reducer';
 import { Reply, Submit } from '../../../../reusable/Buttons/Button';
 import Response from './Response/Response';
 import axios from 'axios';
@@ -8,18 +9,30 @@ class Comment extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            showResponses: false,
             responses: [],
             responding: false,
             input: ``
         }
+        this.toggleShowResponses = this.toggleShowResponses.bind(this);
         this.toggleResponding = this.toggleResponding.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.submitResponse = this.submitResponse.bind(this);
     }
-    toggleResponding() {
+    toggleShowResponses() {
         this.setState({
-            responding: !this.state.responding
+            showResponses: !this.state.showResponses
         })
+    }
+    toggleResponding() {
+        if (this.props.user.id) {
+            this.setState({
+                responding: !this.state.responding
+            })
+        }
+        else {
+            this.props.alertWarning('please log in to respond to comments')
+        }
     }
     handleChange(val) {
         console.log(val)
@@ -60,31 +73,42 @@ class Comment extends Component {
     }
     render() {
         // console.log(this.state)
-        let { responses } = this.state || null;
+        let { responses, showResponses } = this.state || null;
         return (
             <div className='Comment' >
-                {this.props.name}:
-                {this.props.body}
+                {this.props.name}:&nbsp;
+                {this.props.body}&nbsp;
                 {this.props.date}
                 {
                     responses ?
-                        <div className='response-box'>
-                            {
-                                responses.map((response, i) => {
-                                    {/* console.log(response) */ }
-                                    return (
-                                        <Response key={i} >
-                                            {response.first_name || response.username}:
-                                            {response.body}
-                                            {response.date}
-                                        </Response>
-                                    )
-                                })
-                            }
-                        </div>
+                        showResponses ?
+                            <div className='response-box'>
+                                {
+                                    responses.map((response, i) => {
+                                        {/* console.log(response) */ }
+                                        return (
+                                            <Response key={i} >
+                                                {response.first_name || response.username}:&nbsp;
+                                                {response.body}&nbsp;
+                                                {response.date}
+                                            </Response>
+                                        )
+                                    })
+                                }
+                            </div>
+                            :
+                            null
                         :
                         null
                 }
+                <Reply function={this.toggleShowResponses} >
+                    {
+                        showResponses ?
+                            'Hide responses'
+                            :
+                            'Show responses'
+                    }
+                </Reply>
                 <Reply function={this.toggleResponding} >Reply</Reply>
                 {
                     this.state.responding ?
@@ -110,7 +134,8 @@ function mapStateToProps(state) {
 }
 
 const outActions = {
-
+    alertWarning,
+    alertAdd
 }
 
 export default connect(mapStateToProps, outActions)(Comment)
