@@ -8,6 +8,7 @@ import Home from './components/pages/Home/Home';
 import Section from './components/pages/Section/Section';
 import Post from './components/pages/Post/Post';
 import AdminHome from './components/admin/AdminHome/AdminHome';
+import SlateEditor from './components/admin/SlateEditor/SlateEditor';
 import EditPost from './components/admin/EditPost/EditPost';
 import Favorites from './components/pages/Favorites/Favorites';
 
@@ -23,7 +24,7 @@ class App extends Component {
               <Route path='/section/:section' component={Section} />
               <Route path='/posts/:postid' component={Post} />
               <Route exact path='/admin/' component={AdminHome} />
-              <Route path='/admin/editpost/:postid' component={EditPost} />
+              <Route path='/admin/editpost/:postid' component={SlateEditor} />
               <Route path='/favorites' component={Favorites} />
             </Switch>
           </div>

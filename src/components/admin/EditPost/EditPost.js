@@ -5,7 +5,7 @@ import Navbar from '../../reusable/Navbar/Navbar';
 import axios from 'axios';
 import './EditPost.css';
 // import Quill from 'quill';
-import SlateEditor from './SlateEditor/SlateEditor';
+// import SlateEditor from './SlateEditor/SlateEditor';
 
 class EditPost extends Component {
     constructor(props) {
@@ -125,7 +125,7 @@ class EditPost extends Component {
                         <p>{post.body}</p>
                     </div>
                 </div> */}
-                <SlateEditor/>
+                {/* <SlateEditor/> */}
                 <Navbar />
             </div >
         )

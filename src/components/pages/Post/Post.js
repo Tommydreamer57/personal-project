@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import { getUser, adminSelectPost, selectPost, getComments, getFavorites, addFavorite, removeFavorite } from '../../../ducks/reducer';
 import './Post.css';
 
+import html from '../../admin/SlateEditor/html-rules';
+
 class Post extends Component {
     constructor(props) {
         super(props)
@@ -74,6 +76,8 @@ class Post extends Component {
                         {post.subtitle || ``}
                     </div  >
                     {post.body || ``}
+                    {/* HTML
+                    {html.deserialize(post.body).blocks._tail.array.map((item, i) => <p key={i} >{item.text}</p>)} */}
                     <div className='author'>
                         Written by {post.first_name || post.username}
                     </div>

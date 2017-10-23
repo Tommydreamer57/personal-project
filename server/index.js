@@ -126,13 +126,20 @@ app.get(`/favorites/:userid`, uc.getFavoritesByUser)
 app.post(`/favorites/:userid/:postid`, uc.addFavoriteToUser)
 app.delete(`/favorites/:userid/:postid`, uc.removeFavorite)
 
-//ADMIN
+// ADMIN
 
 app.get(`/admin/posts`, ac.getPosts)
 app.get(`/admin/post/:postid`, ac.getPostById)
 app.post(`/admin/editpost/:postid`, ac.editPost)
 app.post(`/admin/publish/:postid`, ac.publishPost)
 app.post(`/admin/unpublish/:postid`, ac.unpublishPost)
+
+app.post(`/admin/slate/body/:postid`, ac.editPostBody)
+
+// SLATE PRACTICE - HTML
+
+app.get(`/admin/html/:id`, ac.readHtml)
+app.post(`.admin/html/`, ac.addHtml)
 
 
 // MY OWN ENDPOINTS ABOVE
