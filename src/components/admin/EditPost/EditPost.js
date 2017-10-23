@@ -4,7 +4,8 @@ import { adminSelectPost, getComments } from '../../../ducks/reducer';
 import Navbar from '../../reusable/Navbar/Navbar';
 import axios from 'axios';
 import './EditPost.css';
-import Quill from 'quill';
+// import Quill from 'quill';
+import SlateEditor from './SlateEditor/SlateEditor';
 
 class EditPost extends Component {
     constructor(props) {
@@ -87,15 +88,15 @@ class EditPost extends Component {
     }
     render() {
 
-        let options = {
-            modules: {
-                toolbar: true
-            },
-            bounds: '.text-box',
-            theme: 'bubble'
-        }
-
-        let editor = new Quill('.editor', options);
+        // let options = {
+        //     modules: {
+        //         toolbar: true
+        //     },
+        //     bounds: '.text-box',
+        //     theme: 'bubble'
+        // }
+        // 
+        // let editor = new Quill('.editor', options);
 
         let post = this.state || ``
         return (
@@ -116,14 +117,15 @@ class EditPost extends Component {
                         <p>{this.props.selectedPost.published ? 'unpublish' : 'publish'}</p>
                     </div>
                 </div>
-                <div className='text-box'>
+                {/* <div className='text-box'>
                     <div className='editor'>
                         <h1>Title</h1>
                         <h1 className='title' >{post.title}</h1>
                         <h2 className='subtitle' >{post.subtitle}</h2>
                         <p>{post.body}</p>
                     </div>
-                </div>
+                </div> */}
+                <SlateEditor/>
                 <Navbar />
             </div >
         )

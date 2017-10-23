@@ -3,7 +3,7 @@
 i {
   font-style: italic; }
 
-b {
+b, strong {
   font-weight: bold; }
 
 /**THEME**/
