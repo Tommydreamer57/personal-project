@@ -36,12 +36,16 @@ b, strong {
   align-items: center;
   font-family: Calibri; }
 
+.avatar, .CommentBox .Comment .comment-avatar {
+  height: 2rem;
+  width: 2rem;
+  background: black;
+  border-radius: 10rem;
+  margin: 0.2rem; }
+
 @media (max-width: 700px) {
   .box-wrapper, .title-box, .subtitle-box, .text-box {
     margin: 0 8vw 3rem; } }
-
-.editor {
-  border: 2px solid #121212; }
 
 .text-box {
   color: rgba(90, 200, 255, 0.7);

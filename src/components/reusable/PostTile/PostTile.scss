@@ -1,6 +1,12 @@
 
 @import '../../../theme';
 
+.UserTile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .PostTile {
     background: $light;
     padding: 1rem 0.5rem;

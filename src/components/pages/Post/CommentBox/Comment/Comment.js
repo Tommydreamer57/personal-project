@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { alertWarning, alertAdd } from '../../../../../ducks/reducer';
 import { Reply, Submit } from '../../../../reusable/Buttons/Button';
+import { UserTile } from '../../../../reusable/PostTile/PostTile';
 import Response from './Response/Response';
 import axios from 'axios';
 
@@ -76,9 +77,17 @@ class Comment extends Component {
         let { responses, showResponses } = this.state || null;
         return (
             <div className='Comment' >
-                {this.props.name}:&nbsp;
-                {this.props.body}&nbsp;
-                {this.props.date}
+                <UserTile
+                    imgurl={this.props.imgurl || ``}
+                    name={this.props.name}
+                    date={this.props.date}
+                />    
+                {/* <div className='user-tile'>
+                    <img className='comment-avatar' src={this.props.imgurl || ''} />
+                    {this.props.name}&nbsp;&nbsp;&nbsp;at&nbsp;&nbsp;
+                    {this.props.date}
+                </div> */}
+                {this.props.body}
                 {
                     responses ?
                         showResponses ?
@@ -87,10 +96,13 @@ class Comment extends Component {
                                     responses.map((response, i) => {
                                         {/* console.log(response) */ }
                                         return (
-                                            <Response key={i} >
-                                                {response.first_name || response.username}:&nbsp;
-                                                {response.body}&nbsp;
-                                                {response.date}
+                                            <Response
+                                                key={i}
+                                                imgurl={response.imgurl}
+                                                name={response.first_name || response.username}
+                                                date={response.date}
+                                            >
+                                                {response.body}
                                             </Response>
                                         )
                                     })
@@ -101,14 +113,19 @@ class Comment extends Component {
                         :
                         null
                 }
-                <Reply function={this.toggleShowResponses} >
-                    {
-                        showResponses ?
-                            'Hide responses'
-                            :
-                            'Show responses'
-                    }
-                </Reply>
+                {
+                    responses.length ?
+                        <Reply function={this.toggleShowResponses} >
+                            {
+                                showResponses ?
+                                    'Hide responses'
+                                    :
+                                    'Show responses'
+                            }
+                        </Reply>
+                        :
+                        null
+                }
                 <Reply function={this.toggleResponding} >Reply</Reply>
                 {
                     this.state.responding ?

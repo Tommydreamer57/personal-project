@@ -14,6 +14,12 @@ b, strong {
 /**COLORS**/
 
 $faded: rgba(0, 0, 0, 0);
+$faded1: rgba(0, 0, 0, 0.1);
+$faded2: rgba(0, 0, 0, 0.2);
+$faded3: rgba(0, 0, 0, 0.3);
+$faded4: rgba(0, 0, 0, 0.4);
+$faded5: rgba(0, 0, 0, 0.5);
+
 $darker: #121212;
 $dark: #1C1C1C;
 $medium: #262626;
@@ -31,6 +37,14 @@ $blue4: rgba(90, 200, 255, 0.4);
 $blue3: rgba(90, 200, 255, 0.3);
 $blue2: rgba(90, 200, 255, 0.2);
 $blue01: rgba(90, 200, 255, 0.1);
+
+// $editor1: rgba(140, 230, 255, 1);
+// $editor9: rgba(140, 230, 255, 0.9);
+// $editor8: rgba(140, 230, 255, 0.8);
+// $editor7: rgba(140, 230, 255, 0.7);
+// $editor6: rgba(140, 230, 255, 0.6);
+// $editor5: rgba(140, 230, 255, 0.5);
+
 
 $green1: rgba(0, 255, 80, 1);
 $green9: rgba(0, 255, 80, 0.9);
@@ -96,14 +110,18 @@ $mbottom: 3rem;
     font-family: $fmain;
 }
 
+.avatar {
+    height: 2rem;
+    width: 2rem;
+    background: black;
+    border-radius: 10rem;
+    margin: 0.2rem;
+}
+
 @media (max-width: 700px) {
     .box-wrapper {
         margin: 0 8vw $mbottom;
     }
-}
-
-.editor {
-    border: 2px solid $darker;
 }
 
 .title-box {

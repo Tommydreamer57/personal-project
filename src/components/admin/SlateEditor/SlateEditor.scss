@@ -1,0 +1,16 @@
+
+@import '../../../theme';
+
+
+.SlateEditor {
+    .title-box, .subtitle-box, .text-box {
+        background: $blue9;
+        color: $darker;
+        border-radius: 0.5rem;
+    }
+    .editor {
+        background: $faded1;
+        padding: 0.25rem;
+        border-radius: 0.25rem;
+    }
+}

@@ -3,6 +3,7 @@ import Navbar from '../../reusable/Navbar/Navbar';
 import { connect } from 'react-redux';
 import { adminSelectPost, getComments } from '../../../ducks/reducer';
 import axios from 'axios';
+import './SlateEditor.css';
 
 import { Editor } from 'slate-react';
 // import { State } from 'slate';       // ONLY FOR USING JSON
@@ -30,7 +31,7 @@ class SlateEditor extends Component {
     }
     save = () => {
         let string = html.serialize(this.state.state)
-        axios.post(`/admin/slate/body/${this.state.id}`, {string})
+        axios.post(`/admin/slate/body/${this.state.id}`, { string })
             .then(response => {
                 console.log(response.data)
                 this.props.adminSelectPost(this.state.id)
@@ -133,19 +134,21 @@ class SlateEditor extends Component {
                     />
                 </div> */}
                 {/* <div className='text-box'>{jsx.props.state}</div> */}
-                <div className='text-box editor'>
-                    Body: 
-                    <Editor
-                        schema={this.state.schema}
-                        state={this.state.state}
-                        onChange={this.onChange}
-                        onKeyDown={this.onKeyDown}
-                        onKeyUp={this.onKeyUp}
-                    />
+                <div className='text-box'>
+                    Body:
+                    <div className='editor language-javascript'>
+                        <Editor
+                            schema={this.state.schema}
+                            state={this.state.state}
+                            onChange={this.onChange}
+                            onKeyDown={this.onKeyDown}
+                            onKeyUp={this.onKeyUp}
+                        />
+                    </div>
                     <div onClick={this.save}>Save</div>
                 </div>
                 <Navbar />
-            </div>
+            </div >
         )
     }
 }

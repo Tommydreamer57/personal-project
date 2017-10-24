@@ -1,5 +1,4 @@
 /**TAGS**/
-@import 'https://cdn.quilljs.com/1.3.3/quill.snow.css';
 i {
   font-style: italic; }
 
@@ -120,3 +119,13 @@ b, strong {
     color: rgba(255, 0, 0, 0.8); }
   to {
     color: #6432dc; } }
+
+.SlateEditor .title-box, .SlateEditor .subtitle-box, .SlateEditor .text-box {
+  background: rgba(90, 200, 255, 0.9);
+  color: #121212;
+  border-radius: 0.5rem; }
+
+.SlateEditor .editor {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 0.25rem;
+  border-radius: 0.25rem; }

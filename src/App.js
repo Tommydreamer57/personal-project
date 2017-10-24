@@ -11,6 +11,7 @@ import AdminHome from './components/admin/AdminHome/AdminHome';
 import SlateEditor from './components/admin/SlateEditor/SlateEditor';
 import EditPost from './components/admin/EditPost/EditPost';
 import Favorites from './components/pages/Favorites/Favorites';
+import Prism from 'react-prism';
 
 class App extends Component {
   render() {

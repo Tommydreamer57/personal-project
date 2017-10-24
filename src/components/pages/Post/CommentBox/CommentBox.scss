@@ -22,6 +22,10 @@
         background: $medium;
         margin-bottom: 0.5rem;
 
+        .comment-avatar {
+            @extend .avatar ;
+        }
+
         .response-box {
             color: $green5;
             margin: 0 1rem;

@@ -36,12 +36,16 @@ b, strong {
   align-items: center;
   font-family: Calibri; }
 
+.avatar {
+  height: 2rem;
+  width: 2rem;
+  background: black;
+  border-radius: 10rem;
+  margin: 0.2rem; }
+
 @media (max-width: 700px) {
   .box-wrapper, .title-box, .subtitle-box, .text-box {
     margin: 0 8vw 3rem; } }
-
-.editor {
-  border: 2px solid #121212; }
 
 .text-box {
   color: rgba(90, 200, 255, 0.7);
@@ -115,6 +119,11 @@ b, strong {
     color: rgba(255, 0, 0, 0.8); }
   to {
     color: #6432dc; } }
+
+.UserTile {
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
 
 .PostTile {
   background: #333;
