@@ -1,36 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './PostTile.css';
+import DateStamp, { month } from '../dates/dates';
 
 // USER TILE
 
-function month(num) {
-    switch (num) {
-        case 0:
-            return 'January'
-        case 1:
-            return 'February'
-        case 2:
-            return 'March'            
-        case 3:
-            return 'April'            
-        case 4:
-            return 'May'            
-        case 5:
-            return 'June'            
-        case 6:
-            return 'July'            
-        case 7:
-            return 'August'            
-        case 8:
-            return 'September'            
-        case 9:
-            return 'October'
-        case 10:
-            return 'November'            
-        case 11:
-            return 'December'            
-    }
+export function Avatar(props) {
+    return (
+        <div className='Avatar'>
+            {props.name ? props.name.slice(0, 2).toUpperCase() : null}
+        </div>
+    )
 }
 
 export function UserTile(props) {
@@ -38,8 +18,31 @@ export function UserTile(props) {
     console.log(date)
     return (
         <div className='UserTile'>
-            <img className='avatar' src={props.imgurl || `https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png`} />
-            {props.name}&nbsp;&nbsp;&nbsp;at&nbsp;&nbsp;{`${month(date.getMonth())} ${date.getDate()} ${date.getFullYear()}`}
+            {/* <img className='avatar' src={props.imgurl || `https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png`} /> */}
+            {/* <div className='avatar'>{props.name ? props.name.slice(0,2).toUpperCase() : null}</div> */}
+            {props.name}&nbsp;&nbsp;&nbsp;at&nbsp;&nbsp;{`${date.getHours()}:${date.getMinutes()} on ${month(date.getMonth())} ${date.getDate()}, ${date.getFullYear()}`}
+        </div>
+    )
+}
+
+export function AuthorTile(props) {
+    return (
+        <div className='AuthorTile'>
+            <Avatar name={props.name} />
+            <div className='author-tile'>
+                <div className='author-header'>
+                    <div className='name'>
+                        {props.name}
+                    </div>
+                    <div className='date' >
+                        <div>Published on</div>
+                        <DateStamp date={props.date} />
+                    </div>
+                </div>
+                <div className='author-info'>
+                    {props.author_info || 'Lorem impsum dolor sit amet...'}
+                </div>
+            </div>
         </div>
     )
 }

@@ -51,7 +51,7 @@ const rules = [
             if (!type) return
             return {
                 kind: 'mark',
-                type: 'type',
+                type,
                 nodes: next(el.childNodes)
             }
         },
@@ -59,7 +59,7 @@ const rules = [
             if (object.kind != 'mark') return
             switch (object.type) {
                 case 'bold': return <strong>{children}</strong>
-                case 'italic': return <i>{children}</i>
+                case 'italic': return <i>{children}</i>    
             }
         }
     }

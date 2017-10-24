@@ -20,6 +20,13 @@ $faded3: rgba(0, 0, 0, 0.3);
 $faded4: rgba(0, 0, 0, 0.4);
 $faded5: rgba(0, 0, 0, 0.5);
 
+$white1: rgba(255, 255, 255, 1);
+$white9: rgba(255, 255, 255, 0.9);
+$white8: rgba(255, 255, 255, 0.8);
+$white7: rgba(255, 255, 255, 0.7);
+$white6: rgba(255, 255, 255, 0.6);
+$white5: rgba(255, 255, 255, 0.5);
+
 $darker: #121212;
 $dark: #1C1C1C;
 $medium: #262626;
@@ -64,6 +71,15 @@ $yellow8: rgba(200, 190, 0, 0.8);
 $yellow7: rgba(200, 190, 0, 0.7);
 
 $purple1: rgba(100, 50, 220, 1);
+$purple9: rgba(100, 50, 220, 0.9);
+$purple8: rgba(100, 50, 220, 0.8);
+$purple7: rgba(100, 50, 220, 0.7);
+$purple6: rgba(100, 50, 220, 0.6);
+$purple5: rgba(100, 50, 220, 0.5);
+$purple4: rgba(100, 50, 220, 0.4);
+$purple3: rgba(100, 50, 220, 0.3);
+$purple2: rgba(100, 50, 220, 0.2);
+$purple01: rgba(100, 50, 220, 0.1);
 
 /**FONTS**/
 
@@ -110,12 +126,32 @@ $mbottom: 3rem;
     font-family: $fmain;
 }
 
-.avatar {
+.name {
+    color: $white8;
+    font-weight: bold;
+}
+
+.Avatar {
     height: 2rem;
+    max-height: 2rem;
+    min-height: 2rem;
     width: 2rem;
+    max-width: 2rem;
+    min-width: 2rem;
     background: black;
+    color: $purple1;
+    border: 0.125rem solid $purple1;
     border-radius: 10rem;
     margin: 0.2rem;
+
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.DateStamp {
+    color: $white5;
 }
 
 @media (max-width: 700px) {
@@ -139,11 +175,11 @@ $mbottom: 3rem;
     color: $blue7;
     font-size: $fnormal;
     display: auto;
-    text-align: left;
+    text-align: left; 
+    padding: 1rem 1.5rem;   
 
     .text {
         margin-bottom: 0.5rem;
-        text-align: left;
     }
 
     .alert-box {

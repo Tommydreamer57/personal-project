@@ -2,33 +2,83 @@
 @import '../../../../theme';
 
 .CommentBox {
-    background: $light;
+    background: $dark;
     padding: 1rem;
+    width: calc(100% - 2rem);
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: $green7;
+    color: $white7;
 
     .subtitle {
-        color: $green1;
+        color: $white9;
     }
 
     .Comment {
         width: 100%;
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        // align-content: stretch;
-        background: $medium;
+        background: $darker;
+        padding: 0.25rem;
         margin-bottom: 0.5rem;
 
-        .comment-avatar {
-            @extend .avatar ;
+        .comment {
+            width: calc(100% - 2.5rem);
+            margin: 0.25rem 0.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .comment-header {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .comment-body {
+                padding: 0.75rem;
+                // border-bottom: 0.05rem solid $white5;
+            }
+
+            .response-box {
+                margin-right: 2.5rem;
+            }
+
+            .Response {
+                width: 100%;
+                display: flex;
+                padding: 0.25rem;
+                margin-bottom: 0.25rem;
+                color: $white6;
+
+                .response {
+                    width: calc(100% - 2rem);
+                    margin: 0.25rem;
+
+                    .response-header {
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                    }
+
+                    .response-body {
+                        padding: 0.5rem;
+                    }
+
+                }
+
+            }
+
         }
 
-        .response-box {
-            color: $green5;
-            margin: 0 1rem;
+        .comment-footer {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            .comment-buttons {
+                display: flex;
+            }
+
         }
 
     }

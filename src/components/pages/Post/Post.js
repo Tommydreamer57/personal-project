@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from '../../reusable/Navbar/Navbar';
 import { FavoriteButton, EditPostButton } from '../../reusable/Buttons/Button';
-import { UserTile } from '../../reusable/PostTile/PostTile';
+import { AuthorTile, Avatar } from '../../reusable/PostTile/PostTile';
 import CommentBox from './CommentBox/CommentBox';
 import { connect } from 'react-redux';
 import { getUser, adminSelectPost, selectPost, getComments, getFavorites, addFavorite, removeFavorite } from '../../../ducks/reducer';
@@ -79,39 +79,16 @@ class Post extends Component {
                     <div className='subtitle'>
                         {post.subtitle || ``}
                     </div>
-                    {/* <PrismCode> */}
-                    {/* <pre className='language-javascript' >
-                        <code className='language-javascript code' >
-                            {
-                                `let str = 'string';
-                                let arr = [];
-                                for (let i = 0; i < 5; i++) {
-                                    arr.push(str[i])
-                                }
-                                arr`
-                            }
-                        </code>
-                    </pre> */}
-                    {/* </PrismCode> */}
                     <Editor
                         state={this.props.selectedPostBody}
                         schema={schema}
                         readOnly={true}
                     />
-                    {/* <div dangerouslySetInnerHTML={{ __html: post.body || `` }} ></div> */}
-                    {/* HTML
-                    {html.deserialize(post.body).blocks._tail.array.map((item, i) => <p key={i} >{item.text}</p>)} */}
-                    <UserTile
+                    <AuthorTile
                         imgurl={post.userimgurl}
                         name={post.first_name || post.username}
                         date={post.date}
                     />
-                    {/* <div className='author'>
-                        Written by {post.first_name || post.username}
-                    </div>
-                    <div className='date'>
-                        {post.date}
-                    </div> */}
                     <CommentBox />
                 </div>
                 {

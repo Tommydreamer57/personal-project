@@ -36,12 +36,29 @@ b, strong {
   align-items: center;
   font-family: Calibri; }
 
-.avatar {
+.name {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: bold; }
+
+.Avatar {
   height: 2rem;
+  max-height: 2rem;
+  min-height: 2rem;
   width: 2rem;
+  max-width: 2rem;
+  min-width: 2rem;
   background: black;
+  color: #6432dc;
+  border: 0.125rem solid #6432dc;
   border-radius: 10rem;
-  margin: 0.2rem; }
+  margin: 0.2rem;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center; }
+
+.DateStamp {
+  color: rgba(255, 255, 255, 0.5); }
 
 @media (max-width: 700px) {
   .box-wrapper, .title-box, .subtitle-box, .text-box, .App .main .post-box {
@@ -51,10 +68,10 @@ b, strong {
   color: rgba(90, 200, 255, 0.7);
   font-size: 1rem;
   display: auto;
-  text-align: left; }
+  text-align: left;
+  padding: 1rem 1.5rem; }
   .text-box .text {
-    margin-bottom: 0.5rem;
-    text-align: left; }
+    margin-bottom: 0.5rem; }
   .text-box .alert-box, .text-box .add-box, .text-box .remove-box, .text-box .warning-box {
     position: absolute;
     top: -3rem;
@@ -133,3 +150,6 @@ b, strong {
     .App .main .post-box {
       flex-flow: row wrap;
       justify-content: space-around; }
+  .App code {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.1); }

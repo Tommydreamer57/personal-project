@@ -260,7 +260,7 @@ export default function reducer(state = initialState, action) {
         case SELECT_POST + FULFILLED:
             // CHECK FAVORITES TO SEE IF POST IS IN FAVORITES
             if (state.favorites.length) {
-                if (state.favorites.filter(fav => fav.id == action.payload.post.id).length) {
+                if (state.favorites.filter(fav => fav.id == action.payload.id).length) {
                     postIsFavorite = true;
                 }
             }

@@ -12,6 +12,27 @@
     z-index: 10000;
 }
 
+.AuthorTile {
+    display: flex;
+
+    .author-tile {
+        display: flex;
+        flex-direction: column;
+
+        .author-header {
+            display: flex;
+            justify-content: space-between;
+
+            .date {
+                display: flex;
+            }
+
+        }
+
+    }
+
+}
+
 @media (max-width: 700px) {
 
     .FavoriteButton {

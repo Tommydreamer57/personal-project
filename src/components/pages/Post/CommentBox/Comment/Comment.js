@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { alertWarning, alertAdd } from '../../../../../ducks/reducer';
 import { Reply, Submit } from '../../../../reusable/Buttons/Button';
-import { UserTile } from '../../../../reusable/PostTile/PostTile';
+import { UserTile, Avatar } from '../../../../reusable/PostTile/PostTile';
 import Response from './Response/Response';
 import axios from 'axios';
+import DateStamp, { month } from '../../../../reusable/dates/dates';
 
 class Comment extends Component {
     constructor(props) {
@@ -75,70 +76,78 @@ class Comment extends Component {
     render() {
         // console.log(this.state)
         let { responses, showResponses } = this.state || null;
+        let date = new Date(this.props.date)
         return (
             <div className='Comment' >
-                <UserTile
-                    imgurl={this.props.imgurl || ``}
-                    name={this.props.name}
-                    date={this.props.date}
-                />    
-                {/* <div className='user-tile'>
-                    <img className='comment-avatar' src={this.props.imgurl || ''} />
-                    {this.props.name}&nbsp;&nbsp;&nbsp;at&nbsp;&nbsp;
-                    {this.props.date}
+                <Avatar name={this.props.name || null} />
+                {/* <div className='avatar'>
+                    {this.props.name ? this.props.name.slice(0, 2).toUpperCase() : null}
                 </div> */}
-                {this.props.body}
-                {
-                    responses ?
-                        showResponses ?
-                            <div className='response-box'>
-                                {
-                                    responses.map((response, i) => {
-                                        {/* console.log(response) */ }
-                                        return (
-                                            <Response
-                                                key={i}
-                                                imgurl={response.imgurl}
-                                                name={response.first_name || response.username}
-                                                date={response.date}
-                                            >
-                                                {response.body}
-                                            </Response>
-                                        )
-                                    })
-                                }
-                            </div>
+                <div className='comment'>
+                    <div className='comment-header'>
+                        <div className='name' >
+                            {this.props.name}
+                        </div>
+                        <DateStamp date={this.props.date} />
+                    </div>
+                    <div className='comment-body' >
+                        {`"${this.props.body}"`}
+                    </div>
+                    <div className='comment-footer'>
+                        <div className='comment-buttons'>
+                            {
+                                responses.length ?
+                                    <Reply function={this.toggleShowResponses} >
+                                        {
+                                            showResponses ?
+                                                'Hide responses'
+                                                :
+                                                'Show responses'
+                                        }
+                                    </Reply>
+                                    :
+                                    null
+                            }
+                            <Reply function={this.toggleResponding} >Reply</Reply>
+                        </div>
+                    </div>
+                    {
+                        responses ?
+                            showResponses ?
+                                <div className='response-box'>
+                                    {
+                                        responses.map((response, i) => {
+                                            {/* console.log(response) */ }
+                                            return (
+                                                <Response
+                                                    key={i}
+                                                    imgurl={response.imgurl}
+                                                    name={response.first_name || response.username}
+                                                    date={response.date}
+                                                    body={response.body}
+                                                />
+                                            )
+                                        })
+                                    }
+                                </div>
+                                :
+                                null
                             :
                             null
-                        :
-                        null
-                }
-                {
-                    responses.length ?
-                        <Reply function={this.toggleShowResponses} >
-                            {
-                                showResponses ?
-                                    'Hide responses'
-                                    :
-                                    'Show responses'
-                            }
-                        </Reply>
-                        :
-                        null
-                }
-                <Reply function={this.toggleResponding} >Reply</Reply>
-                {
-                    this.state.responding ?
-                        <input className='response-input' type='text' onChange={e => this.handleChange(e.target.value)} value={this.state.input} />
-                        :
-                        null
-                }
-                {
-                    this.state.responding ?
-                        <Submit className='submit' function={this.submitResponse} >Submit</Submit>
-                        :
-                        null
-                }
+                    }
+                    {
+                        this.state.responding ?
+                            <input className='response-input' type='text' onChange={e => this.handleChange(e.target.value)} value={this.state.input} />
+                            :
+                            null
+                    }
+                    {
+                        this.state.responding ?
+                            <Submit className='submit' function={this.submitResponse} >Submit</Submit>
+                            :
+                            null
+                    }
+                </div>
             </div>
         )
     }
