@@ -1,4 +1,5 @@
 import axios from 'axios';
+import html from '../components/admin/SlateEditor/html-rules';
 
 // INITIAL STATE
 
@@ -10,7 +11,8 @@ const initialState = {
     posts: [{
         title: 'refresh page to load posts'
     }],    // post object from /posts/section { id, title, subtitle, body, comments { username, date, body } }
-    selectedPost: 0,    // selected post id
+    selectedPost: 0,    // selected post information
+    selectedPostBody: html.deserialize(`<p>please reload page</p>`),
     postIsFavorite: false,
     comments: [],
     responses: [],
@@ -258,12 +260,16 @@ export default function reducer(state = initialState, action) {
         case SELECT_POST + FULFILLED:
             // CHECK FAVORITES TO SEE IF POST IS IN FAVORITES
             if (state.favorites.length) {
-                if (state.favorites.filter(fav => fav.id == action.payload.id).length) {
+                if (state.favorites.filter(fav => fav.id == action.payload.post.id).length) {
                     postIsFavorite = true;
                 }
             }
+            let body = html.deserialize(action.payload.body)
+            // let body = document.createElement('html')
+            // body.innerHTML = action.payload.body
+            console.log(body)
             // RETURN SELECTED POST AND IF IT IS IN FAVORITES
-            return Object.assign({}, state, { selectedPost: action.payload, postIsFavorite });
+            return Object.assign({}, state, { selectedPost: action.payload, selectedPostBody: body, postIsFavorite });
         case SELECT_POST + REJECTED:
             alertClass = 'warning-box'
             alert = 'could not load post, please refresh'

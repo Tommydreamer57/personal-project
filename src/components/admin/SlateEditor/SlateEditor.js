@@ -5,8 +5,8 @@ import { adminSelectPost, getComments } from '../../../ducks/reducer';
 import axios from 'axios';
 
 import { Editor } from 'slate-react';
-import { State } from 'slate';
-import html from './html-rules';
+// import { State } from 'slate';       // ONLY FOR USING JSON
+import html, { schema } from './html-rules';
 
 const existingState = '<h1>Hello !!!</h1>'
 
@@ -24,21 +24,7 @@ class SlateEditor extends Component {
             imgurl: ``,
             // SLATE STATE
             state: html.deserialize(existingState),
-            schema: {
-                nodes: {
-                    // section: props => <h1 {...props.attributes}>{props.children}</h1>,
-                    // subsection: props => <h2>{...props.attributes}>{props.children}</h2>,
-                    // title: props => <h3 {...props.attributes}>{props.children}</h3>,
-                    // subtitle: props => <h4 {...props.attriutes}>{props.children}</h4>,
-                    code: props => <pre {...props.attributes}><code>{props.children}</code></pre>,
-                    paragraph: props => <p {...props.attributes}>{props.children}</p>,
-                    quote: props => <blockquote {...props.attributes}>{props.children}</blockquote>
-                },
-                marks: {
-                    bold: props => <strong>{props.children}</strong>,
-                    italic: props => <i>{props.children}</i>
-                }
-            }
+            schema: schema
         }
         this.ctrl = false
     }
@@ -47,12 +33,13 @@ class SlateEditor extends Component {
         axios.post(`/admin/slate/body/${this.state.id}`, {string})
             .then(response => {
                 console.log(response.data)
+                this.props.adminSelectPost(this.state.id)
             })
     }
     onChange = ({ state }) => {
         if (state.document != this.state.document) {
             let string = html.serialize(state)
-            console.log(string)
+            // console.log(string)
             localStorage.setItem('content', string)
         }
         this.setState({ state })
@@ -80,6 +67,9 @@ class SlateEditor extends Component {
                 event.preventDefault();
                 change.toggleMark('italic')
                 return true;
+            case 's':
+                event.preventDefault();
+                this.save();
             default:
                 return;
         }
@@ -89,9 +79,6 @@ class SlateEditor extends Component {
         if (event.key == 'Control') {
             this.ctrl = false
         }
-    }
-    save() {
-
     }
     componentDidMount() {
         let { postid } = this.props.match.params;
@@ -147,6 +134,7 @@ class SlateEditor extends Component {
                 </div> */}
                 {/* <div className='text-box'>{jsx.props.state}</div> */}
                 <div className='text-box editor'>
+                    Body: 
                     <Editor
                         schema={this.state.schema}
                         state={this.state.state}

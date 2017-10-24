@@ -67,6 +67,22 @@ const rules = [
 
 export default new Html({ rules })
 
+export const schema = {
+    nodes: {
+        // section: props => <h1 {...props.attributes}>{props.children}</h1>,
+        // subsection: props => <h2>{...props.attributes}>{props.children}</h2>,
+        // title: props => <h3 {...props.attributes}>{props.children}</h3>,
+        // subtitle: props => <h4 {...props.attriutes}>{props.children}</h4>,
+        code: props => <pre {...props.attributes}><code>{props.children}</code></pre>,
+        paragraph: props => <p {...props.attributes}>{props.children}</p>,
+        quote: props => <blockquote {...props.attributes}>{props.children}</blockquote>
+    },
+    marks: {
+        bold: props => <strong>{props.children}</strong>,
+        italic: props => <i>{props.children}</i>
+    }
+}
+
 // const initialState = State.fromJSON(existingState  ||
 // {
 //     document: {

@@ -6,14 +6,16 @@ import { connect } from 'react-redux';
 import { getUser, adminSelectPost, selectPost, getComments, getFavorites, addFavorite, removeFavorite } from '../../../ducks/reducer';
 import './Post.css';
 
-import html from '../../admin/SlateEditor/html-rules';
+import { Editor } from 'slate-react';
+import html, { schema } from '../../admin/SlateEditor/html-rules';
 
 class Post extends Component {
     constructor(props) {
         super(props)
         this.state = {
             alertType: 'add-box',
-            alert: 'Added to favorites'
+            alert: 'Added to favorites',
+            // state: html.deserialize('<h1>Hello</h1>')
         }
         this.toggleFav = this.toggleFav.bind(this);
     }
@@ -74,8 +76,13 @@ class Post extends Component {
                     </div>
                     <div className='subtitle'>
                         {post.subtitle || ``}
-                    </div  >
-                    {post.body || ``}
+                    </div>
+                    <Editor
+                        state={this.props.selectedPostBody}
+                        schema={schema}
+                        readOnly={true}
+                    />
+                    {/* <div dangerouslySetInnerHTML={{ __html: post.body || `` }} ></div> */}
                     {/* HTML
                     {html.deserialize(post.body).blocks._tail.array.map((item, i) => <p key={i} >{item.text}</p>)} */}
                     <div className='author'>
@@ -103,6 +110,7 @@ function mapStateToProps(state) {
         user: state.user,
         favorites: state.favorites,
         selectedPost: state.selectedPost,
+        selectedPostBody: state.selectedPostBody,
         postIsFavorite: state.postIsFavorite,
         alertClass: state.alertClass,
         alert: state.alert
