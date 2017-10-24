@@ -147,15 +147,24 @@ b, strong {
   z-index: 10000; }
 
 .AuthorTile {
-  display: flex; }
+  margin: 1rem 2.25rem;
+  display: flex;
+  color: rgba(255, 255, 255, 0.7); }
   .AuthorTile .author-tile {
+    margin: 0.25rem 0.5rem;
     display: flex;
     flex-direction: column; }
     .AuthorTile .author-tile .author-header {
       display: flex;
       justify-content: space-between; }
-      .AuthorTile .author-tile .author-header .date {
-        display: flex; }
+    .AuthorTile .author-tile .author-info {
+      padding: 0.5rem; }
+
+.date {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  color: rgba(255, 255, 255, 0.5); }
 
 @media (max-width: 700px) {
   .FavoriteButton {

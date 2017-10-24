@@ -108,7 +108,12 @@ class Comment extends Component {
                                     :
                                     null
                             }
-                            <Reply function={this.toggleResponding} >Reply</Reply>
+                            {
+                                showResponses ?
+                                    null
+                                    :
+                                    <Reply function={this.toggleResponding} >Reply</Reply>
+                            }
                         </div>
                     </div>
                     {
@@ -134,6 +139,12 @@ class Comment extends Component {
                                 null
                             :
                             null
+                    }
+                    {
+                        showResponses ?
+                            <Reply function={this.toggleResponding} >Reply</Reply>
+                            :
+                            null                            
                     }
                     {
                         this.state.responding ?

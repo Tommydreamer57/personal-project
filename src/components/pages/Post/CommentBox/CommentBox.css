@@ -139,6 +139,8 @@ b, strong {
 
 .CommentBox {
   background: #1C1C1C;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
   padding: 1rem;
   width: calc(100% - 2rem);
   display: flex;

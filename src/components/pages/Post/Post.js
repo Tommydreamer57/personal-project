@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Navbar from '../../reusable/Navbar/Navbar';
 import { FavoriteButton, EditPostButton } from '../../reusable/Buttons/Button';
 import { AuthorTile, Avatar } from '../../reusable/PostTile/PostTile';
+import DateStamp from '../../reusable/dates/dates';
 import CommentBox from './CommentBox/CommentBox';
 import { connect } from 'react-redux';
 import { getUser, adminSelectPost, selectPost, getComments, getFavorites, addFavorite, removeFavorite } from '../../../ducks/reducer';
@@ -89,6 +90,10 @@ class Post extends Component {
                         name={post.first_name || post.username}
                         date={post.date}
                     />
+                    <div className='date'>
+                        Published on &nbsp;
+                        <DateStamp date={post.date} />
+                    </div>
                     <CommentBox />
                 </div>
                 {

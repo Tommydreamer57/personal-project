@@ -18,8 +18,6 @@ export function UserTile(props) {
     console.log(date)
     return (
         <div className='UserTile'>
-            {/* <img className='avatar' src={props.imgurl || `https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png`} /> */}
-            {/* <div className='avatar'>{props.name ? props.name.slice(0,2).toUpperCase() : null}</div> */}
             {props.name}&nbsp;&nbsp;&nbsp;at&nbsp;&nbsp;{`${date.getHours()}:${date.getMinutes()} on ${month(date.getMonth())} ${date.getDate()}, ${date.getFullYear()}`}
         </div>
     )
@@ -34,13 +32,9 @@ export function AuthorTile(props) {
                     <div className='name'>
                         {props.name}
                     </div>
-                    <div className='date' >
-                        <div>Published on</div>
-                        <DateStamp date={props.date} />
-                    </div>
                 </div>
                 <div className='author-info'>
-                    {props.author_info || 'Lorem impsum dolor sit amet...'}
+                    {props.author_info || 'Lorem impsum dolor sit amet, blandit est sodales, pellentesque nulla. Nam vitae lorem tempus, pharetra mi sed, porta metus. Integer ultrices semper neque ut eleifend. Nunc ullamcorper augue ut sapien varius rhoncus. Pellentesque porttitor luctus enim quis congue.'}
                 </div>
             </div>
         </div>
