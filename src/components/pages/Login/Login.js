@@ -16,7 +16,9 @@ export default class Login extends Component {
                 </div>
                 <div className='subtitle-box'>
                     <a href='/home'>Continue without logging in</a>
-                    </div>
+                </div>
+                <div className='login-container'>
+                </div>
             </div>
         )
     }

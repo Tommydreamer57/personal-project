@@ -2,15 +2,17 @@
 @import '../../../theme';
 
 
-.SlateEditor {
+.SlateEditor, .CreatePost {
     .title-box, .subtitle-box, .text-box {
-        background: $blue9;
-        color: $darker;
+        background: $darkest;
+        color: $blue7;
         border-radius: 0.5rem;
     }
     .editor {
-        background: $faded1;
-        padding: 0.25rem;
+        background: $white001;
+        color: $white7;
+        padding: 0.5rem;
         border-radius: 0.25rem;
+        margin: 1rem 0;
     }
 }

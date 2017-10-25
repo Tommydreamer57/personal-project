@@ -41,9 +41,10 @@
     display: flex;
     justify-content: flex-start;
     color: $white5;
+
 }
 
-@media (max-width: 700px) {
+@media (max-width: $querymedium) {
 
     .FavoriteButton {
         position: fixed;
@@ -51,4 +52,11 @@
         right: 1rem;
     }
 
+}
+
+@media (max-width: $querythin) {
+    .AuthorTile {
+        margin-left: 0rem;
+        margin-right: 0rem;
+    }
 }

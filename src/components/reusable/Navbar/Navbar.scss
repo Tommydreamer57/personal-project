@@ -7,7 +7,7 @@
     }
 
     .navigation-bar {
-        background: $darker;
+        background: black;
         color: $blue5;
         height: 100vh;
         width: 15rem;
@@ -25,7 +25,7 @@
     }
 
     .navigation-shadow {
-        background: linear-gradient(90deg, $darker, $faded);
+        background: linear-gradient(90deg, black, $faded);
         height: 100%;
         width: 0;
         position: fixed;
@@ -47,7 +47,7 @@
 
 }
 
-@media (max-width: 700px) {
+@media (max-width: $querymedium) {
 
     $navheight: 2.75rem;
     $opennav: 15rem;
@@ -77,10 +77,10 @@
     .navigation-bar-wrapper {
         position: fixed;
         top: 0;
-        width: 100vw;
+        width: 100%;
         height: $navheight;
         display: block;
-        background: $darker;
+        background: black;
         z-index: 1001;
 
         .navigation-bar {
@@ -89,7 +89,7 @@
             right: 0;
             left: 0;
             height: $opennav;
-            width: 100vw;
+            width: 100%;
             align-items: flex-start;
             transition: top .5s;
             padding-bottom: $navheight;
@@ -102,9 +102,9 @@
         top: $navheight;
         left: 0;
         right: 0;
-        width: 100vw;
+        width: 100%;
         height: 0;
-        background: linear-gradient(0deg, $darker, $faded);
+        background: linear-gradient(0deg, black, $faded);
         transition: top .8s, height .8s;
         transition-delay: none;
         z-index: 10001;
@@ -112,7 +112,7 @@
 
     .navigation-bar-wrapper:hover {
         .navigation-bar {
-            width: 100vw;
+            width: 100%;
             display: flex;
             top: $navheight;
         }

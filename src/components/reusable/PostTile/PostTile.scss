@@ -6,7 +6,7 @@
 }
 
 .PostTile {
-    background: $light;
+    background: $medium;
     padding: 1rem 0.5rem;
     margin: 1rem;
 
@@ -17,7 +17,7 @@
 
 }
 
-@media (max-width: 700px) {
+@media (max-width: $querymedium) {
     .PostTile {
         width: 100%;
         padding: 1rem;

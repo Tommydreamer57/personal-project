@@ -2,11 +2,15 @@
 @import './theme';
 
 .App {
+    width: 100%;
+    overflow-x: hidden;
     background: $dark;
     color: $blue6;
     min-height: 100vh;
 
     .main {
+        width: 100%;
+        overflow-x: hidden;
         min-height: 100vh;
         padding-top: 3rem;
         padding-bottom: 1rem;
@@ -17,8 +21,9 @@
 
         .post-box {
             @extend .box-wrapper ;
-            flex-flow: row wrap;
+            flex-direction: column;
             justify-content: space-around;
+            align-items: stretch;
         }
 
     }

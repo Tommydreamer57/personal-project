@@ -3,14 +3,21 @@ module.exports = {
         const db = req.app.get('db');
         db.admin_read_posts()
             .then(posts => {
-                res.send(posts)
+                res.status(200).send(posts)
             })
     },
     getPostById: (req, res, next) => {
         const db = req.app.get('db');
         db.admin_read_post_by_id([req.params.postid])
             .then(post => {
-                res.send(post)
+                res.status(200).send(post)
+            })
+    },
+    createPost: (req, res, next) => {
+        const db = req.app.get('db');
+        db.admin_create_post([req.body.section, req.body.subsection, req.body.title, req.body.subtitle, req.body.imgurl, 10])
+            .then(post => {
+                res.status(200).send(post)
             })
     },
     editPost: (req, res, next) => {
@@ -19,18 +26,18 @@ module.exports = {
             .then(() => {
                 db.admin_read_post_by_id([req.params.postid])
                     .then(post => {
-                        res.send(post)
+                        res.status(200).send(post)
                     })
             })
     },
     editPostBody: (req, res, next) => {
         const db = req.app.get('db');
-        res.send(req.body)
+        res.status(200).send(req.body)
         db.admin_edit_post_body([req.params.postid, req.body.string])
             .then(() => {
                 db.admin_read_post_by_id([req.params.id])
                     .then(post => {
-                        res.send(post)
+                        res.status(200).send(post)
                     })
             })
     },
@@ -40,7 +47,7 @@ module.exports = {
             .then(() => {
                 db.admin_read_post_by_id([req.params.postid])
                     .then(post => {
-                        res.send(post)
+                        res.status(200).send(post)
                     })
             })
     },
@@ -50,7 +57,7 @@ module.exports = {
             .then(() => {
                 db.admin_read_post_by_id([req.params.postid])
                     .then(post => {
-                        res.send(post)
+                        res.status(200).send(post)
                     })
             })
     },
@@ -58,14 +65,14 @@ module.exports = {
         const db = req.app.get('db');
         db.add_html([req.body.body])
             .then(html => {
-                res.send(html)
+                res.status(200).send(html)
             })
     },
     readHtml: (req, res, next) => {
         const db = req.app.get('db');
         db.read_html([req.params.id])
             .then(html => {
-                res.send(html)
+                res.status(200).send(html)
             })
     }
 }

@@ -63,7 +63,7 @@ class CommentBox extends Component {
                         :
                         null
                 }
-                <Reply function={this.toggleCommenting} >Click here to leave a response</Reply>
+                    <Reply function={this.toggleCommenting} >Click here to leave a response</Reply>
                 {
                     this.state.commenting ?
                         <input className='comment-input' type='text' onChange={e => this.handleChange(e.target.value)} />

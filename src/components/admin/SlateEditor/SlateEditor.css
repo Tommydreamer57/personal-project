@@ -9,6 +9,7 @@ b, strong {
 /**COLORS**/
 /**FONTS**/
 /**MARGINS**/
+/**MEDIA QUERIES**/
 /**CLASSES**/
 .none {
   display: none; }
@@ -25,9 +26,9 @@ b, strong {
   margin-bottom: 1rem; }
 
 .box-wrapper, .title-box, .subtitle-box, .text-box {
-  background: #262626;
+  background: #121212;
   padding: 1rem;
-  margin: 0 15vw 3rem;
+  margin: 0 25vw 3rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -60,9 +61,17 @@ b, strong {
 .DateStamp {
   color: rgba(255, 255, 255, 0.5); }
 
-@media (max-width: 700px) {
+@media (max-width: 920px) {
+  .box-wrapper, .title-box, .subtitle-box, .text-box {
+    margin: 0 12vw 3rem; } }
+
+@media (max-width: 740px) {
   .box-wrapper, .title-box, .subtitle-box, .text-box {
     margin: 0 8vw 3rem; } }
+
+@media (max-width: 500px) {
+  .box-wrapper, .title-box, .subtitle-box, .text-box {
+    margin: 0 2vw 3rem; } }
 
 .text-box {
   color: rgba(90, 200, 255, 0.7);
@@ -137,12 +146,14 @@ b, strong {
   to {
     color: #6432dc; } }
 
-.SlateEditor .title-box, .SlateEditor .subtitle-box, .SlateEditor .text-box {
-  background: rgba(90, 200, 255, 0.9);
-  color: #121212;
+.SlateEditor .title-box, .SlateEditor .subtitle-box, .SlateEditor .text-box, .CreatePost .title-box, .CreatePost .subtitle-box, .CreatePost .text-box {
+  background: #0D0D0D;
+  color: rgba(90, 200, 255, 0.7);
   border-radius: 0.5rem; }
 
-.SlateEditor .editor {
-  background: rgba(0, 0, 0, 0.1);
-  padding: 0.25rem;
-  border-radius: 0.25rem; }
+.SlateEditor .editor, .CreatePost .editor {
+  background: rgba(255, 255, 255, 0.035);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  margin: 1rem 0; }

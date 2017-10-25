@@ -1,4 +1,5 @@
 import React from 'react';
+import './date.css';
 
 export function month(num) {
     switch (num) {
@@ -36,8 +37,12 @@ export default function DateStamp(props) {
             console.log(typeof date)
             return (
                 <div className='DateStamp'>
-                    {`${month(date.getMonth())} ${date.getDate()}, ${date.getFullYear()} at ${date.getHours()}:${date.getMinutes()}`}
-                    {null}
+                    <div className='short-date'>
+                        {`${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`}
+                    </div>
+                    <div className='full-date'>
+                        {`${month(date.getMonth())} ${date.getDate()}, ${date.getFullYear()} at ${date.getHours()}:${date.getMinutes()}`}
+                    </div>
                 </div>
             )
         }

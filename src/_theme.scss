@@ -19,6 +19,11 @@ $faded2: rgba(0, 0, 0, 0.2);
 $faded3: rgba(0, 0, 0, 0.3);
 $faded4: rgba(0, 0, 0, 0.4);
 $faded5: rgba(0, 0, 0, 0.5);
+$faded6: rgba(0, 0, 0, 0.6);
+$faded7: rgba(0, 0, 0, 0.7);
+$faded8: rgba(0, 0, 0, 0.8);
+$faded9: rgba(0, 0, 0, 0.9);
+$faded10: rgba(0, 0, 0, 1);
 
 $white1: rgba(255, 255, 255, 1);
 $white9: rgba(255, 255, 255, 0.9);
@@ -26,9 +31,16 @@ $white8: rgba(255, 255, 255, 0.8);
 $white7: rgba(255, 255, 255, 0.7);
 $white6: rgba(255, 255, 255, 0.6);
 $white5: rgba(255, 255, 255, 0.5);
+$white4: rgba(255, 255, 255, 0.4);
+$white3: rgba(255, 255, 255, 0.3);
+$white2: rgba(255, 255, 255, 0.2);
+$white01: rgba(255, 255, 255, 0.1);
+$white001: rgba(255, 255, 255, 0.035);
 
+$darkest: #0D0D0D;
 $darker: #121212;
-$dark: #1C1C1C;
+$dark: #171717;
+$mediumdark: #1C1C1C;
 $medium: #262626;
 $light: #333;
 $lighter: #555;
@@ -94,6 +106,12 @@ $fnormal: 1rem;
 
 $mbottom: 3rem;
 
+/**MEDIA QUERIES**/
+
+$querywide: 920px;
+$querymedium: 740px;
+$querythin: 500px;
+
 /**CLASSES**/
 
 .none {
@@ -114,9 +132,9 @@ $mbottom: 3rem;
 }
 
 .box-wrapper {
-    background: $medium;
+    background: $darker;
     padding: 1rem;
-    margin: 0 15vw $mbottom;
+    margin: 0 25vw $mbottom;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -154,9 +172,21 @@ $mbottom: 3rem;
     color: $white5;
 }
 
-@media (max-width: 700px) {
+@media (max-width: $querywide) {
+    .box-wrapper {
+        margin: 0 12vw $mbottom;
+    }
+}
+
+@media (max-width: $querymedium) {
     .box-wrapper {
         margin: 0 8vw $mbottom;
+    }
+}
+
+@media (max-width: $querythin) {
+    .box-wrapper {
+        margin: 0 2vw $mbottom;
     }
 }
 
@@ -175,8 +205,9 @@ $mbottom: 3rem;
     color: $blue7;
     font-size: $fnormal;
     display: auto;
-    text-align: left; 
-    padding: 1rem 1.5rem;   
+    text-align: left;
+    // line-height: 110%;
+    padding: 1rem 1.5rem;
 
     .text {
         margin-bottom: 0.5rem;

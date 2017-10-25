@@ -8,10 +8,10 @@ import Home from './components/pages/Home/Home';
 import Section from './components/pages/Section/Section';
 import Post from './components/pages/Post/Post';
 import AdminHome from './components/admin/AdminHome/AdminHome';
+import CreatePost from './components/admin/CreatePost/CreatePost';
 import SlateEditor from './components/admin/SlateEditor/SlateEditor';
 import EditPost from './components/admin/EditPost/EditPost';
 import Favorites from './components/pages/Favorites/Favorites';
-import Prism from 'react-prism';
 
 class App extends Component {
   render() {
@@ -25,6 +25,7 @@ class App extends Component {
               <Route path='/section/:section' component={Section} />
               <Route path='/posts/:postid' component={Post} />
               <Route exact path='/admin/' component={AdminHome} />
+              <Route path='/admin/createpost' component={CreatePost} />
               <Route path='/admin/editpost/:postid' component={SlateEditor} />
               <Route path='/favorites' component={Favorites} />
             </Switch>

@@ -9,6 +9,7 @@ b, strong {
 /**COLORS**/
 /**FONTS**/
 /**MARGINS**/
+/**MEDIA QUERIES**/
 /**CLASSES**/
 .none {
   display: none; }
@@ -25,9 +26,9 @@ b, strong {
   margin-bottom: 1rem; }
 
 .box-wrapper, .title-box, .subtitle-box, .text-box {
-  background: #262626;
+  background: #121212;
   padding: 1rem;
-  margin: 0 15vw 3rem;
+  margin: 0 25vw 3rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -60,9 +61,17 @@ b, strong {
 .DateStamp {
   color: rgba(255, 255, 255, 0.5); }
 
-@media (max-width: 700px) {
+@media (max-width: 920px) {
+  .box-wrapper, .title-box, .subtitle-box, .text-box {
+    margin: 0 12vw 3rem; } }
+
+@media (max-width: 740px) {
   .box-wrapper, .title-box, .subtitle-box, .text-box {
     margin: 0 8vw 3rem; } }
+
+@media (max-width: 500px) {
+  .box-wrapper, .title-box, .subtitle-box, .text-box {
+    margin: 0 2vw 3rem; } }
 
 .text-box {
   color: rgba(90, 200, 255, 0.7);
@@ -138,10 +147,10 @@ b, strong {
     color: #6432dc; } }
 
 .CommentBox {
-  background: #1C1C1C;
+  background: black;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
-  padding: 1rem;
+  padding: 0.5rem;
   width: calc(100% - 2rem);
   display: flex;
   flex-direction: column;
@@ -154,9 +163,9 @@ b, strong {
     display: flex;
     background: #121212;
     padding: 0.25rem;
-    margin-bottom: 0.5rem; }
+    margin-bottom: 0.25rem; }
     .CommentBox .Comment .comment {
-      width: calc(100% - 2.5rem);
+      width: calc(100% - 2rem);
       margin: 0.25rem 0.5rem;
       display: flex;
       flex-direction: column;
@@ -166,35 +175,62 @@ b, strong {
         display: flex;
         justify-content: space-between; }
       .CommentBox .Comment .comment .comment-body {
-        padding: 0.75rem; }
+        padding: 0.75rem 1.25rem;
+        color: rgba(255, 255, 255, 0.7); }
       .CommentBox .Comment .comment .response-box {
+        margin-top: 0.5rem;
         margin-right: 2.5rem; }
       .CommentBox .Comment .comment .Response {
         width: 100%;
         display: flex;
         padding: 0.25rem;
         margin-bottom: 0.25rem;
-        color: rgba(255, 255, 255, 0.6); }
+        color: rgba(255, 255, 255, 0.6);
+        background: #121212; }
         .CommentBox .Comment .comment .Response .response {
           width: calc(100% - 2rem);
-          margin: 0.25rem; }
+          margin: 0.25rem 0.5rem; }
           .CommentBox .Comment .comment .Response .response .response-header {
             width: 100%;
             display: flex;
             justify-content: space-between; }
           .CommentBox .Comment .comment .Response .response .response-body {
-            padding: 0.5rem; }
+            padding: 0.5rem 1rem;
+            color: rgba(255, 255, 255, 0.7); }
     .CommentBox .Comment .comment-footer {
       width: 100%;
       display: flex;
       justify-content: space-between; }
       .CommentBox .Comment .comment-footer .comment-buttons {
-        display: flex; }
+        width: 50%;
+        display: flex;
+        justify-content: space-between; }
   .CommentBox .input, .CommentBox .comment-input, .CommentBox .response-input {
     display: block;
-    background: #1C1C1C;
+    background: #171717;
     color: white;
     border: none;
     margin: 0 1rem; }
   .CommentBox .input:active, .CommentBox .comment-input:active, .CommentBox .response-input:active {
     border: none; }
+
+@media (max-width: 500px) {
+  .CommentBox {
+    width: calc(100% + 2rem); }
+    .CommentBox .Comment .comment {
+      width: 100%; }
+      .CommentBox .Comment .comment .comment-body {
+        padding-left: 0;
+        padding-right: 0; }
+      .CommentBox .Comment .comment .comment-buttons {
+        width: calc(100% - 0.5rem); }
+      .CommentBox .Comment .comment .response-box {
+        margin-right: 0; }
+        .CommentBox .Comment .comment .response-box .Response {
+          width: calc(100% + 1.5rem);
+          transform: translateX(-1.5rem); }
+          .CommentBox .Comment .comment .response-box .Response .response .response-header {
+            flex-direction: column; }
+          .CommentBox .Comment .comment .response-box .Response .response .response-body {
+            padding-left: 0;
+            padding-right: 0; } }

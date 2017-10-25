@@ -118,22 +118,10 @@ class SlateEditor extends Component {
     }
     render() {
         let post = this.state || ``
-        // let jsx = (
-        //     <Editor state={html.deserialize(post.body)} />
-        // )
-        // console.log(html.deserialize(post.body).blocks._tail.array[0].text)
-        // console.log(jsx.props.state)
         return (
             <div className='SlateEditor'>
                 <div className='title-box'>Section: {post.section}</div>
                 <div className='subtitle-box'>Title: {post.title}</div>
-                {/* <div className='text-box'>{post.body}</div> */}
-                {/* <div className='text-box'>
-                    <Editor
-                        state={html.deserialize(post.body)}
-                    />
-                </div> */}
-                {/* <div className='text-box'>{jsx.props.state}</div> */}
                 <div className='text-box'>
                     Body:
                     <div className='editor language-javascript'>

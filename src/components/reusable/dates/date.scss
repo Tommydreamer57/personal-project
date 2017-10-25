@@ -1,0 +1,19 @@
+
+@import '../../../theme';
+
+.DateStamp {
+    .short-date {
+        display: none
+    }
+}
+
+@media (max-width: $querythin) {
+    .DateStamp {
+        .short-date {
+            display: initial;
+        }
+        .full-date {
+            display: none;
+        }
+    }
+}

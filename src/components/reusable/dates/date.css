@@ -25,7 +25,7 @@ b, strong {
   font-size: 2rem;
   margin-bottom: 1rem; }
 
-.box-wrapper, .title-box, .subtitle-box, .text-box, .App .main .post-box {
+.box-wrapper, .title-box, .subtitle-box, .text-box {
   background: #121212;
   padding: 1rem;
   margin: 0 25vw 3rem;
@@ -62,15 +62,15 @@ b, strong {
   color: rgba(255, 255, 255, 0.5); }
 
 @media (max-width: 920px) {
-  .box-wrapper, .title-box, .subtitle-box, .text-box, .App .main .post-box {
+  .box-wrapper, .title-box, .subtitle-box, .text-box {
     margin: 0 12vw 3rem; } }
 
 @media (max-width: 740px) {
-  .box-wrapper, .title-box, .subtitle-box, .text-box, .App .main .post-box {
+  .box-wrapper, .title-box, .subtitle-box, .text-box {
     margin: 0 8vw 3rem; } }
 
 @media (max-width: 500px) {
-  .box-wrapper, .title-box, .subtitle-box, .text-box, .App .main .post-box {
+  .box-wrapper, .title-box, .subtitle-box, .text-box {
     margin: 0 2vw 3rem; } }
 
 .text-box {
@@ -146,24 +146,11 @@ b, strong {
   to {
     color: #6432dc; } }
 
-.App {
-  width: 100%;
-  overflow-x: hidden;
-  background: #171717;
-  color: rgba(90, 200, 255, 0.6);
-  min-height: 100vh; }
-  .App .main {
-    width: 100%;
-    overflow-x: hidden;
-    min-height: 100vh;
-    padding-top: 3rem;
-    padding-bottom: 1rem; }
-    .App .main * {
-      font-family: Calibri; }
-    .App .main .post-box {
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: stretch; }
-  .App code {
-    display: inline-block;
-    background: rgba(0, 0, 0, 0.1); }
+.DateStamp .short-date {
+  display: none; }
+
+@media (max-width: 500px) {
+  .DateStamp .short-date {
+    display: initial; }
+  .DateStamp .full-date {
+    display: none; } }
