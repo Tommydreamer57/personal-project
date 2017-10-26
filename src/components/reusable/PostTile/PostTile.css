@@ -149,8 +149,7 @@ b, strong {
 .PostTile {
   position: relative;
   background: #262626;
-  padding: 1rem 0.5rem;
-  margin: 1rem; }
+  padding: 0.75rem 0.5rem; }
   .PostTile .tile-body {
     display: flex;
     justify-content: space-between;

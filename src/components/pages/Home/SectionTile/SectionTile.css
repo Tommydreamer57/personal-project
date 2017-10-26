@@ -147,6 +147,12 @@ b, strong {
     color: #6432dc; } }
 
 .SectionTile {
-  background: #262626;
-  padding: 1rem 0.5rem;
-  margin: 1rem; }
+  background: black;
+  margin: 1rem;
+  padding: 0.25rem;
+  padding-top: 0.75rem; }
+  .SectionTile .section-title-wrapper {
+    display: flex;
+    padding-left: 0.5rem; }
+  .SectionTile .subtitle, .SectionTile .subtitle-box {
+    color: rgba(255, 255, 255, 0.8); }

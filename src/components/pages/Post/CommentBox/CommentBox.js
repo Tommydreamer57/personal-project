@@ -51,7 +51,9 @@ class CommentBox extends Component {
         let { comments } = this.props || null;
         return (
             <div className='CommentBox'>
-                <div className='subtitle'>{comments.length + ` ` || ``}Comments</div>
+                <div className='subtitle'>
+                    {comments.length + ` ` || ``}Comments
+                </div>
                 {
                     comments ?
                         comments.map((comment, i) => {
@@ -63,7 +65,9 @@ class CommentBox extends Component {
                         :
                         null
                 }
-                    <Reply function={this.toggleCommenting} >Click here to leave a response</Reply>
+                <Reply function={this.toggleCommenting} >
+                    Click here to leave a response
+                </Reply>
                 {
                     this.state.commenting ?
                         <input className='comment-input' type='text' onChange={e => this.handleChange(e.target.value)} />
@@ -72,7 +76,9 @@ class CommentBox extends Component {
                 }
                 {
                     this.state.commenting ?
-                        <Submit className='submit' function={() => { console.log('it worked'); this.submitComment() }} >Submit</Submit>
+                        <Submit className='submit' function={() => { console.log('it worked'); this.submitComment() }} >
+                            Submit
+                        </Submit>
                         :
                         null
                 }

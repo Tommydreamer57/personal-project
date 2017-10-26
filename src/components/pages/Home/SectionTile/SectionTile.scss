@@ -2,7 +2,22 @@
 @import '../../../../theme';
 
 .SectionTile {
-    background: $medium;
-    padding: 1rem 0.5rem;
+    background: black;
     margin: 1rem;
+    padding: 0.25rem;
+    padding-top: 0.75rem;
+
+    .section-title-wrapper {
+        display: flex;
+        padding-left: 0.5rem;
+    }
+
+    .subtitle {
+        color: $white8;
+    }
+
+    .section {
+
+    }
+    
 }

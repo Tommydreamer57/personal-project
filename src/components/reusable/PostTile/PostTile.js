@@ -61,7 +61,9 @@ export default function PostTile(props) {
                         </div>
                         :
                         <div className='button-placeholder'>
-                            <div className='' />
+                            <div className='circle'>
+                                <div className='inner-circle' />
+                            </div>
                         </div>
                 }
             </div>

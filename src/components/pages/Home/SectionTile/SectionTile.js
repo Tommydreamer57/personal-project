@@ -30,31 +30,35 @@ class SectionTile extends Component {
     }
     render() {
         return (
-            <div className='SectionTile' onClick={() => this.props.function(this.props.title)} >
-                <Link to={this.props.url || `/section`} >
-                    <h1 className='tile-title'>{this.props.title}</h1>
-                </Link>
-                {
-                    this.state.posts.map((post, i) => {
-                        let favorite = false;
-                        if (this.props.favorites) {
-                            if (this.props.favorites.filter(fav => fav.id == post.id).length) {
-                                favorite = true;
+            <div className='SectionTile'>
+                <div className='section-title-wrapper' onClick={() => this.props.function(this.props.title)} >
+                    <Link to={this.props.url || `/section`} >
+                        <h1 className='subtitle'>{this.props.title}</h1>
+                    </Link>
+                </div>
+                <div className='section'>
+                    {
+                        this.state.posts.map((post, i) => {
+                            let favorite = false;
+                            if (this.props.favorites) {
+                                if (this.props.favorites.filter(fav => fav.id == post.id).length) {
+                                    favorite = true;
+                                }
                             }
-                        }
-                        return (
-                            <PostTile
-                                url={`/posts/${post.id || ``}`}
-                                title={post.title || `Post #${i}`}
-                                subtitle={post.subtitle}
-                                key={post.id}
-                                id={post.id}
-                                function={this.props.selectPost}
-                                fav={favorite}
-                            />
-                        )
-                    })
-                }
+                            return (
+                                <PostTile
+                                    url={`/posts/${post.id || ``}`}
+                                    title={post.title || `Post #${i}`}
+                                    subtitle={post.subtitle}
+                                    key={post.id}
+                                    id={post.id}
+                                    function={this.props.selectPost}
+                                    fav={favorite}
+                                />
+                            )
+                        })
+                    }
+                </div>
             </div>
         )
     }
