@@ -33,9 +33,22 @@ class Section extends Component {
                 <div className='post-box'>
                     {
                         this.props.posts.map((post, i) => {
-                            console.log(post)
+                            let favorite = false;
+                            if (this.props.favorites) {
+                                if (this.props.favorites.filter(fav => fav.id == post.id).length) {
+                                    favorite = true;
+                                }
+                            }
                             return (
-                                <PostTile url={`/posts/${post.id || ``}`} title={post.title || `Post #${i}`} key={post.id} id={post.id} function={this.props.selectPost} />
+                                <PostTile
+                                    url={`/posts/${post.id || ``}`}
+                                    title={post.title || `Post #${i}`}
+                                    subtitle={post.subtitle}
+                                    key={post.id}
+                                    id={post.id}
+                                    function={this.props.selectPost}
+                                    fav={favorite}
+                                />
                             )
                         })
                     }
@@ -49,7 +62,8 @@ class Section extends Component {
 function mapStateToProps(state) {
     return {
         selectedSection: state.selectedSection,
-        posts: state.posts
+        posts: state.posts,
+        favorites: state.favorites
     }
 }
 

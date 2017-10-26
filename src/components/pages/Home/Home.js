@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from '../../reusable/Navbar/Navbar';
-import { SectionTile } from '../../reusable/PostTile/PostTile';
+import SectionTile from './SectionTile/SectionTile';
 import { connect } from 'react-redux';
 import { getUser, getSections, selectSection, getFavorites } from '../../../ducks/reducer';
 
@@ -38,11 +38,11 @@ class Home extends Component {
                 </div>
                 <div className='post-box'>
                     {
-                        this.props.sections ?
+                        this.props.sections.length ?
                             this.props.sections.map((item, i) => {
                                 {/* console.log(item); */ }
                                 return (
-                                    <SectionTile url={`/section/${item.section || ``}`} title={item.section} key={i} function={this.props.selectSection} />
+                                    <SectionTile key={i} url={`/section/${item.section || ``}`} title={item.section} key={i} function={this.props.selectSection} />
                                 );
                             })
                             :

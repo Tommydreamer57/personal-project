@@ -6,13 +6,47 @@
 }
 
 .PostTile {
+    position: relative;    
     background: $medium;
     padding: 1rem 0.5rem;
     margin: 1rem;
 
+    .tile-body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 4.5rem;
+        padding-right: 1.75rem;
+    }
+
+    .tile-favorite-button {
+        // background: $darker;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 3rem;
+        // padding-right: 0.75rem;
+        padding: 0 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        .button-wrapper {
+            padding-bottom: 0.8rem;
+
+        }
+
+    }
+
     .tile-title {
-        @extend .title ;
-        margin: 0;
+        font-size: $fmediumsmall;
+        color: $white8;
+    }
+
+    .tile-subtitle {
+        font-size: $fnormal;
+        color: $blue8;
     }
 
 }
@@ -21,5 +55,6 @@
     .PostTile {
         width: 100%;
         padding: 1rem;
+
     }
 }

@@ -86,6 +86,16 @@ export function FavoriteButton(props) {
     )
 }
 
+export function Favorite(props) {
+    return (
+        <div className='Favorite'>
+            <div className='unfavsquare' />
+            <div className='unfavsquare' />
+            <div className='unfavsquare' />            
+        </div>
+    )
+}
+
 // DEFAULT BUTTON ?
 
 export default function Button(props) {

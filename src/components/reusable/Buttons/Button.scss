@@ -108,6 +108,19 @@ $favan: 14px;
     }
 }
 
+.Favorite {
+    @extend .FavoriteButton ;
+}
+
+.Favorite:hover {
+    .unfavsquare {
+        width: $unfavsize;
+        height: $unfavsize;
+        background: $blue4;
+        transform: none;
+    }
+}
+
 @keyframes rotation {
   from {
     transform: rotate(0deg);

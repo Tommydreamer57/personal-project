@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './PostTile.css';
 import DateStamp, { month } from '../dates/dates';
+import { Favorite } from '../Buttons/Button';
 
 // USER TILE
 
@@ -46,24 +47,27 @@ export function AuthorTile(props) {
 export default function PostTile(props) {
     return (
         <div className='PostTile' onClick={() => props.function(props.id)} >
-            <Link to={props.url || `/post`} >
+            {/* <div className='tile-body'> */}
+            <Link className='tile-body' to={props.url || `/post`} >
                 <h1 className='tile-title'>{props.title}</h1>
+                <h2 className='tile-subtitle'>{props.subtitle}</h2>
             </Link>
+            {/* </div> */}
+            <div className='tile-favorite-button'>
+                {
+                    props.fav ?
+                        <div className='button-wrapper'>
+                            <Favorite fav={props.fav} />
+                        </div>
+                        :
+                        <div className='button-placeholder'>
+                            <div className='' />
+                        </div>
+                }
+            </div>
         </div>
     )
 
-}
-
-// SECTION TILE - HOME PAGE
-
-export function SectionTile(props) {
-    return (
-        <div className='PostTile' onClick={() => props.function(props.title)} >
-            <Link to={props.url || `/section`} >
-                <h1 className='tile-title'>{props.title}</h1>
-            </Link>
-        </div>
-    )
 }
 
 // HOME TILE - FAVORITES PAGE

@@ -6,7 +6,7 @@ import html from '../components/admin/SlateEditor/html-rules';
 const initialState = {
     user: {},           // user object from /auth/me { id, username, favorites }
     favorites: [],
-    sections: [{}],     // section object from /sections { section, id }
+    sections: [],     // section object from /sections { section, id }
     selectedSection: 0, // selected section id
     posts: [{
         title: 'refresh page to load posts'

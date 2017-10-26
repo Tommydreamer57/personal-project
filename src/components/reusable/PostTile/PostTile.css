@@ -14,7 +14,7 @@ b, strong {
 .none {
   display: none; }
 
-.title, .title-box, .PostTile .tile-title {
+.title, .title-box {
   color: #5ac8ff;
   font-size: 3rem;
   font-weight: bold;
@@ -147,11 +147,34 @@ b, strong {
     color: #6432dc; } }
 
 .PostTile {
+  position: relative;
   background: #262626;
   padding: 1rem 0.5rem;
   margin: 1rem; }
+  .PostTile .tile-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 4.5rem;
+    padding-right: 1.75rem; }
+  .PostTile .tile-favorite-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3rem;
+    padding: 0 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .PostTile .tile-favorite-button .button-wrapper {
+      padding-bottom: 0.8rem; }
   .PostTile .tile-title {
-    margin: 0; }
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.8); }
+  .PostTile .tile-subtitle {
+    font-size: 1rem;
+    color: rgba(90, 200, 255, 0.8); }
 
 @media (max-width: 740px) {
   .PostTile {
