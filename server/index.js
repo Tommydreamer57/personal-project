@@ -106,12 +106,16 @@ app.get(`/auth/logout`, (req, res, next) => {
 
 // MY OWN ENDPOINTS HERE
 
+// USER
+
+app.get(`/user/:username`, uc.getUserByUsername)
+
 // CONTENT
 
 app.get(`/sections`, uc.getSections)
+app.get(`/subsections/:section`, uc.getSubsectionsBySection)
 app.get(`/posts/:section`, uc.getPostsBySection)
 app.get(`/post/:postid`, uc.getPostById)
-app.get(`/user/:username`, uc.getUserByUsername)
 
 // COMMENTS
 
@@ -131,11 +135,11 @@ app.delete(`/favorites/:userid/:postid`, uc.removeFavorite)
 app.get(`/admin/posts`, ac.getPosts)
 app.get(`/admin/post/:postid`, ac.getPostById)
 app.post(`/admin/createpost/:adminid`, ac.createPost)
-app.post(`/admin/editpost/:postid`, ac.editPost)
-app.post(`/admin/publish/:postid`, ac.publishPost)
-app.post(`/admin/unpublish/:postid`, ac.unpublishPost)
+app.put(`/admin/editpost/:postid`, ac.editPost)
+app.put(`/admin/publish/:postid`, ac.publishPost)
+app.put(`/admin/unpublish/:postid`, ac.unpublishPost)
 
-app.post(`/admin/slate/body/:postid`, ac.editPostBody)
+app.put(`/admin/slate/body/:postid`, ac.editPostBody)
 
 // SLATE PRACTICE - HTML
 

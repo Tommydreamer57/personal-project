@@ -61,7 +61,11 @@ b, strong {
 .DateStamp {
   color: rgba(255, 255, 255, 0.5); }
 
-@media (max-width: 920px) {
+@media (max-width: 1000px) {
+  .box-wrapper, .title-box, .subtitle-box, .text-box {
+    margin: 0 15vw 3rem; } }
+
+@media (max-width: 850px) {
   .box-wrapper, .title-box, .subtitle-box, .text-box {
     margin: 0 12vw 3rem; } }
 
@@ -147,6 +151,7 @@ b, strong {
     color: #6432dc; } }
 
 .PostTile {
+  width: calc(100% - 1rem);
   position: relative;
   background: #262626;
   padding: 0.75rem 0.5rem; }
@@ -154,8 +159,8 @@ b, strong {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 4.5rem;
-    padding-right: 1.75rem; }
+    padding-left: 4rem;
+    padding-right: 1.25rem; }
   .PostTile .tile-favorite-button {
     position: absolute;
     top: 0;
@@ -168,14 +173,95 @@ b, strong {
     align-items: center; }
     .PostTile .tile-favorite-button .button-wrapper {
       padding-bottom: 0.8rem; }
+      .PostTile .tile-favorite-button .button-wrapper .unfavsquare {
+        background: rgba(90, 200, 255, 0.8);
+        animation-name: rotationthree;
+        transition: transform 0.5s; }
+    .PostTile .tile-favorite-button .button-placeholder .circle .inner-circle {
+      transition: width .3s, height .3s, background-color .3s; }
   .PostTile .tile-title {
     font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.8); }
+    color: rgba(255, 255, 255, 0.7);
+    text-align: left;
+    max-width: 100%;
+    overflow: ellipsis; }
   .PostTile .tile-subtitle {
     font-size: 1rem;
-    color: rgba(90, 200, 255, 0.8); }
+    color: rgba(90, 200, 255, 0.8);
+    text-align: left; }
+
+.PostTile:hover .tile-favorite-button .button-placeholder .circle .inner-circle {
+  width: 1rem;
+  height: 1rem;
+  background: transparent; }
+
+.PostTile:hover .tile-favorite-button .button-wrapper .Favorite .unfavsquare {
+  transform: rotate(-90deg); }
+
+.button-placeholder .circle {
+  height: 1rem;
+  width: 1rem;
+  background: rgba(100, 50, 220, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem;
+  margin-left: 0.4rem;
+  animation-name: grow;
+  animation-duration: 0.4s;
+  animation-iteration-count: 1; }
+  .button-placeholder .circle .inner-circle {
+    height: 0.69rem;
+    width: 0.69rem;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 2rem;
+    animation-name: growtwo;
+    animation-duration: 0.4s;
+    animation-iteration-count: 1; }
 
 @media (max-width: 740px) {
   .PostTile {
-    width: 100%;
+    width: calc(100% - 2rem);
     padding: 1rem; } }
+
+@media (max-width: 650px) {
+  .PostTile {
+    padding: 0.5rem; }
+    .PostTile .tile-body {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-left: 2.5rem;
+      padding-right: 0; }
+    .PostTile .tile-favorite-button {
+      width: 1.8rem;
+      align-items: flex-start; }
+      .PostTile .tile-favorite-button .circle {
+        margin-top: 0.75rem; } }
+
+@keyframes rotationthree {
+  from {
+    transform: rotate(0deg);
+    width: 12px;
+    height: 12px;
+    background: transparent; }
+  to {
+    transform: rotate(180deg);
+    width: 9.5px;
+    height: 9.5px;
+    background: rgba(90, 200, 255, 0.8); } }
+
+@keyframes grow {
+  from {
+    width: 0;
+    height: 0; }
+  to {
+    width: 1rem;
+    height: 1rem; } }
+
+@keyframes growtwo {
+  from {
+    width: 0;
+    height: 0; }
+  to {
+    width: 0.69rem;
+    height: 0.69rem; } }

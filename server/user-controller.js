@@ -9,6 +9,14 @@ module.exports = {
             })
             .catch(() => res.status(500).send('getSections broke'))
     },
+    getSubsectionsBySection: (req, res, next) => {
+        const db = req.app.get('db');
+        db.read_subsections_by_section([req.params.section])
+            .then(subsections => {
+                res.send(subsections)
+            })
+        .catch(() => res.status(500).send('getSubSectionsBySection broke'))
+    },
     getPostsBySection: (req, res, next) => {
         const db = req.app.get('db');
         db.read_posts_by_section([req.params.section])

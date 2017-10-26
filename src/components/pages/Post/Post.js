@@ -5,7 +5,7 @@ import { AuthorTile, Avatar } from '../../reusable/PostTile/PostTile';
 import DateStamp from '../../reusable/dates/dates';
 import CommentBox from './CommentBox/CommentBox';
 import { connect } from 'react-redux';
-import { getUser, adminSelectPost, selectPost, getComments, getFavorites, addFavorite, removeFavorite } from '../../../ducks/reducer';
+import { getUser, adminSelectPost, selectPost, getComments, getFavorites, addFavorite, removeFavorite, clearSelectedPost } from '../../../ducks/reducer';
 import './Post.css';
 // import Prism, { PrismCode } from 'react-prism';
 
@@ -58,6 +58,9 @@ class Post extends Component {
             let userid = this.props.user.id
             this.props.getFavorites(userid)
         }
+    }
+    componentWillUnmount() {
+        this.props.clearSelectedPost()
     }
     render() {
         // console.log(this.state.fav)
@@ -127,7 +130,8 @@ const outActions = {
     getComments,
     getFavorites,
     addFavorite,
-    removeFavorite
+    removeFavorite,
+    clearSelectedPost
 }
 
 export default connect(mapStateToProps, outActions)(Post)

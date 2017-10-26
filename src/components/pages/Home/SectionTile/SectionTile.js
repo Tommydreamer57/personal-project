@@ -24,6 +24,14 @@ class SectionTile extends Component {
                     posts: response.data
                 })
             })
+        axios.get(`subsections/${this.props.title}`)
+            .then(response => {
+                console.log('SectionTile got subsections')
+                console.log(response.data)
+                this.setState({
+                    subsections: response.data
+                })
+            })
         console.log('SectionTile getting posts')
         console.log(this.props.title)
 

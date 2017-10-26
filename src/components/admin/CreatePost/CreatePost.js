@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { adminSelectPost, getComments } from '../../../ducks/reducer';
 import axios from 'axios';
 import { Redirect } from 'react-router';
-
+import './CreatePost.css';
 import { Editor } from 'slate-react';
 // import { State } from 'slate';       // ONLY FOR USING JSON
 import html, { schema } from '../SlateEditor/html-rules';
@@ -48,19 +48,22 @@ class CreatePost extends Component {
         return (
             <div className='CreatePost'>
                 <div className='title-box'>
-                    Section: {<input value={post.section} onChange={e => this.handleChange('section', e.target.value)} />}
+                    Create New Post
                 </div>
                 <div className='subtitle-box'>
-                    Subsection: {<input value={post.subsection} onChange={e => this.handleChange('subsection', e.target.value)} />}
+                    Section:&nbsp; {<input value={post.section} onChange={e => this.handleChange('section', e.target.value)} />}
                 </div>
                 <div className='subtitle-box'>
-                    Title: {<input value={post.title} onChange={e => this.handleChange('title', e.target.value)} />}
+                    Subsection:&nbsp; {<input value={post.subsection} onChange={e => this.handleChange('subsection', e.target.value)} />}
                 </div>
                 <div className='subtitle-box'>
-                    Subtitle: {<input value={post.subtitle} onChange={e => this.handleChange('subtitle', e.target.value)} />}
+                    Title:&nbsp; {<input value={post.title} onChange={e => this.handleChange('title', e.target.value)} />}
                 </div>
                 <div className='subtitle-box'>
-                    <div onClick={this.create}>CREATE</div>
+                    Subtitle:&nbsp; {<input value={post.subtitle} onChange={e => this.handleChange('subtitle', e.target.value)} />}
+                </div>
+                <div className='create-box' onClick={this.create} >
+                    CREATE
                 </div>
                 <Navbar />
             </div >

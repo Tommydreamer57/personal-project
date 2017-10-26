@@ -1,11 +1,21 @@
 
 @import '../../../theme';
 
+// VARIABLES COPIED FROM BUTTON.SCSS
+
+$favmax: 28px;
+$favsize: 12px;
+$unfavsize: 9.5px;
+$favan: 14px;
+
+// CLASSES
+
 .UserTile {
     
 }
 
 .PostTile {
+    width: calc(100% - 1rem);
     position: relative;    
     background: $medium;
     padding: 0.75rem 0.5rem;
@@ -17,8 +27,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-left: 4.5rem;
-        padding-right: 1.75rem;
+        padding-left: 4rem;
+        padding-right: 1.25rem;
     }
 
     .tile-favorite-button {
@@ -37,26 +47,157 @@
         .button-wrapper {
             padding-bottom: 0.8rem;
 
+            .unfavsquare {
+                background: $blue8;
+                animation-name: rotationthree;
+                transition: transform 0.5s;
+            }
+
+        }
+
+        .button-placeholder {
+            .circle {
+                .inner-circle {
+                    transition: width .3s, height .3s, background-color .3s;
+                }
+            }
         }
 
     }
 
     .tile-title {
         font-size: $fmediumsmall;
-        color: $white8;
+        color: $white7;
+        text-align: left;
+        max-width: 100%;
+        overflow: ellipsis;
     }
 
     .tile-subtitle {
         font-size: $fnormal;
         color: $blue8;
+        text-align: left;
     }
 
 }
 
+$circleheight: 1rem;
+$innercircleheight: 0.69rem;
+
+.PostTile:hover {
+    .tile-favorite-button {
+        .button-placeholder {
+            .circle {
+                .inner-circle {
+                    width: $circleheight;
+                    height: $circleheight;
+                    background: $faded;
+                }
+            }
+        }
+        .button-wrapper {
+            .Favorite {
+                .unfavsquare {
+                    transform: rotate(-90deg);
+                }
+            }
+        }
+    }
+}
+
+.button-placeholder {
+
+    .circle {
+        height: $circleheight;
+        width: $circleheight;
+        background: $purple8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 2rem;
+        margin-left: 0.4rem;
+        animation-name: grow;
+        animation-duration: 0.4s;
+        animation-iteration-count: 1;
+
+        .inner-circle {
+            height: $innercircleheight;
+            width: $innercircleheight;
+            background: $faded6;
+            border-radius: 2rem;
+            animation-name: growtwo;
+            animation-duration: 0.4s;
+            animation-iteration-count: 1;
+
+        }
+    
+    }
+}
+
 @media (max-width: $querymedium) {
     .PostTile {
-        width: 100%;
+        width: calc(100% - 2rem);
         padding: 1rem;
+    }
+}
 
+@media (max-width: $querymediumthin) {
+    .PostTile {
+        padding: 0.5rem;
+
+        .tile-body {
+            flex-direction: column;
+            align-items: flex-start;
+            padding-left: 2.5rem;
+            padding-right: 0;
+        }
+
+        .tile-favorite-button {
+            width: 1.8rem;
+            align-items: flex-start;
+
+            .circle {
+                margin-top: 0.75rem;
+            }
+
+        }
+
+    }
+}
+
+@keyframes rotationthree {
+  from {
+    transform: rotate(0deg);
+    width: $favsize;
+    height: $favsize;
+    background: $faded;
+  }
+  to {
+    transform: rotate(180deg);
+    width: $unfavsize;
+    height: $unfavsize;
+    background: $blue8;
+  }
+}
+
+@keyframes grow {
+    from {
+        width: 0;
+        height: 0;
+    }
+    to {
+        width: $circleheight;
+        height: $circleheight;
+    }
+}
+
+@keyframes growtwo {
+    from {
+        width: 0;
+        height: 0;
+    }
+    to {
+        width: $innercircleheight;
+        height: $innercircleheight;
     }
 }

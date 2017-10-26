@@ -32,21 +32,21 @@ class EditPost extends Component {
         })
     }
     save() {
-        axios.post(`/admin/editpost/${this.state.id}`, this.state)
+        axios.put(`/admin/editpost/${this.state.id}`, this.state)
             .then(response => {
                 console.log(response.data)
             })
     }
     publish() {
         if (this.props.selectedPost.published) {
-            axios.post(`/admin/publish/${this.state.id}`)
+            axios.put(`/admin/publish/${this.state.id}`)
                 .then(response => {
                     console.log(response.data)
                     this.props.adminSelectPost(this.props.match.params.postid)
                 })
         }
         else {
-            axios.post(`/admin/unpublish/${this.state.id}`)
+            axios.put(`/admin/unpublish/${this.state.id}`)
                 .then(response => {
                     console.log(response.data)
                     this.props.adminSelectPost(this.props.match.params.postid)

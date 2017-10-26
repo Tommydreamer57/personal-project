@@ -38,17 +38,19 @@
 /**NAVIGATION**/
 
 .NavigationButton {
-  padding-left: 4rem;
+  margin-left: 2rem;
+  padding: 0.25rem 2rem;
   font-size: $fmediumsmall;
   border: 2px solid $faded;
   border-radius: 2rem;
   // padding: .5rem;
-  transition: border-color .3s, color .3s ;
+  transition: background-color .3s, color .3s, font-weight .3s ;
 }
 
 .NavigationButton:hover {
-  color: $blue1;
-  border-color: $blue1;
+  background: $blue9;
+  color: $faded9;
+  font-weight: bold;
 }
 
 .LoginButton {

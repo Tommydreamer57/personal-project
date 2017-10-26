@@ -62,7 +62,11 @@ b, strong {
 .DateStamp {
   color: rgba(255, 255, 255, 0.5); }
 
-@media (max-width: 920px) {
+@media (max-width: 1000px) {
+  .box-wrapper, .title-box, .subtitle-box, .text-box {
+    margin: 0 15vw 3rem; } }
+
+@media (max-width: 850px) {
   .box-wrapper, .title-box, .subtitle-box, .text-box {
     margin: 0 12vw 3rem; } }
 

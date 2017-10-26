@@ -98,7 +98,9 @@ $purple01: rgba(100, 50, 220, 0.1);
 $fmain: Calibri;
 
 $flarge: 3rem;
+$fmediumlarge: 2.5rem;
 $fmedium: 2rem;
+$fmediumnormal: 1.75rem;
 $fmediumsmall: 1.5rem;
 $fnormal: 1rem;
 
@@ -108,8 +110,10 @@ $mbottom: 3rem;
 
 /**MEDIA QUERIES**/
 
-$querywide: 920px;
+$querywide: 1000px;
+$querymediumwide: 850px;
 $querymedium: 740px;
+$querymediumthin: 650px;
 $querythin: 500px;
 
 /**CLASSES**/
@@ -173,6 +177,12 @@ $querythin: 500px;
 }
 
 @media (max-width: $querywide) {
+    .box-wrapper {
+        margin: 0 15vw $mbottom;
+    }
+}
+
+@media (max-width: $querymediumwide) {
     .box-wrapper {
         margin: 0 12vw $mbottom;
     }

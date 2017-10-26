@@ -20,12 +20,12 @@ b, strong {
   font-weight: bold;
   margin-bottom: 1rem; }
 
-.subtitle, .subtitle-box {
+.subtitle, .subtitle-box, .CreatePost .create-box {
   color: rgba(90, 200, 255, 0.9);
   font-size: 2rem;
   margin-bottom: 1rem; }
 
-.box-wrapper, .title-box, .subtitle-box, .text-box {
+.box-wrapper, .title-box, .subtitle-box, .CreatePost .create-box, .text-box {
   background: #121212;
   padding: 1rem;
   margin: 0 25vw 3rem;
@@ -62,19 +62,19 @@ b, strong {
   color: rgba(255, 255, 255, 0.5); }
 
 @media (max-width: 1000px) {
-  .box-wrapper, .title-box, .subtitle-box, .text-box {
+  .box-wrapper, .title-box, .subtitle-box, .CreatePost .create-box, .text-box {
     margin: 0 15vw 3rem; } }
 
 @media (max-width: 850px) {
-  .box-wrapper, .title-box, .subtitle-box, .text-box {
+  .box-wrapper, .title-box, .subtitle-box, .CreatePost .create-box, .text-box {
     margin: 0 12vw 3rem; } }
 
 @media (max-width: 740px) {
-  .box-wrapper, .title-box, .subtitle-box, .text-box {
+  .box-wrapper, .title-box, .subtitle-box, .CreatePost .create-box, .text-box {
     margin: 0 8vw 3rem; } }
 
 @media (max-width: 500px) {
-  .box-wrapper, .title-box, .subtitle-box, .text-box {
+  .box-wrapper, .title-box, .subtitle-box, .CreatePost .create-box, .text-box {
     margin: 0 2vw 3rem; } }
 
 .text-box {
@@ -150,14 +150,30 @@ b, strong {
   to {
     color: #6432dc; } }
 
-.SectionTile {
-  background: black;
-  padding: 0.25rem;
-  padding-top: 0.75rem; }
-  .SectionTile .section-title-wrapper {
-    display: flex;
-    padding-left: 0.5rem; }
-  .SectionTile .subtitle, .SectionTile .subtitle-box {
-    color: rgba(255, 255, 255, 0.8); }
-  .SectionTile .section {
-    width: 100%; }
+.CreatePost .input-box, .CreatePost .subtitle-box, .CreatePost .create-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 2rem;
+  padding-right: 2rem; }
+  .CreatePost .input-box input, .CreatePost .subtitle-box input, .CreatePost .create-box input {
+    background: #262626;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    width: 15rem;
+    padding: 0 0.5rem; }
+
+.CreatePost .title-box {
+  justify-content: center; }
+
+.CreatePost .subtitle-box input, .CreatePost .create-box input {
+  font-size: 1.75rem; }
+
+.CreatePost .create-box {
+  justify-content: center;
+  color: rgba(90, 200, 255, 0.8);
+  font-weight: bold; }
+
+.CreatePost .create-box:hover {
+  cursor: pointer; }

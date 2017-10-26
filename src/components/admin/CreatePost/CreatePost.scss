@@ -1,0 +1,50 @@
+
+@import '../../../theme';
+
+.CreatePost {
+
+    .input-box {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-left: 2rem;
+        padding-right: 2rem;
+
+        input {
+            background: $medium;
+            color: $white1;
+            border: none;
+            border-radius: 0.25rem;
+            width: 15rem;
+            padding: 0 0.5rem;
+        }
+
+    }
+
+    .title-box {
+        justify-content: center;
+
+    }
+
+    .subtitle-box {
+        @extend .input-box ;
+
+        input {
+            font-size: $fmediumnormal;
+        }
+
+    }
+
+    .create-box {
+        @extend .subtitle-box ;
+        justify-content: center;
+        color: $blue8;
+        font-weight: bold;
+
+    }
+
+    .create-box:hover {
+        cursor: pointer;
+    }
+
+}

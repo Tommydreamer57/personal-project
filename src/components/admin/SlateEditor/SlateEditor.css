@@ -61,7 +61,11 @@ b, strong {
 .DateStamp {
   color: rgba(255, 255, 255, 0.5); }
 
-@media (max-width: 920px) {
+@media (max-width: 1000px) {
+  .box-wrapper, .title-box, .subtitle-box, .text-box {
+    margin: 0 15vw 3rem; } }
+
+@media (max-width: 850px) {
   .box-wrapper, .title-box, .subtitle-box, .text-box {
     margin: 0 12vw 3rem; } }
 
@@ -148,11 +152,11 @@ b, strong {
 
 .SlateEditor .title-box, .SlateEditor .subtitle-box, .SlateEditor .text-box, .CreatePost .title-box, .CreatePost .subtitle-box, .CreatePost .text-box {
   background: #0D0D0D;
-  color: rgba(90, 200, 255, 0.7);
+  color: rgba(90, 200, 255, 0.8);
   border-radius: 0.5rem; }
 
 .SlateEditor .editor, .CreatePost .editor {
-  background: rgba(255, 255, 255, 0.035);
+  background: #262626;
   color: rgba(255, 255, 255, 0.7);
   padding: 0.5rem;
   border-radius: 0.25rem;

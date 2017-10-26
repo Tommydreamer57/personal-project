@@ -61,7 +61,11 @@ b, strong {
 .DateStamp {
   color: rgba(255, 255, 255, 0.5); }
 
-@media (max-width: 920px) {
+@media (max-width: 1000px) {
+  .box-wrapper, .title-box, .subtitle-box, .text-box {
+    margin: 0 15vw 3rem; } }
+
+@media (max-width: 850px) {
   .box-wrapper, .title-box, .subtitle-box, .text-box {
     margin: 0 12vw 3rem; } }
 
@@ -164,15 +168,17 @@ b, strong {
 
 /**NAVIGATION**/
 .NavigationButton, .LoginButton, .LogoutButton {
-  padding-left: 4rem;
+  margin-left: 2rem;
+  padding: 0.25rem 2rem;
   font-size: 1.5rem;
   border: 2px solid transparent;
   border-radius: 2rem;
-  transition: border-color .3s, color .3s; }
+  transition: background-color .3s, color .3s, font-weight .3s; }
 
 .NavigationButton:hover, .LoginButton:hover, .LogoutButton:hover {
-  color: #5ac8ff;
-  border-color: #5ac8ff; }
+  background: rgba(90, 200, 255, 0.9);
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: bold; }
 
 /**FAVORITE**/
 .FavoriteButton, .Favorite {

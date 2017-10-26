@@ -7,12 +7,13 @@ const initialState = {
     user: {},           // user object from /auth/me { id, username, favorites }
     favorites: [],
     sections: [],     // section object from /sections { section, id }
+    subsections: [],
     selectedSection: 0, // selected section id
     posts: [{
         title: 'refresh page to load posts'
     }],    // post object from /posts/section { id, title, subtitle, body, comments { username, date, body } }
     selectedPost: 0,    // selected post information
-    selectedPostBody: html.deserialize(`<p>please reload page</p>`),
+    selectedPostBody: html.deserialize(`<p>loading page</p>`),
     postIsFavorite: false,
     comments: [],
     responses: [],
@@ -32,9 +33,11 @@ const REJECTED = '_REJECTED';
 const GET_USER = 'GET_USER';
 const GET_SECTIONS = 'GET_SECTIONS';
 const SELECT_SECTION = 'SELECT_SECTION';
+const GET_SUBSECTIONS = 'GET_SUBSECTIONS';
 const GET_ALL_POSTS = 'GET_ALL_POSTS';
 const GET_POSTS = 'GET_POSTS';
 const SELECT_POST = 'SELECT_POST';
+const CLEAR_SELECTED_POST = 'CLEAR_SELECTED_POST';
 const GET_COMMENTS = 'GET_COMMENTS';
 const GET_FAVORITES = 'GET_FAVORITES';
 const HANDLE_INPUT = 'HANDLE_INPUT';
@@ -85,6 +88,19 @@ export function selectSection(section) {
     }
 }
 
+export function getSubsections(section) {
+    let subsections = axios.get(`/subsections/${section}`)
+        .then(response => {
+            console.log('redux got subsections')
+            console.log(response.data)
+        return response.data
+        })
+    return {
+        type: GET_SUBSECTIONS,
+        payload: subsections
+    }
+}
+
 export function getPosts(section) {
     let posts = axios.get(`/posts/${section}`)
         .then(response => {
@@ -110,6 +126,12 @@ export function selectPost(postid) {
     return {
         type: SELECT_POST,
         payload: post
+    }
+}
+
+export function clearSelectedPost() {
+    return {
+        type: CLEAR_SELECTED_POST
     }
 }
 
@@ -238,25 +260,31 @@ export function alertWarning(alert) {
 // REDUCER
 
 export default function reducer(state = initialState, action) {
+
     // console.log(state)
     console.log(action.type)
     console.log(action.payload)
     let postIsFavorite = false;
     let alertClass = 'add-box';
     let alert = '';
+
     switch (action.type) {
+
         case GET_USER + FULFILLED:
-            // console.log(action.payload);
             return Object.assign({}, state, { user: action.payload });
+
         case GET_SECTIONS + FULFILLED:
-            // console.log(action.payload);
             return Object.assign({}, state, { sections: action.payload });
+
         case SELECT_SECTION:
-            // console.log(action.payload);
             return Object.assign({}, state, { selectedSection: action.payload });
+
+        case GET_SUBSECTIONS:
+            return Object.assign({}, state, { subsections: action.payload });
+
         case GET_POSTS + FULFILLED:
-            // console.log(action.payload);
             return Object.assign({}, state, { posts: action.payload });
+
         case SELECT_POST + FULFILLED:
             // CHECK FAVORITES TO SEE IF POST IS IN FAVORITES
             if (state.favorites.length) {
@@ -265,23 +293,27 @@ export default function reducer(state = initialState, action) {
                 }
             }
             let body = html.deserialize(action.payload.body)
-            // let body = document.createElement('html')
-            // body.innerHTML = action.payload.body
             console.log(body)
             // RETURN SELECTED POST AND IF IT IS IN FAVORITES
             return Object.assign({}, state, { selectedPost: action.payload, selectedPostBody: body, postIsFavorite });
+
         case SELECT_POST + REJECTED:
             alertClass = 'warning-box'
             alert = 'could not load post, please refresh'
-            return Object.assign({}, state, { alertClass, alert })
+            return Object.assign({}, state, { alertClass, alert });
+
+        case CLEAR_SELECTED_POST:
+            return Object.assign({}, state, { selectedPost: 0, selectedPostBody: html.deserialize(`<p>loading page</p>`) });
+
         case GET_COMMENTS + FULFILLED:
             return Object.assign({}, state, { comments: action.payload });
+
         case GET_FAVORITES + PENDING:
             postIsFavorite = false
-            return Object.assign({}, state, { postIsFavorite: !state.postIsFavorite })
+            return Object.assign({}, state, { postIsFavorite: !state.postIsFavorite });
+
         case GET_FAVORITES + FULFILLED:
             postIsFavorite = false
-            // console.log(action.payload);
             // CHECK SELECTED POST TO SEE IF POST IS IN FAVORITES
             if (state.selectedPost) {
                 if (state.selectedPost.id) {
@@ -295,26 +327,32 @@ export default function reducer(state = initialState, action) {
             }
             // RETURN FAVORITES AND IF SELECTED POST IS IN FAVORITES
             return Object.assign({}, state, { favorites: action.payload, postIsFavorite });
+
         case GET_FAVORITES + REJECTED:
             postIsFavorite = false
             alertClass = 'warning-box'
             alert = 'please log in to add favorites'
             return Object.assign({}, state, { alertClass, alert, postIsFavorite });
+
         case RESET_ALERT:
             alertClass = ' alert-fadout'
             return Object.assign({}, state, { alertClass });
+
         case ALERT_ADD:
             alertClass = 'add-box'
             alert = action.payload
             return Object.assign({}, state, { alertClass, alert });
+
         case ALERT_REMOVE:
             alertClass = 'remove-box'
             alert = action.payload
             return Object.assign({}, state, { alertClass, alert });
+
         case ALERT_WARNING:
             alertClass = 'warning-box'
             alert = action.payload
             return Object.assign({}, state, { alertClass, alert });
+        
         default:
             return state;
     }
