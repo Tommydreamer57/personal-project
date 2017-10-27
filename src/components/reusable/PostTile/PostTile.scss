@@ -69,6 +69,7 @@ $favan: 14px;
         font-size: $fmediumsmall;
         color: $white7;
         text-align: left;
+        // width: 100%;
         max-width: 100%;
         overflow: ellipsis;
     }
@@ -76,13 +77,13 @@ $favan: 14px;
     .tile-subtitle {
         font-size: $fnormal;
         color: $blue8;
-        text-align: left;
+        text-align: right;
     }
 
 }
 
 $circleheight: 1rem;
-$innercircleheight: 0.69rem;
+$innercircleheight: 0.7rem;
 
 .PostTile:hover {
     .tile-favorite-button {

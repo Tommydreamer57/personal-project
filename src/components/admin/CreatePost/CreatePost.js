@@ -53,18 +53,44 @@ class CreatePost extends Component {
                     </div>
                 </div>
                 <div className='subtitle-box'>
-                    <div>Section:&nbsp;</div>
-                    <input className='input' value={post.section} onChange={e => this.handleChange('section', e.target.value)} />
+                    <div>
+                        Section:&nbsp;
+                    </div>
+                    <input
+                        className='input'
+                        placeholder='click here'
+                        value={post.section}
+                        onChange={e => this.handleChange('section', e.target.value)}
+                    />
                 </div>
                 <div className='subtitle-box'>
-                    <div>Subsection:&nbsp;</div>
-                    <input className='input' value={post.subsection} onChange={e => this.handleChange('subsection', e.target.value)} />
+                    <div>
+                        Subsection:&nbsp;
+                    </div>
+                    <input
+                        className='input'
+                        placeholder='click here'
+                        value={post.subsection}
+                        onChange={e => this.handleChange('subsection', e.target.value)}
+                    />
                 </div>
                 <div className='subtitle-box'>
-                    Title:&nbsp; {<input className='input' value={post.title} onChange={e => this.handleChange('title', e.target.value)} />}
+                    Title:&nbsp;
+                    <input
+                        className='input'
+                        placeholder='click here'
+                        value={post.title}
+                        onChange={e => this.handleChange('title', e.target.value)}
+                    />
                 </div>
                 <div className='subtitle-box'>
-                    Subtitle:&nbsp; {<input className='input' value={post.subtitle} onChange={e => this.handleChange('subtitle', e.target.value)} />}
+                    Subtitle:&nbsp;
+                    <input
+                        className='input'
+                        placeholder='click here'
+                        value={post.subtitle}
+                        onChange={e => this.handleChange('subtitle', e.target.value)}
+                    />
                 </div>
                 <div className='create-box' onClick={this.create} >
                     CREATE

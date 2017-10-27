@@ -202,7 +202,7 @@ b, strong {
   .PostTile .tile-subtitle {
     font-size: 1rem;
     color: rgba(90, 200, 255, 0.8);
-    text-align: left; }
+    text-align: right; }
 
 .PostTile:hover .tile-favorite-button .button-placeholder .circle .inner-circle {
   width: 1rem;
@@ -225,8 +225,8 @@ b, strong {
   animation-duration: 0.4s;
   animation-iteration-count: 1; }
   .button-placeholder .circle .inner-circle {
-    height: 0.69rem;
-    width: 0.69rem;
+    height: 0.7rem;
+    width: 0.7rem;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 2rem;
     animation-name: growtwo;
@@ -279,5 +279,5 @@ b, strong {
     width: 0;
     height: 0; }
   to {
-    width: 0.69rem;
-    height: 0.69rem; } }
+    width: 0.7rem;
+    height: 0.7rem; } }

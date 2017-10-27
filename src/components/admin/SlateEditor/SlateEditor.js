@@ -150,20 +150,36 @@ class SlateEditor extends Component {
         return (
             <div className='SlateEditor'>
                 <div className='title-box'>
+                    Edit Post
+                </div>
+                <div className='subtitle-box'>
                     <div>Section:&nbsp;</div>
-                    <input value={this.state.section} onChange={e => this.handleChange('section', e.target.value)} onKeyDown={key => console.log(key)} />
+                    <input    
+                        value={this.state.section}
+                        onChange={e => this.handleChange('section', e.target.value)}
+                        /* onKeyDown={key => console.log(key)} */
+                    />
                 </div>
                 <div className='subtitle-box'>
                     <div>Subsection:&nbsp;</div>
-                    <input value={this.state.subsection} onChange={e => this.handleChange('subsection', e.target.value)} />
+                    <input
+                        value={this.state.subsection}
+                        onChange={e => this.handleChange('subsection', e.target.value)}
+                    />
                 </div>
                 <div className='subtitle-box'>
                     <div>Title:&nbsp;</div>
-                    <input value={this.state.title} onChange={e => this.handleChange('title', e.target.value)} />
+                    <input
+                        value={this.state.title}
+                        onChange={e => this.handleChange('title', e.target.value)}
+                    />
                 </div>
                 <div className='subtitle-box'>
                     <div>Subtitle:&nbsp;</div>
-                    <input value={this.state.subtitle} onChange={e => this.handleChange('subtitle', e.target.value)} />
+                    <input
+                        value={this.state.subtitle}
+                        onChange={e => this.handleChange('subtitle', e.target.value)}
+                    />
                 </div>
                 <div className='text-box'>
                     Body:

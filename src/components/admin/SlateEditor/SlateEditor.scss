@@ -1,7 +1,6 @@
 
 @import '../../../theme';
 
-
 .SlateEditor, .CreatePost {
     .title-box, .subtitle-box, .text-box {
         background: $darkest;
@@ -23,13 +22,18 @@
             font-family: inherit;
             text-align: right;
             color: $blue8;
+            font-weight: bold;
             max-width: 55%;
             max-width: auto;
         }
         input:focus {
             background: $medium;
             color: $white7;
+            font-weight: normal;
             // width: auto;
+        }
+        input::placeholder {
+            font-weight: normal;
         }
     }
     .editor {
@@ -43,6 +47,12 @@
     }
     .save-button {
         cursor: pointer;
+    }
+}
+
+.SlateEditor {
+    .subtitle-box {
+        color: $white7;
     }
 }
 
