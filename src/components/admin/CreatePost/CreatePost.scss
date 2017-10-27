@@ -22,8 +22,11 @@
     }
 
     .title-box {
-        justify-content: center;
-
+        * {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
     }
 
     .subtitle-box {
@@ -37,6 +40,8 @@
 
     .create-box {
         @extend .subtitle-box ;
+        background: $darkest;
+        border-radius: 0.5rem;
         justify-content: center;
         color: $blue8;
         font-weight: bold;
@@ -47,4 +52,23 @@
         cursor: pointer;
     }
 
+}
+
+@media (max-width: $querythin) {
+    body .CreatePost {
+        .subtitle-box, .title-box {
+            margin-bottom: 1.5rem;
+            flex-direction: column;
+            .input {
+                background: $medium;
+                margin-top: 1rem;
+                max-width: 100%;
+                width: 100%;
+                text-align: center;
+                padding-top: 0.25rem;
+                padding-bottom: 0.25rem;
+            }
+        }
+    }
+    
 }

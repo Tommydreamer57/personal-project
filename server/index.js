@@ -17,6 +17,7 @@ const app = express();
 
 massive(CONNECTION_STRING).then(db => app.set('db', db));
 
+app.use(express.static(`${__dirname}/../build`));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(session({
@@ -148,8 +149,14 @@ app.put(`/admin/slate/body/:postid`, ac.editPostBody)
 app.get(`/admin/html/:id`, ac.readHtml)
 app.post(`.admin/html/`, ac.addHtml)
 
-
 // MY OWN ENDPOINTS ABOVE
+
+
+const path = require('path')
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+})
 
 
 passport.serializeUser(function (id, done) {

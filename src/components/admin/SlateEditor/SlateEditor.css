@@ -172,14 +172,20 @@ b, strong {
   padding-left: 2rem;
   padding-right: 2rem; }
   .SlateEditor .title-box input, .SlateEditor .subtitle-box input, .CreatePost .title-box input, .CreatePost .subtitle-box input {
-    background: #262626;
+    background: #0D0D0D;
     padding-left: 0.5rem;
+    padding-right: 0.5rem;
     border: none;
     border-radius: 0.25rem;
-    color: rgba(255, 255, 255, 0.7);
     font-size: inherit;
     font-family: inherit;
-    max-width: 55%; }
+    text-align: right;
+    color: rgba(90, 200, 255, 0.8);
+    max-width: 55%;
+    max-width: auto; }
+  .SlateEditor .title-box input:focus, .SlateEditor .subtitle-box input:focus, .CreatePost .title-box input:focus, .CreatePost .subtitle-box input:focus {
+    background: #262626;
+    color: rgba(255, 255, 255, 0.7); }
 
 .SlateEditor .editor, .CreatePost .editor {
   background: #262626;
@@ -191,3 +197,13 @@ b, strong {
 
 .SlateEditor .save-button, .CreatePost .save-button {
   cursor: pointer; }
+
+@media (max-width: 500px) {
+  body .SlateEditor .title-box, body .SlateEditor .subtitle-box {
+    margin-bottom: 1.5rem;
+    flex-direction: column; }
+    body .SlateEditor .title-box input, body .SlateEditor .subtitle-box input {
+      margin-top: 1rem;
+      text-align: center;
+      max-width: 100%;
+      width: 100%; } }

@@ -16,11 +16,11 @@ class SlateEditor extends Component {
         super(props)
         this.state = {
             // EDITABLE DATA
-            doNotReset: true,
-            sectionEdit: false,
-            subsectionEdit: false,
-            titleEdit: false,
-            subtitleEdit: false,
+            // doNotReset: true,
+            // sectionEdit: false,
+            // subsectionEdit: false,
+            // titleEdit: false,
+            // subtitleEdit: false,
             // NORMAL STATE
             id: 0,
             section: ``,
@@ -87,13 +87,13 @@ class SlateEditor extends Component {
             this.ctrl = false
         }
     }
-    toggleEdit = (target) => {
-        console.log(target)
-        console.log(this.state[target])
-        this.setState({
-            [target]: !this.state[target]
-        })
-    }
+    // toggleEdit = (target) => {
+    //     console.log(target)
+    //     console.log(this.state[target])
+    //     this.setState({
+    //         [target]: !this.state[target]
+    //     })
+    // }
     handleChange = (target, value) => {
         // console.log(value)
         this.setState({
@@ -148,42 +148,22 @@ class SlateEditor extends Component {
     render() {
         // let post = this.state || ``
         return (
-            <div className='SlateEditor' onClick={() => this.resetEdit()} >
+            <div className='SlateEditor'>
                 <div className='title-box'>
-                    <div onClick={() => this.toggleEdit('sectionEdit')} >Section:&nbsp;</div>
-                    {
-                        this.state.sectionEdit ?
-                            <input value={this.state.section} onChange={e => this.handleChange('section', e.target.value)} onKeyDown={key => console.log(key)} />
-                            :
-                            <div onClick={() => this.toggleEdit('sectionEdit')} >{this.state.section}</div>
-                    }
+                    <div>Section:&nbsp;</div>
+                    <input value={this.state.section} onChange={e => this.handleChange('section', e.target.value)} onKeyDown={key => console.log(key)} />
                 </div>
                 <div className='subtitle-box'>
-                    <div onClick={() => this.toggleEdit('subsectionEdit')} >Subsection:&nbsp;</div>
-                    {
-                        this.state.subsectionEdit ?
-                            <input value={this.state.subsection} onChange={e => this.handleChange('subsection', e.target.value)} />
-                            :
-                            <div onClick={() => this.toggleEdit('subsectionEdit')} >{this.state.subsection}</div>
-                    }
+                    <div>Subsection:&nbsp;</div>
+                    <input value={this.state.subsection} onChange={e => this.handleChange('subsection', e.target.value)} />
                 </div>
                 <div className='subtitle-box'>
-                    <div onClick={() => this.toggleEdit('titleEdit')} >Title:&nbsp;</div>
-                    {
-                        this.state.titleEdit ?
-                            <input value={this.state.title} onChange={e => this.handleChange('title', e.target.value)} />
-                            :
-                            <div onClick={() => this.toggleEdit('titleEdit')} >{this.state.title}</div>
-                    }
+                    <div>Title:&nbsp;</div>
+                    <input value={this.state.title} onChange={e => this.handleChange('title', e.target.value)} />
                 </div>
                 <div className='subtitle-box'>
-                    <div onClick={() => this.toggleEdit('subtitleEdit')} >Subtitle:&nbsp;</div>
-                    {
-                        this.state.subtitleEdit ?
-                            <input value={this.state.subtitle} onChange={e => this.handleChange('subtitle', e.target.value)} />
-                            :
-                            <div onClick={() => this.toggleEdit('subtitleEdit')} >{this.state.subtitle}</div>
-                    }
+                    <div>Subtitle:&nbsp;</div>
+                    <input value={this.state.subtitle} onChange={e => this.handleChange('subtitle', e.target.value)} />
                 </div>
                 <div className='text-box'>
                     Body:

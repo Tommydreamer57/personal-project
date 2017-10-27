@@ -175,16 +175,33 @@ b, strong {
     width: 15rem;
     padding: 0 0.5rem; }
 
-.CreatePost .title-box {
+.CreatePost .title-box * {
+  display: flex;
+  width: 100%;
   justify-content: center; }
 
 .CreatePost .subtitle-box input, .CreatePost .create-box input {
   font-size: 1.75rem; }
 
 .CreatePost .create-box {
+  background: #0D0D0D;
+  border-radius: 0.5rem;
   justify-content: center;
   color: rgba(90, 200, 255, 0.8);
   font-weight: bold; }
 
 .CreatePost .create-box:hover {
   cursor: pointer; }
+
+@media (max-width: 500px) {
+  body .CreatePost .subtitle-box, body .CreatePost .create-box, body .CreatePost .title-box {
+    margin-bottom: 1.5rem;
+    flex-direction: column; }
+    body .CreatePost .subtitle-box .input, body .CreatePost .create-box .input, body .CreatePost .title-box .input {
+      background: #262626;
+      margin-top: 1rem;
+      max-width: 100%;
+      width: 100%;
+      text-align: center;
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem; } }

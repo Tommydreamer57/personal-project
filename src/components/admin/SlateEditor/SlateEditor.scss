@@ -14,14 +14,22 @@
         padding-left: 2rem;
         padding-right: 2rem;
         input {
-            background: $medium;
+            background: $darkest;
             padding-left: 0.5rem;
+            padding-right: 0.5rem;
             border: none;
             border-radius: 0.25rem;
-            color: $white7;
             font-size: inherit;
             font-family: inherit;
+            text-align: right;
+            color: $blue8;
             max-width: 55%;
+            max-width: auto;
+        }
+        input:focus {
+            background: $medium;
+            color: $white7;
+            // width: auto;
         }
     }
     .editor {
@@ -35,5 +43,20 @@
     }
     .save-button {
         cursor: pointer;
+    }
+}
+
+@media (max-width: $querythin) {
+    body .SlateEditor {
+        .title-box, .subtitle-box {
+            margin-bottom: 1.5rem;
+            flex-direction: column;
+            input {
+                margin-top: 1rem;
+                text-align: center;
+                max-width: 100%;
+                width: 100%;
+            }
+        }
     }
 }
