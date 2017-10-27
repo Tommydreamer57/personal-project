@@ -133,7 +133,7 @@ class SlateEditor extends Component {
                             onKeyUp={this.onKeyUp}
                         />
                     </div>
-                    <div onClick={this.save}>Save</div>
+                    <div className='save-button' onClick={this.save}>Save</div>
                 </div>
                 <Navbar />
             </div >

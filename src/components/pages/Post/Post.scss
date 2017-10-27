@@ -17,6 +17,7 @@
     display: flex;
     color: $white7;
 
+
     .author-tile {
         margin: 0.25rem 0.5rem;
         display: flex;
@@ -29,6 +30,8 @@
         }
 
         .author-info {
+            line-height: 110%;            
+            color: $white6;
             padding: 0.5rem;
         }
 

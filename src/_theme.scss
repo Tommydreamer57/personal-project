@@ -1,4 +1,21 @@
 
+/**FONT IMPORTS**/
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Hind');
+
+/**FONTS**/
+
+$fmain: Ubuntu;
+$ftext: Hind;
+
+$flarge: 3rem;
+$fmediumlarge: 2.5rem;
+$fmedium: 2rem;
+$fmediumnormal: 1.75rem;
+$fmediumsmall: 1.5rem;
+$fnormal: 1rem;
+
 /**TAGS**/
 
 i {
@@ -95,17 +112,6 @@ $purple3: rgba(100, 50, 220, 0.3);
 $purple2: rgba(100, 50, 220, 0.2);
 $purple01: rgba(100, 50, 220, 0.1);
 
-/**FONTS**/
-
-$fmain: Calibri;
-
-$flarge: 3rem;
-$fmediumlarge: 2.5rem;
-$fmedium: 2rem;
-$fmediumnormal: 1.75rem;
-$fmediumsmall: 1.5rem;
-$fnormal: 1rem;
-
 /**MARGINS**/
 
 $mbottom: 3rem;
@@ -126,13 +132,15 @@ $querythin: 500px;
 
 .title {
     color: $blue1;
+    font-family: $fmain;
     font-size: $flarge;
     font-weight: bold;
     margin-bottom: 1rem;
 }
 
 .subtitle {
-    color: $blue9;
+    color: $blue8;
+    font-family: $fmain;
     font-size: $fmedium;
     margin-bottom: 1rem;
 }
@@ -156,6 +164,7 @@ $querythin: 500px;
 }
 
 .Avatar {
+    font-family: $fmain;
     height: 2rem;
     max-height: 2rem;
     min-height: 2rem;
@@ -215,7 +224,9 @@ $querythin: 500px;
 .text-box {
     @extend .box-wrapper ;
     color: $blue7;
+    font-family: $ftext;
     font-size: $fnormal;
+    // font-weight: lighter;
     display: auto;
     text-align: left;
     // line-height: 110%;
@@ -223,6 +234,12 @@ $querythin: 500px;
 
     .text {
         margin-bottom: 0.5rem;
+    }
+
+    p {
+        color: $blue6;
+        line-height: 120%;
+        font-weight: 300;
     }
 
     .alert-box {

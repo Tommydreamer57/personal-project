@@ -7,6 +7,7 @@
     background: $dark;
     color: $blue6;
     min-height: 100vh;
+    font-family: $fmain;
 
     .main {
         width: 100%;
@@ -14,10 +15,6 @@
         min-height: 100vh;
         padding-top: 3rem;
         padding-bottom: 1rem;
-
-        * {
-            font-family: $fmain;
-        }
 
         .post-box {
             @extend .box-wrapper ;

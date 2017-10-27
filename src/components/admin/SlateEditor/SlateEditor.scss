@@ -10,9 +10,14 @@
     }
     .editor {
         background: $medium;
-        color: $white7;
         padding: 0.5rem;
         border-radius: 0.25rem;
         margin: 1rem 0;
+        * {
+            color: $white6;
+        }
+    }
+    .save-button {
+        cursor: pointer;
     }
 }
