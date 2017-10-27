@@ -8,6 +8,22 @@
         color: $blue8;
         border-radius: 0.5rem;
     }
+    .title-box, .subtitle-box {
+        flex-direction: row;
+        justify-content: space-between;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        input {
+            background: $medium;
+            padding-left: 0.5rem;
+            border: none;
+            border-radius: 0.25rem;
+            color: $white7;
+            font-size: inherit;
+            font-family: inherit;
+            max-width: 55%;
+        }
+    }
     .editor {
         background: $medium;
         padding: 0.5rem;

@@ -166,6 +166,21 @@ b, strong {
   color: rgba(90, 200, 255, 0.8);
   border-radius: 0.5rem; }
 
+.SlateEditor .title-box, .SlateEditor .subtitle-box, .CreatePost .title-box, .CreatePost .subtitle-box {
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 2rem;
+  padding-right: 2rem; }
+  .SlateEditor .title-box input, .SlateEditor .subtitle-box input, .CreatePost .title-box input, .CreatePost .subtitle-box input {
+    background: #262626;
+    padding-left: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: inherit;
+    font-family: inherit;
+    max-width: 55%; }
+
 .SlateEditor .editor, .CreatePost .editor {
   background: #262626;
   padding: 0.5rem;
