@@ -237,6 +237,8 @@ b, strong {
     .PostTile .tile-favorite-button {
       width: 1.8rem;
       align-items: flex-start; }
+      .PostTile .tile-favorite-button .button-wrapper {
+        margin-top: 0.35rem; }
       .PostTile .tile-favorite-button .circle {
         margin-top: 0.75rem; } }
 

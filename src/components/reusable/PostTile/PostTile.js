@@ -50,7 +50,12 @@ export default function PostTile(props) {
             {/* <div className='tile-body'> */}
             <Link className='tile-body' to={props.url || `/post`} >
                 <h1 className='tile-title'>{props.title}</h1>
-                <h2 className='tile-subtitle'>{props.subtitle}</h2>
+                {
+                    props.parent == 'admin' ?
+                        <DateStamp date={props.date} />
+                        :
+                        <h2 className='tile-subtitle'>{props.subtitle}</h2>                        
+                }
             </Link>
             {/* </div> */}
             <div className='tile-favorite-button'>

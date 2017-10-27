@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import SectionTile from '../../pages/Home/SectionTile/SectionTile';
 import PostTile from '../../reusable/PostTile/PostTile';
 import Navbar from '../../reusable/Navbar/Navbar';
 import { LoginButton } from '../../reusable/Buttons/Button';
-import { adminSelectPost } from '../../../ducks/reducer';
+import { adminSelectPost, selectSection } from '../../../ducks/reducer';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import axios from 'axios';
@@ -12,18 +13,24 @@ class AdminHome extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            posts: []
+            sections: []
         }
     }
     componentDidMount() {
         let { admin } = this.props.user || ``
         if (admin) {
-            axios.get(`/admin/posts`)
+            axios.get(`/admin/sections`)
                 .then(response => {
                     this.setState({
-                        posts: response.data
+                        sections: response.data
                     })
                 })
+            // axios.get(`/admin/posts`)
+            //     .then(response => {
+            //         this.setState({
+            //             posts: response.data
+            //         })
+            //     })
         }
     }
     render() {
@@ -39,15 +46,25 @@ class AdminHome extends Component {
                         <div className='title-box'>
                             {`Welcome, ${name}`}
                         </div>
-                        <PostTile url='/admin/createpost' title='Create New Post' />
-                        {
-                            this.state.posts.map((post, i) => {
-                                console.log(post)
-                                return (
-                                    <PostTile url={`/posts/${post.id || ``}`} title={post.title || `Post #${i}`} key={post.id} id={post.id} function={this.props.adminSelectPost} />
-                                )
-                            })
-                        }
+                        <div className='post-box'>
+                            <PostTile url='/admin/createpost' title='Create New Post' />
+                        </div>
+                        <div className='post-box'>
+                            {
+                                this.state.sections.map((item, i) => {
+                                    console.log(item)
+                                    return (
+                                        <SectionTile
+                                            url={`/sections/${item.id || ``}`}
+                                            title={item.section || `Section #${i}`}
+                                            key={i}
+                                            function={this.props.selectSection}
+                                            parent='admin'
+                                        />
+                                    )
+                                })
+                            }
+                        </div>
                         <Navbar />
                     </div>
                 )
@@ -74,7 +91,8 @@ function mapStateToProps(state) {
 }
 
 const outActions = {
-    adminSelectPost
+    adminSelectPost,
+    selectSection
 }
 
 export default connect(mapStateToProps, outActions)(AdminHome);

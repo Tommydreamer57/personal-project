@@ -34,6 +34,7 @@ class Favorites extends Component {
                                     <PostTile
                                         url={`/posts/${post.id || ``}`}
                                         title={post.title || `Post #${i}`}
+                                        subtitle={post.subtitle}
                                         key={post.id}
                                         id={post.id}
                                         function={this.props.selectPost}

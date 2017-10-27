@@ -58,7 +58,7 @@ $favan: 14px;
         .button-placeholder {
             .circle {
                 transition: background-color .3s;
-                
+
                 .inner-circle {
                     transition: width .3s, height .3s, background-color .3s;
                 }
@@ -157,6 +157,10 @@ $innercircleheight: 0.69rem;
         .tile-favorite-button {
             width: 1.8rem;
             align-items: flex-start;
+
+            .button-wrapper {
+                margin-top: 0.35rem;
+            }
 
             .circle {
                 margin-top: 0.75rem;

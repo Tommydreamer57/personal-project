@@ -4,7 +4,7 @@ import html from '../components/admin/SlateEditor/html-rules';
 // INITIAL STATE
 
 const initialState = {
-    user: {},           // user object from /auth/me { id, username, favorites }
+    user: { admin: true },           // user object from /auth/me { id, username, favorites }
     favorites: [],
     sections: [],     // section object from /sections { section, id }
     subsections: [],

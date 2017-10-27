@@ -15,26 +15,38 @@ class SectionTile extends Component {
 
     }
     componentDidMount() {
-        axios.get(`/posts/${this.props.title}`)
-            .then(response => {
-                console.log('SectionTile got posts')
-                console.log(this.props.title)
-                console.log(response.data)
-                this.setState({
-                    posts: response.data
+        if (this.props.parent == 'admin') {
+            axios.get(`/admin/posts/${this.props.title}`)
+                .then(response => {
+                    console.log('SectionTile got posts')
+                    console.log(this.props.title)
+                    console.log(response.data)
+                    this.setState({
+                        posts: response.data
+                    })
                 })
-            })
-        axios.get(`subsections/${this.props.title}`)
-            .then(response => {
-                console.log('SectionTile got subsections')
-                console.log(response.data)
-                this.setState({
-                    subsections: response.data
+        }
+        else {
+            axios.get(`/posts/${this.props.title}`)
+                .then(response => {
+                    console.log('SectionTile got posts')
+                    console.log(this.props.title)
+                    console.log(response.data)
+                    this.setState({
+                        posts: response.data
+                    })
                 })
-            })
+            axios.get(`subsections/${this.props.title}`)
+                .then(response => {
+                    console.log('SectionTile got subsections')
+                    console.log(response.data)
+                    this.setState({
+                        subsections: response.data
+                    })
+                })
+        }
         console.log('SectionTile getting posts')
         console.log(this.props.title)
-
     }
     render() {
         return (
@@ -58,10 +70,12 @@ class SectionTile extends Component {
                                     url={`/posts/${post.id || ``}`}
                                     title={post.title || `Post #${i}`}
                                     subtitle={post.subtitle}
+                                    date={post.date}
                                     key={post.id}
                                     id={post.id}
                                     function={this.props.selectPost}
                                     fav={favorite}
+                                    parent={this.props.parent}
                                 />
                             )
                         })

@@ -132,7 +132,9 @@ app.delete(`/favorites/:userid/:postid`, uc.removeFavorite)
 
 // ADMIN
 
+app.get(`/admin/sections`, ac.getSections)
 app.get(`/admin/posts`, ac.getPosts)
+app.get(`/admin/posts/:sectionid`, ac.getPostsBySection)
 app.get(`/admin/post/:postid`, ac.getPostById)
 app.post(`/admin/createpost/:adminid`, ac.createPost)
 app.put(`/admin/editpost/:postid`, ac.editPost)

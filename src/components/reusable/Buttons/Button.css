@@ -171,12 +171,13 @@ b, strong {
   margin-left: 2rem;
   padding: 0.25rem 2rem;
   font-size: 1.5rem;
+  color: #6432dc;
   border: 2px solid transparent;
   border-radius: 2rem;
-  transition: background-color .3s, color .3s, font-weight .3s; }
+  transition: background-color .3s, color .3s, font-weight .3s, padding .3s; }
 
 .NavigationButton:hover, .LoginButton:hover, .LogoutButton:hover {
-  background: rgba(90, 200, 255, 0.9);
+  background: rgba(100, 50, 220, 0.9);
   color: rgba(0, 0, 0, 0.9);
   font-weight: bold; }
 

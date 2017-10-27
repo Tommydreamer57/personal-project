@@ -42,7 +42,13 @@ class Home extends Component {
                             this.props.sections.map((item, i) => {
                                 {/* console.log(item); */ }
                                 return (
-                                    <SectionTile key={i} url={`/section/${item.section || ``}`} title={item.section} key={i} function={this.props.selectSection} />
+                                    <SectionTile
+                                        key={i}
+                                        url={`/section/${item.section || ``}`}
+                                        title={item.section}
+                                        key={i}
+                                        function={this.props.selectSection}
+                                    />
                                 );
                             })
                             :

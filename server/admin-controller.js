@@ -1,10 +1,27 @@
 module.exports = {
+    getSections: (req, res, next) => {
+        const db = req.app.get('db');
+        db.admin_read_sections()
+            .then(sections => {
+                res.status(200).send(sections)
+            })
+            .catch(() => res.status(500).send(''))
+    },
     getPosts: (req, res, next) => {
         const db = req.app.get('db');
         db.admin_read_posts()
             .then(posts => {
                 res.status(200).send(posts)
             })
+            .catch(() => res.status(500).send(''))
+    },
+    getPostsBySection: (req, res, next) => {
+        const db = req.app.get('db');
+        db.admin_read_posts_by_section([req.params.sectionid])
+            .then(posts => {
+                res.status(200).send(posts)
+            })
+        .catch(() => res.status(500).send(''))
     },
     getPostById: (req, res, next) => {
         const db = req.app.get('db');
@@ -12,6 +29,7 @@ module.exports = {
             .then(post => {
                 res.status(200).send(post)
             })
+            .catch(() => res.status(500).send(''))
     },
     createPost: (req, res, next) => {
         const db = req.app.get('db');
@@ -19,6 +37,7 @@ module.exports = {
             .then(post => {
                 res.status(200).send(post)
             })
+            .catch(() => res.status(500).send(''))
     },
     editPost: (req, res, next) => {
         const db = req.app.get('db');
@@ -28,7 +47,9 @@ module.exports = {
                     .then(post => {
                         res.status(200).send(post)
                     })
+                    .catch(() => res.status(500).send(''))
             })
+            .catch(() => res.status(500).send(''))
     },
     editPostBody: (req, res, next) => {
         const db = req.app.get('db');
@@ -39,7 +60,9 @@ module.exports = {
                     .then(post => {
                         res.status(200).send(post)
                     })
+                    .catch(() => res.status(500).send(''))
             })
+            .catch(() => res.status(500).send(''))
     },
     publishPost: (req, res, next) => {
         const db = req.app.get('db');
@@ -49,7 +72,9 @@ module.exports = {
                     .then(post => {
                         res.status(200).send(post)
                     })
+                    .catch(() => res.status(500).send(''))
             })
+            .catch(() => res.status(500).send(''))
     },
     unpublishPost: (req, res, next) => {
         const db = req.app.get('db');
@@ -59,7 +84,9 @@ module.exports = {
                     .then(post => {
                         res.status(200).send(post)
                     })
+                    .catch(() => res.status(500).send(''))
             })
+            .catch(() => res.status(500).send(''))
     },
     addHtml: (req, res, next) => {
         const db = req.app.get('db');
@@ -67,6 +94,7 @@ module.exports = {
             .then(html => {
                 res.status(200).send(html)
             })
+            .catch(() => res.status(500).send(''))
     },
     readHtml: (req, res, next) => {
         const db = req.app.get('db');
@@ -74,5 +102,6 @@ module.exports = {
             .then(html => {
                 res.status(200).send(html)
             })
+            .catch(() => res.status(500).send(''))
     }
 }
