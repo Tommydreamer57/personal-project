@@ -60,7 +60,7 @@ export default function PostTile(props) {
                             <Favorite fav={props.fav} />
                         </div>
                         :
-                        <div className='button-placeholder'>
+                        <div className='button-placeholder' onClick={props.phfunction} >
                             <div className='circle'>
                                 <div className='inner-circle' />
                             </div>

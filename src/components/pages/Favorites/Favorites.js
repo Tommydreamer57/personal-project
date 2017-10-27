@@ -31,11 +31,23 @@ class Favorites extends Component {
                             favorites.map((post, i) => {
                                 console.log(post)
                                 return (
-                                    <PostTile url={`/posts/${post.id || ``}`} title={post.title || `Post #${i}`} key={post.id} id={post.id} function={this.props.selectPost} />
+                                    <PostTile
+                                        url={`/posts/${post.id || ``}`}
+                                        title={post.title || `Post #${i}`}
+                                        key={post.id}
+                                        id={post.id}
+                                        function={this.props.selectPost}
+                                        fav={false}
+                                        phfunction={() => { }}
+                                    />
                                 )
                             })
                             :
-                            <PostTile url='/home' title='Home' />    
+                            <PostTile
+                                url='/home'
+                                title='Home'
+                                function={() => { }}
+                            />    
                     }
                 </div>
                 <Navbar />

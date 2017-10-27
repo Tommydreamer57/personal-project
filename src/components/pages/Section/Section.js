@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Navbar from '../../reusable/Navbar/Navbar';
 import PostTile from '../../reusable/PostTile/PostTile';
 import { connect } from 'react-redux';
-import { selectSection, getPosts, selectPost } from '../../../ducks/reducer';
+import { selectSection, getPosts, selectPost, clearSelectedSection, clearPosts } from '../../../ducks/reducer';
 import './Section.css'
 
 class Section extends Component {
@@ -20,6 +20,11 @@ class Section extends Component {
         }
         console.log(section)
         this.props.getPosts(section);
+    }
+    componentWillUnmount() {
+        console.log('Section unmounting')
+        this.props.clearSelectedSection();
+        this.props.clearPosts();
     }
     render() {
         return (
@@ -70,7 +75,9 @@ function mapStateToProps(state) {
 const outActions = {
     selectSection,
     getPosts,
-    selectPost
+    selectPost,
+    clearSelectedSection,
+    clearPosts
 }
 
 export default connect(mapStateToProps, outActions)(Section)

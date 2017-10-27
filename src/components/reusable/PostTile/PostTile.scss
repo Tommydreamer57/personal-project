@@ -57,6 +57,8 @@ $favan: 14px;
 
         .button-placeholder {
             .circle {
+                transition: background-color .3s;
+                
                 .inner-circle {
                     transition: width .3s, height .3s, background-color .3s;
                 }

@@ -177,8 +177,10 @@ b, strong {
         background: rgba(90, 200, 255, 0.8);
         animation-name: rotationthree;
         transition: transform 0.5s; }
-    .PostTile .tile-favorite-button .button-placeholder .circle .inner-circle {
-      transition: width .3s, height .3s, background-color .3s; }
+    .PostTile .tile-favorite-button .button-placeholder .circle {
+      transition: background-color .3s; }
+      .PostTile .tile-favorite-button .button-placeholder .circle .inner-circle {
+        transition: width .3s, height .3s, background-color .3s; }
   .PostTile .tile-title {
     font-size: 1.5rem;
     color: rgba(255, 255, 255, 0.7);

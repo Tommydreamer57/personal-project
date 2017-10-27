@@ -33,9 +33,11 @@ const REJECTED = '_REJECTED';
 const GET_USER = 'GET_USER';
 const GET_SECTIONS = 'GET_SECTIONS';
 const SELECT_SECTION = 'SELECT_SECTION';
+const CLEAR_SELECTED_SECTION = 'CLEAR_SELECTED_SECTION';
 const GET_SUBSECTIONS = 'GET_SUBSECTIONS';
 const GET_ALL_POSTS = 'GET_ALL_POSTS';
 const GET_POSTS = 'GET_POSTS';
+const CLEAR_POSTS = 'CLEAR_POSTS';
 const SELECT_POST = 'SELECT_POST';
 const CLEAR_SELECTED_POST = 'CLEAR_SELECTED_POST';
 const GET_COMMENTS = 'GET_COMMENTS';
@@ -88,12 +90,18 @@ export function selectSection(section) {
     }
 }
 
+export function clearSelectedSection() {
+    return {
+        type: CLEAR_SELECTED_SECTION
+    }
+}
+
 export function getSubsections(section) {
     let subsections = axios.get(`/subsections/${section}`)
         .then(response => {
             console.log('redux got subsections')
             console.log(response.data)
-        return response.data
+            return response.data
         })
     return {
         type: GET_SUBSECTIONS,
@@ -112,6 +120,12 @@ export function getPosts(section) {
     return {
         type: GET_POSTS,
         payload: posts
+    }
+}
+
+export function clearPosts() {
+    return {
+        type: CLEAR_POSTS
     }
 }
 
@@ -279,11 +293,18 @@ export default function reducer(state = initialState, action) {
         case SELECT_SECTION:
             return Object.assign({}, state, { selectedSection: action.payload });
 
+        case CLEAR_SELECTED_SECTION:
+            console.log(state.selectedSection)
+            return Object.assign({}, state, { selectedSection: 0 })
+
         case GET_SUBSECTIONS:
             return Object.assign({}, state, { subsections: action.payload });
 
         case GET_POSTS + FULFILLED:
             return Object.assign({}, state, { posts: action.payload });
+
+        case CLEAR_POSTS:
+            return Object.assign({}, state, { posts: [] })
 
         case SELECT_POST + FULFILLED:
             // CHECK FAVORITES TO SEE IF POST IS IN FAVORITES
@@ -352,7 +373,7 @@ export default function reducer(state = initialState, action) {
             alertClass = 'warning-box'
             alert = action.payload
             return Object.assign({}, state, { alertClass, alert });
-        
+
         default:
             return state;
     }
