@@ -60,6 +60,13 @@
     }
 }
 
+
+.preview {
+    .title-box, .subtitle-box, .text-box {
+        background: $medium;
+    }
+}
+
 @media (max-width: $querythin) {
     body .SlateEditor {
         .title-box, .subtitle-box {

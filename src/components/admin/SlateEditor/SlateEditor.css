@@ -231,6 +231,9 @@ pre {
   justify-content: center;
   color: rgba(90, 200, 255, 0.8); }
 
+.preview .title-box, .preview .subtitle-box, .preview .text-box {
+  background: #262626; }
+
 @media (max-width: 500px) {
   body .SlateEditor .title-box, body .SlateEditor .subtitle-box {
     margin-bottom: 1.5rem;

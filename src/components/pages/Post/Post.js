@@ -71,7 +71,7 @@ class Post extends Component {
     }
     render() {
         // console.log(this.state.fav)
-        console.log(this.props.postIsFavorite)
+        console.log(this.props.selectedPost.published)
         let post = this.props.selectedPost || ``;
         let { user } = this.props || ``;
         return (

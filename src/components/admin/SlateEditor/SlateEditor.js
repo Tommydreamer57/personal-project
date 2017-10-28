@@ -151,8 +151,9 @@ class SlateEditor extends Component {
     }
     render() {
         // let post = this.state || ``
+        console.log(this.props.selectedPost.published)
         return (
-            <div className='SlateEditor'>
+            <div className={this.props.selectedPost.published ? 'SlateEditor' : 'SlateEditor preview'} >
                 <div className='title-box'>
                     Edit Post
                 </div>

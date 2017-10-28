@@ -62,6 +62,11 @@ class CreatePost extends Component {
                         value={post.section}
                         onChange={e => this.handleChange('section', e.target.value)}
                     />
+                    <select>
+                        {
+                            this.props.sections
+                        }
+                    </select>
                 </div>
                 <div className='subtitle-box'>
                     <div>
