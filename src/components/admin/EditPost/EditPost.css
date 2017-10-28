@@ -2,6 +2,10 @@
 @import url("https://fonts.googleapis.com/css?family=Ubuntu");
 @import url("https://fonts.googleapis.com/css?family=Hind");
 /**FONTS**/
+/**THEME**/
+/**COLORS**/
+/**MARGINS**/
+/**MEDIA QUERIES**/
 /**TAGS**/
 @import 'https://cdn.quilljs.com/1.3.3/quill.snow.css';
 i {
@@ -10,10 +14,24 @@ i {
 b, strong {
   font-weight: bold; }
 
-/**THEME**/
-/**COLORS**/
-/**MARGINS**/
-/**MEDIA QUERIES**/
+pre {
+  display: block;
+  max-width: 100%;
+  background: rgba(90, 200, 255, 0.8);
+  color: black;
+  overflow-wrap: normal;
+  padding: 0.25rem 0.5rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem; }
+  pre span span {
+    color: black !important; }
+  pre + pre {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0; }
+  pre + pre:last-of-type {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem; }
+
 /**CLASSES**/
 .none {
   display: none; }

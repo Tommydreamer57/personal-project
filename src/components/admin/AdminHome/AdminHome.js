@@ -8,6 +8,7 @@ import { adminSelectPost, selectSection } from '../../../ducks/reducer';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import axios from 'axios';
+import './AdminHome.css';
 
 class AdminHome extends Component {
     constructor(props) {
@@ -47,7 +48,11 @@ class AdminHome extends Component {
                             {`Welcome, ${name}`}
                         </div>
                         <div className='post-box'>
-                            <PostTile url='/admin/createpost' title='Create New Post' />
+                            <PostTile
+                                url='/admin/createpost'
+                                title='Create New Post'
+                                function={() => { }}
+                            />
                         </div>
                         <div className='post-box'>
                             {

@@ -74,7 +74,8 @@ class SectionTile extends Component {
                                     key={post.id}
                                     id={post.id}
                                     function={this.props.selectPost}
-                                    fav={favorite}
+                                    phfunction={this.props.selectPost}
+                                    fav={this.props.parent == 'admin' ? false : favorite}
                                     parent={this.props.parent}
                                 />
                             )

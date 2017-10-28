@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from '../../reusable/Navbar/Navbar';
 import { connect } from 'react-redux';
-import { adminSelectPost, getComments } from '../../../ducks/reducer';
+import { clearSelectedPost, adminSelectPost, getComments } from '../../../ducks/reducer';
 import axios from 'axios';
 import './SlateEditor.css';
 
@@ -145,6 +145,9 @@ class SlateEditor extends Component {
         console.log('edit post getting comments')
         this.props.getComments(postid)
     }
+    componentWillUnmount() {
+        this.props.clearSelectedPost()
+    }
     render() {
         // let post = this.state || ``
         return (
@@ -209,7 +212,8 @@ function mapStateToProps(state) {
 
 const outActions = {
     adminSelectPost,
-    getComments
+    getComments,
+    clearSelectedPost
 }
 
 export default connect(mapStateToProps, outActions)(SlateEditor);

@@ -46,15 +46,15 @@ export function AuthorTile(props) {
 
 export default function PostTile(props) {
     return (
-        <div className='PostTile' onClick={() => props.function(props.id)} >
+        <div className='PostTile'>
             {/* <div className='tile-body'> */}
-            <Link className='tile-body' to={props.url || `/post`} >
+            <Link className='tile-body' to={props.url || `/post`} onClick={() => props.function(props.id)} >
                 <h1 className='tile-title'>{props.title}</h1>
                 {
                     props.parent == 'admin' ?
                         <DateStamp date={props.date} />
                         :
-                        <h2 className='tile-subtitle'>{props.subtitle}</h2>                        
+                        <h2 className='tile-subtitle'>{props.subtitle}</h2>
                 }
             </Link>
             {/* </div> */}
@@ -65,11 +65,18 @@ export default function PostTile(props) {
                             <Favorite fav={props.fav} />
                         </div>
                         :
-                        <div className='button-placeholder' onClick={props.phfunction} >
-                            <div className='circle'>
-                                <div className='inner-circle' />
+                        props.parent == 'admin' ?
+                            <Link to={`/admin/editpost/${props.id}`} className='button-placeholder' onClick={props.phfunction} >
+                                <div className='circle'>
+                                    <div className='inner-circle' />
+                                </div>
+                            </Link>
+                            :
+                            <div className='button-placeholder' onClick={props.phfunction} >
+                                <div className='circle'>
+                                    <div className='inner-circle' />
+                                </div>
                             </div>
-                        </div>
                 }
             </div>
         </div>

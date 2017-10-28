@@ -16,16 +16,6 @@ $fmediumnormal: 1.75rem;
 $fmediumsmall: 1.5rem;
 $fnormal: 1rem;
 
-/**TAGS**/
-
-i {
-    font-style: italic;
-}
-
-b, strong {
-    font-weight: bold;
-}
-
 /**THEME**/
 
 /**COLORS**/
@@ -123,6 +113,39 @@ $querymediumwide: 850px;
 $querymedium: 740px;
 $querymediumthin: 650px;
 $querythin: 500px;
+
+/**TAGS**/
+
+i {
+    font-style: italic;
+}
+
+b, strong {
+    font-weight: bold;
+}
+
+pre {
+    display: block;
+    max-width: 100%;
+    background: $blue8;
+    color: black;
+    overflow-wrap: normal;
+    // line-height: 80%;
+    padding: 0.25rem 0.5rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    span span {
+        color: black !important;
+    }
+    + pre {
+        border-top-left-radius: 0;
+        border-top-right-radius:0;
+    }
+    + pre:last-of-type {
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+    }
+}
 
 /**CLASSES**/
 

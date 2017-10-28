@@ -23,8 +23,8 @@
             text-align: right;
             color: $blue8;
             font-weight: bold;
-            max-width: 55%;
-            max-width: auto;
+            max-width: 60%;
+            text-overflow: ellipsis;
         }
         input:focus {
             background: $medium;

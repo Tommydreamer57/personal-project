@@ -22,16 +22,23 @@ class Navbar extends Component {
                                 :
                                 <LoginButton>Login</LoginButton>
                         }
-                        <NavigationButton url='/home/' className='navigation-button'>Home</NavigationButton>
-                        
-                        <NavigationButton url='/admin/' className='navigation-button'>Admin</NavigationButton>
+                        <NavigationButton url='/home/' className='navigation-button'>
+                            Home
+                        </NavigationButton>
 
-                        <NavigationButton url='/section/' className='navigation-button'>Section</NavigationButton>
+                        <NavigationButton url='/favorites' className='navigation-button'>
+                            Favorites
+                        </NavigationButton>
+
                         {
-
+                            this.props.user.admin ?
+                                <NavigationButton url='/admin/' className='navigation-button'>
+                                    Admin
+                                </NavigationButton>
+                                :
+                                null
                         }
-                        <NavigationButton url='/post/' className='navigation-button'>Post</NavigationButton>
-                        <NavigationButton url='/favorites' className='navigation-button'>Favorites</NavigationButton>
+
                     </div>
                     <NavigationToggle />
                 </div>

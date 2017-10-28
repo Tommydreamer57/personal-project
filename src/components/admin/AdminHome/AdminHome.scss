@@ -1,0 +1,63 @@
+
+@import '../../../theme';
+
+// COPIED FROM POSTTILE.SCSS
+
+$circleheight: 1rem;
+$innercircleheight: 0.69rem;
+
+// CLASSES
+
+.AdminHome {
+
+    .post-box {
+
+        .PostTile:hover {
+            .button-placeholder {
+                .circle {
+                    background: black;
+
+                    .inner-circle {
+                        width: $circleheight;
+                        height: $circleheight;
+                        background: $blue9;
+                    }
+                }
+            }
+        }
+    }
+
+    .SectionTile {
+
+        .PostTile:hover {
+            .button-placeholder {
+                .circle {
+                    background: black;
+
+                    .inner-circle {
+                        width: $circleheight;
+                        height: $circleheight;
+                        // background: $faded;
+                        background: $green7;
+                    }
+                }
+            }
+        }
+
+        .PostTile {
+            .tile-favorite-button:hover {
+                // cursor: pointer;
+
+                .button-placeholder {
+                    .circle {
+                        background: black;
+
+                        .inner-circle {
+                            background: $yellow8;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

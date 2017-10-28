@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Navbar from '../../reusable/Navbar/Navbar';
 import PostTile from '../../reusable/PostTile/PostTile';
 import { connect } from 'react-redux';
-import { getFavorites, selectPost } from '../../../ducks/reducer';
+import { getUser, getFavorites, selectPost, removeFavorite } from '../../../ducks/reducer';
 import './Favorites.css'
 
 class Favorites extends Component {
@@ -13,7 +13,16 @@ class Favorites extends Component {
         }
     }
     componentDidMount() {
-
+        if (!this.props.user.id) {
+            this.props.getUser()
+                .then(user => {
+                    this.props.getFavorites(user.value.id)
+                })
+        }
+        else if (!this.props.favorites.length) {
+            let userid = this.props.user.id
+            this.props.getFavorites(userid)
+        }
     }
     render() {
         let { favorites } = this.props
@@ -39,7 +48,7 @@ class Favorites extends Component {
                                         id={post.id}
                                         function={this.props.selectPost}
                                         fav={false}
-                                        phfunction={() => { }}
+                                        phfunction={() => this.props.removeFavorite(this.props.user.id, post.id)}
                                     />
                                 )
                             })
@@ -48,7 +57,7 @@ class Favorites extends Component {
                                 url='/home'
                                 title='Home'
                                 function={() => { }}
-                            />    
+                            />
                     }
                 </div>
                 <Navbar />
@@ -59,13 +68,16 @@ class Favorites extends Component {
 
 function mapStateToProps(state) {
     return {
-        favorites: state.favorites
+        favorites: state.favorites,
+        user: state.user
     }
 }
 
 const outActions = {
+    getUser,
     getFavorites,
-    selectPost
+    selectPost,
+    removeFavorite
 }
 
 export default connect(mapStateToProps, outActions)(Favorites)
