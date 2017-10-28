@@ -46,7 +46,7 @@ export function AuthorTile(props) {
 
 export default function PostTile(props) {
     return (
-        <div className='PostTile'>
+        <div className={props.published ? 'PostTile' : 'PostTile unpublished'}>
             {/* <div className='tile-body'> */}
             <Link className='tile-body' to={props.url || `/post`} onClick={() => props.function(props.id)} >
                 <h1 className='tile-title'>{props.title}</h1>

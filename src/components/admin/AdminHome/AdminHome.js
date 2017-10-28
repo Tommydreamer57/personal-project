@@ -26,12 +26,6 @@ class AdminHome extends Component {
                         sections: response.data
                     })
                 })
-            // axios.get(`/admin/posts`)
-            //     .then(response => {
-            //         this.setState({
-            //             posts: response.data
-            //         })
-            //     })
         }
     }
     render() {
@@ -52,6 +46,7 @@ class AdminHome extends Component {
                                 url='/admin/createpost'
                                 title='Create New Post'
                                 function={() => { }}
+                                published={true}
                             />
                         </div>
                         <div className='post-box'>

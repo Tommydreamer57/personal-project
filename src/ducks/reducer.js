@@ -12,7 +12,10 @@ const initialState = {
     posts: [{
         title: 'refresh page to load posts'
     }],    // post object from /posts/section { id, title, subtitle, body, comments { username, date, body } }
-    selectedPost: 0,    // selected post information
+    selectedPost: {
+        id: 0,
+        published: true
+    },    // selected post information
     selectedPostBody: html.deserialize(`<p>loading page</p>`),
     postIsFavorite: false,
     comments: [],
@@ -324,7 +327,7 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, state, { alertClass, alert });
 
         case CLEAR_SELECTED_POST:
-            return Object.assign({}, state, { selectedPost: 0, selectedPostBody: html.deserialize(`<p>loading page</p>`) });
+            return Object.assign({}, state, { selectedPost: initialState.selectedPost, selectedPostBody: html.deserialize(`<p>loading page</p>`) });
 
         case GET_COMMENTS + FULFILLED:
             return Object.assign({}, state, { comments: action.payload });

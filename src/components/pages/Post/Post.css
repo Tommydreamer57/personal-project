@@ -108,9 +108,13 @@ pre {
   display: auto;
   text-align: left;
   padding: 1rem 1.5rem; }
+  .text-box .title, .text-box .title-box, .text-box .subtitle, .text-box .subtitle-box {
+    padding: 0.75rem 2rem 0.75rem; }
+  .text-box .subtitle + div, .text-box .subtitle-box + div {
+    margin-top: 1rem; }
   .text-box .text {
     margin-bottom: 0.5rem; }
-  .text-box p {
+  .text-box span {
     color: rgba(90, 200, 255, 0.6);
     line-height: 120%;
     font-weight: 300; }
@@ -184,12 +188,19 @@ pre {
 
 .FavoriteButton {
   position: absolute;
-  top: 1rem;
+  top: -2.5rem;
   right: 1.7rem;
   z-index: 10000; }
 
+.about {
+  width: calc(100% - 4rem);
+  margin: 2rem 8rem 0;
+  text-align: left;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.7); }
+
 .AuthorTile {
-  margin: 1rem 2.25rem;
+  margin: 0.75rem 2.25rem 1.25rem;
   display: flex;
   color: rgba(255, 255, 255, 0.7); }
   .AuthorTile .author-tile {
@@ -208,7 +219,11 @@ pre {
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  color: rgba(255, 255, 255, 0.5); }
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.25rem; }
+
+.preview .title-box, .preview .subtitle-box, .preview .text-box {
+  background: #262626; }
 
 @media (max-width: 740px) {
   .FavoriteButton {
@@ -219,4 +234,6 @@ pre {
 @media (max-width: 500px) {
   .AuthorTile {
     margin-left: 0rem;
-    margin-right: 0rem; } }
+    margin-right: 0rem; }
+  .about {
+    margin-left: 4rem; } }

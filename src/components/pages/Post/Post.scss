@@ -7,13 +7,21 @@
 
 .FavoriteButton {
     position: absolute;
-    top: 1rem;
+    top: -2.5rem;
     right: 1.7rem;
     z-index: 10000;
 }
 
+.about {
+    width: calc(100% - 4rem);
+    margin: 2rem 8rem 0;
+    text-align: left;
+    font-size: $fnormalmedium;
+    color: $white7;
+}
+
 .AuthorTile {
-    margin: 1rem 2.25rem;
+    margin: 0.75rem 2.25rem 1.25rem;
     display: flex;
     color: $white7;
 
@@ -44,7 +52,14 @@
     display: flex;
     justify-content: flex-start;
     color: $white5;
+    margin-bottom: 0.25rem;
 
+}
+
+.preview {
+    .title-box, .subtitle-box, .text-box {
+        background: $medium;
+    }
 }
 
 @media (max-width: $querymedium) {
@@ -61,5 +76,8 @@
     .AuthorTile {
         margin-left: 0rem;
         margin-right: 0rem;
+    }
+    .about {
+        margin-left: 4rem;
     }
 }

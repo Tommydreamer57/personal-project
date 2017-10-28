@@ -77,6 +77,7 @@ class SectionTile extends Component {
                                     phfunction={this.props.selectPost}
                                     fav={this.props.parent == 'admin' ? false : favorite}
                                     parent={this.props.parent}
+                                    published={post.published}
                                 />
                             )
                         })

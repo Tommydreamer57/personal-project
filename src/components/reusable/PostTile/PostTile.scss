@@ -135,6 +135,10 @@ $innercircleheight: 0.7rem;
     }
 }
 
+.unpublished {
+    background: $mediumdark;
+}
+
 @media (max-width: $querymedium) {
     .PostTile {
         width: calc(100% - 2rem);

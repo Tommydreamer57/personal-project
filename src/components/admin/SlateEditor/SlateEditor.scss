@@ -54,6 +54,10 @@
     .subtitle-box {
         color: $white7;
     }
+    .subtitle-box:last-of-type {
+        justify-content: center;
+        color: $blue8;
+    }
 }
 
 @media (max-width: $querythin) {

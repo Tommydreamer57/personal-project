@@ -6,9 +6,10 @@ import DateStamp from '../../reusable/dates/dates';
 import CommentBox from './CommentBox/CommentBox';
 import { connect } from 'react-redux';
 import { getUser, adminSelectPost, selectPost, getComments, getFavorites, addFavorite, removeFavorite, clearSelectedPost } from '../../../ducks/reducer';
+import { Link } from 'react-router-dom';
 import './Post.css';
 // import Prism, { PrismCode } from 'react-prism';
-
+import axios from 'axios';
 import { Editor } from 'slate-react';
 import html, { schema } from '../../admin/SlateEditor/html-rules';
 
@@ -28,10 +29,16 @@ class Post extends Component {
             :
             this.props.addFavorite(this.props.user.id, this.props.selectedPost.id)
     }
+    publish = () => {
+        axios.put(`/admin/publish/${this.props.selectedPost.id}`)
+            .then(() => {
+                this.props.selectPost(this.props.selectedPost.id)
+            })
+    }
     componentDidMount() {
         // GETS POST FROM DB IF NOT ALREADY ON REDUX STATE
         let { postid } = this.props.match.params
-        if (!this.props.selectedPost) {
+        if (!this.props.selectedPost.id) {
             if (this.props.user.admin) {
                 console.log('post selecting admin post')
                 this.props.adminSelectPost(postid)
@@ -68,10 +75,17 @@ class Post extends Component {
         let post = this.props.selectedPost || ``;
         let { user } = this.props || ``;
         return (
-            <div className='Post'>
-                <div className='title-box'>
-                    {post.section || ``}
-                </div>
+            <div className={post.published ? 'Post' : 'Post preview'} >
+                {
+                    !post.published ?
+                        <div className='title-box'>
+                            Preview Only
+                        </div>
+                        :
+                        <div className='title-box'>
+                            {post.section || ``}
+                        </div>
+                }
                 <div className='text-box'>
                     <div className={'alert-box ' + this.props.alertClass} >
                         {this.props.alert}
@@ -88,6 +102,9 @@ class Post extends Component {
                         schema={schema}
                         readOnly={true}
                     />
+                    <div className='about'>
+                        About the Author
+                    </div>
                     <AuthorTile
                         imgurl={post.userimgurl}
                         name={post.first_name || post.username}
@@ -97,8 +114,26 @@ class Post extends Component {
                         Published on &nbsp;
                         <DateStamp date={post.date} />
                     </div>
-                    <CommentBox />
+                    {
+                        post.published ?
+                            <CommentBox />
+                            :
+                            null
+                    }
                 </div>
+                {
+                    !post.published ?
+                        <div>
+                            <div className='subtitle-box publish' onClick={this.publish} >
+                                Publish
+                            </div>
+                            <Link className='subtitle-box' to={`/admin/editpost/${post.id}`} >
+                                Back to Editor
+                            </Link>
+                        </div>
+                        :
+                        null
+                }
                 {
                     user.admin ?
                         <EditPostButton postid={post.id} >Edit Post</EditPostButton>

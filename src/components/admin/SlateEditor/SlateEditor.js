@@ -3,6 +3,7 @@ import Navbar from '../../reusable/Navbar/Navbar';
 import { connect } from 'react-redux';
 import { clearSelectedPost, adminSelectPost, getComments } from '../../../ducks/reducer';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import './SlateEditor.css';
 
 import { Editor } from 'slate-react';
@@ -113,7 +114,7 @@ class SlateEditor extends Component {
     componentDidMount() {
         let { postid } = this.props.match.params;
         let post = this.props.selectedPost || ``;
-        if (!post) {
+        if (!post.id) {
             console.log('edit post selecting post')
             this.props.adminSelectPost(postid)
                 .then(() => {
@@ -197,6 +198,9 @@ class SlateEditor extends Component {
                     </div>
                     <div className='save-button' onClick={this.save}>Save</div>
                 </div>
+                <Link className='subtitle-box' to={`/posts/${this.props.selectedPost.id}`} >
+                    View Post
+                </Link>
                 <Navbar />
             </div >
         )
