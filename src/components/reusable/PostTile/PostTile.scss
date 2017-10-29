@@ -10,10 +10,6 @@ $favan: 14px;
 
 // CLASSES
 
-.UserTile {
-    
-}
-
 .PostTile {
     width: calc(100% - 1rem);
     position: relative;    
@@ -155,6 +151,11 @@ $innercircleheight: 0.7rem;
             align-items: flex-start;
             padding-left: 2.5rem;
             padding-right: 0;
+            
+            .tile-subtitle {
+                text-align: left;
+            }
+
         }
 
         .tile-favorite-button {

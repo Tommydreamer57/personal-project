@@ -17,7 +17,7 @@ const app = express();
 
 massive(CONNECTION_STRING).then(db => app.set('db', db));
 
-app.use(express.static(`${__dirname}/../build`));
+app.use(express.static(`${__dirname}/../public/build`));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(session({
@@ -38,6 +38,7 @@ passport.use(new Auth0Strategy({
     const db = app.get('db');
     db.find_user([String(profile.identities[0].user_id)]).then(user => {
         if (user[0]) {
+            db.add_visit([String(user[0].user_id)])
             return done(null, user[0].auth_id)
         }
         else {
@@ -133,11 +134,13 @@ app.delete(`/favorites/:userid/:postid`, uc.removeFavorite)
 
 // ADMIN
 
+app.get(`/admin/users`, ac.getUsers)
+
 app.get(`/admin/sections`, ac.getSections)
 app.get(`/admin/posts`, ac.getPosts)
 app.get(`/admin/posts/:sectionid`, ac.getPostsBySection)
 app.get(`/admin/post/:postid`, ac.getPostById)
-app.post(`/admin/createpost/:adminid`, ac.createPost)
+app.post(`/admin/create/:adminid`, ac.createPost)
 app.put(`/admin/editpost/:postid`, ac.editPost)
 app.put(`/admin/publish/:postid`, ac.publishPost)
 app.put(`/admin/unpublish/:postid`, ac.unpublishPost)
@@ -152,11 +155,11 @@ app.post(`.admin/html/`, ac.addHtml)
 // MY OWN ENDPOINTS ABOVE
 
 
-const path = require('path')
+// const path = require('path')
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../build/index.html'));
-})
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../public/build/index.html'));
+// })
 
 
 passport.serializeUser(function (id, done) {

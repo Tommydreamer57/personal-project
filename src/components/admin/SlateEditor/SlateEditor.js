@@ -113,36 +113,21 @@ class SlateEditor extends Component {
     }
     componentDidMount() {
         let { postid } = this.props.match.params;
-        let post = this.props.selectedPost || ``;
-        if (!post.id) {
-            console.log('edit post selecting post')
-            this.props.adminSelectPost(postid)
-                .then(() => {
-                    post = this.props.selectedPost
-                    this.setState({
-                        id: postid,
-                        section: post.section,
-                        subsection: post.subsection,
-                        title: post.title,
-                        subtitle: post.subtitle,
-                        body: post.body,
-                        imgurl: post.imgurl,
-                        state: html.deserialize(post.body)
-                    })
+        console.log('edit post selecting post')
+        this.props.adminSelectPost(postid)
+            .then(() => {
+                let post = this.props.selectedPost
+                this.setState({
+                    id: postid,
+                    section: post.section,
+                    subsection: post.subsection,
+                    title: post.title,
+                    subtitle: post.subtitle,
+                    body: post.body,
+                    imgurl: post.imgurl,
+                    state: html.deserialize(post.body)
                 })
-        }
-        else {
-            this.setState({
-                id: postid,
-                section: post.section,
-                subsection: post.subsection,
-                title: post.title,
-                subtitle: post.subtitle,
-                body: post.body,
-                imgurl: post.imgurl,
-                state: html.deserialize(post.body)
             })
-        }
         console.log('edit post getting comments')
         this.props.getComments(postid)
     }
@@ -159,15 +144,17 @@ class SlateEditor extends Component {
                 </div>
                 <div className='subtitle-box'>
                     <div>Section:&nbsp;</div>
-                    <input    
+                    <input
+                        className='input'
                         value={this.state.section}
                         onChange={e => this.handleChange('section', e.target.value)}
-                        /* onKeyDown={key => console.log(key)} */
+                    /* onKeyDown={key => console.log(key)} */
                     />
                 </div>
                 <div className='subtitle-box'>
                     <div>Subsection:&nbsp;</div>
                     <input
+                        className='input'
                         value={this.state.subsection}
                         onChange={e => this.handleChange('subsection', e.target.value)}
                     />
@@ -175,6 +162,7 @@ class SlateEditor extends Component {
                 <div className='subtitle-box'>
                     <div>Title:&nbsp;</div>
                     <input
+                        className='input'
                         value={this.state.title}
                         onChange={e => this.handleChange('title', e.target.value)}
                     />
@@ -182,6 +170,7 @@ class SlateEditor extends Component {
                 <div className='subtitle-box'>
                     <div>Subtitle:&nbsp;</div>
                     <input
+                        className='input'
                         value={this.state.subtitle}
                         onChange={e => this.handleChange('subtitle', e.target.value)}
                     />
@@ -199,7 +188,7 @@ class SlateEditor extends Component {
                     </div>
                     <div className='save-button' onClick={this.save}>Save</div>
                 </div>
-                <Link className='subtitle-box' to={`/posts/${this.props.selectedPost.id}`} >
+                <Link className='subtitle-box' to={`/posts/${this.props.selectedPost.id}`} onClick={() => this.props.adminSelectPost(this.props.match.params.postid)} >
                     View Post
                 </Link>
                 <Navbar />

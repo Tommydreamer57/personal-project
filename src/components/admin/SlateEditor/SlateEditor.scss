@@ -12,7 +12,7 @@
         justify-content: space-between;
         padding-left: 2rem;
         padding-right: 2rem;
-        input {
+        .input {
             background: $darkest;
             padding-left: 0.5rem;
             padding-right: 0.5rem;
@@ -26,14 +26,28 @@
             max-width: 60%;
             text-overflow: ellipsis;
         }
-        input:focus {
+        .input:focus {
             background: $medium;
             color: $white7;
             font-weight: normal;
             // width: auto;
         }
-        input::placeholder {
+        .input::placeholder {
             font-weight: normal;
+        }
+        .untouched {
+            color: $white5;
+            font-weight: normal;
+        }
+        #sections {
+            -moz-appearance: none;
+            -webkit-appearance: none;
+        }
+        #sections::-ms-expand {
+            display: none;
+        }
+        #sections:hover {
+            cursor: pointer;
         }
     }
     .editor {
@@ -64,6 +78,10 @@
 .preview {
     .title-box, .subtitle-box, .text-box {
         background: $medium;
+        .input, .editor {
+            background: $dark;
+        }
+
     }
 }
 
@@ -72,7 +90,7 @@
         .title-box, .subtitle-box {
             margin-bottom: 1.5rem;
             flex-direction: column;
-            input {
+            .input {
                 margin-top: 1rem;
                 text-align: center;
                 max-width: 100%;

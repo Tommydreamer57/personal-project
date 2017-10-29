@@ -26,7 +26,11 @@ class Home extends Component {
                     <div className='content-wrapper' >
                         {`Welcome${name ? ` ${name}` : ``}!`.split(``).map((letter, i) => {
                             return (
-                                <p className='welcome-letter' style={letter == ` ` ? { color: 'rgba(0,0,0,0)' } : {}} >
+                                <p
+                                    className='welcome-letter'
+                                    style={letter == ` ` ? { color: 'rgba(0,0,0,0)' } : {}}
+                                    key={i}
+                                >
                                     {letter == ` ` ? `.` : letter}
                                 </p>
                             )

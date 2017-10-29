@@ -10,7 +10,7 @@
         padding-left: 2rem;
         padding-right: 2rem;
 
-        input {
+        .input {
             background: $medium;
             color: $white1;
             border: none;
@@ -19,6 +19,10 @@
             padding: 0 0.5rem;
         }
 
+    }
+
+    select {
+        text-align-last: right;
     }
 
     .title-box {
@@ -32,7 +36,7 @@
     .subtitle-box {
         @extend .input-box ;
 
-        input {
+        .input {
             font-size: $fmediumnormal;
         }
 
@@ -43,7 +47,7 @@
         background: $darkest;
         border-radius: 0.5rem;
         justify-content: center;
-        color: $blue8;
+        color: $blue7;
         font-weight: bold;
 
     }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from '../../reusable/Navbar/Navbar';
 import { connect } from 'react-redux';
-import { adminSelectPost, getComments } from '../../../ducks/reducer';
+import { adminSelectPost, getSections } from '../../../ducks/reducer';
 import axios from 'axios';
 import { Redirect } from 'react-router';
 import './CreatePost.css';
@@ -17,16 +17,32 @@ class CreatePost extends Component {
         this.state = {
             redirect: false,
             redirectid: 0,
+            sections: [],
+            newSection: ``,
             section: ``,
             subsection: ``,
             title: ``,
             subtitle: ``,
-            body: ``,
+            body: `<p>Type your post body here...</p>`,
             imgurl: ``
         }
     }
+    createSection = section => {
+
+    }
     create = () => {
-        axios.post(`/admin/createpost/${this.props.user.id}`, this.state)
+        console.log(this.state)
+        if (!this.state.section) return
+        if (!this.state.subsection) return
+        if (!this.state.title) return
+        if (!this.state.subtitle) return
+        
+        let body = Object.assign({}, this.state)
+        if (body.section == 'create-new') {
+            body.section = body.newSection
+        }
+
+        axios.post(`/admin/create/${this.props.user.id}`, body)
             .then(response => {
                 console.log(response.data)
                 this.setState({
@@ -36,8 +52,18 @@ class CreatePost extends Component {
             })
     }
     handleChange = (target, value) => {
+        // console.log(target)
+        // console.log(value)
         this.setState({
             [target]: value
+        })
+    }
+    componentDidMount() {
+        axios.get(`/admin/sections`)
+            .then(response => {
+                this.setState({
+                sections: response.data
+            })
         })
     }
     render() {
@@ -56,25 +82,59 @@ class CreatePost extends Component {
                     <div>
                         Section:&nbsp;
                     </div>
-                    <input
+                    {/* <input
                         className='input'
                         placeholder='click here'
+                        list='sections'                        
                         value={post.section}
                         onChange={e => this.handleChange('section', e.target.value)}
-                    />
-                    <select>
+                    /> */}
+                    <select className={this.state.section ? 'input' : 'input untouched'} id='sections' onChange={e => this.handleChange('section', e.target.value)} >
+                        <option value='' disabled selected >click here</option>
                         {
-                            this.props.sections
+                            this.state.sections.length ?
+                                this.state.sections.map((item, i) => {
+                                    // console.log(item)
+                                    return (
+                                        <option
+                                            key={i}
+                                            value={item.section}
+                                        >
+                                            {item.section}
+                                        </option>
+                                    )
+                                })
+                                :
+                                null
                         }
+                        <option value='create-new'>create new...</option>
                     </select>
                 </div>
+                {
+                    this.state.section == 'create-new' ?
+                        <div className='preview'>
+                            <div className='subtitle-box'>
+                                <div>
+                                    New Section:&nbsp;
+                            </div>
+                                <input
+                                    className='input'
+                                    placeholder='type here'
+                                    value={this.state.newSection}
+                                    onChange={e => this.handleChange('newSection', e.target.value)}
+                                />
+                            </div>
+                        </div>
+                        :
+                        null
+                }
                 <div className='subtitle-box'>
                     <div>
                         Subsection:&nbsp;
                     </div>
                     <input
                         className='input'
-                        placeholder='click here'
+                        placeholder='type here'
                         value={post.subsection}
                         onChange={e => this.handleChange('subsection', e.target.value)}
                     />
@@ -83,7 +143,7 @@ class CreatePost extends Component {
                     Title:&nbsp;
                     <input
                         className='input'
-                        placeholder='click here'
+                        placeholder='type here'
                         value={post.title}
                         onChange={e => this.handleChange('title', e.target.value)}
                     />
@@ -92,7 +152,7 @@ class CreatePost extends Component {
                     Subtitle:&nbsp;
                     <input
                         className='input'
-                        placeholder='click here'
+                        placeholder='type here'
                         value={post.subtitle}
                         onChange={e => this.handleChange('subtitle', e.target.value)}
                     />
@@ -114,8 +174,7 @@ function mapStateToProps(state) {
 }
 
 const outActions = {
-    adminSelectPost,
-    getComments
+    adminSelectPost
 }
 
 export default connect(mapStateToProps, outActions)(CreatePost);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { UserTile, Avatar } from '../../../../../reusable/PostTile/PostTile';
+import { Avatar } from '../../../../../reusable/PostTile/PostTile';
 import DateStamp, { month } from '../../../../../reusable/dates/dates';
 
 export default function Response(props) {
@@ -7,9 +7,6 @@ export default function Response(props) {
     return (
         <div className='Response'>
             <Avatar name={props.name} />
-            {/* <div className='avatar'>
-                {props.name ? props.name.slice(0, 2).toUpperCase() : null}
-            </div> */}
             <div className='response'>
                 <div className='response-header'>
                     <div className='name'>
@@ -22,13 +19,5 @@ export default function Response(props) {
                 </div>
             </div>
         </div>
-        // <div className='Response'>
-        //     <UserTile
-        //         imgurl={props.imgurl}
-        //         name={props.name}
-        //         date={props.date}
-        //     />
-        //     {props.children}
-        // </div>
     )
 }

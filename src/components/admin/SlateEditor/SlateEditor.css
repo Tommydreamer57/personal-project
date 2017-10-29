@@ -193,7 +193,7 @@ pre {
   justify-content: space-between;
   padding-left: 2rem;
   padding-right: 2rem; }
-  .SlateEditor .title-box input, .SlateEditor .subtitle-box input, .CreatePost .title-box input, .CreatePost .subtitle-box input {
+  .SlateEditor .title-box .input, .SlateEditor .subtitle-box .input, .CreatePost .title-box .input, .CreatePost .subtitle-box .input {
     background: #0D0D0D;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -206,12 +206,22 @@ pre {
     font-weight: bold;
     max-width: 60%;
     text-overflow: ellipsis; }
-  .SlateEditor .title-box input:focus, .SlateEditor .subtitle-box input:focus, .CreatePost .title-box input:focus, .CreatePost .subtitle-box input:focus {
+  .SlateEditor .title-box .input:focus, .SlateEditor .subtitle-box .input:focus, .CreatePost .title-box .input:focus, .CreatePost .subtitle-box .input:focus {
     background: #262626;
     color: rgba(255, 255, 255, 0.7);
     font-weight: normal; }
-  .SlateEditor .title-box input::placeholder, .SlateEditor .subtitle-box input::placeholder, .CreatePost .title-box input::placeholder, .CreatePost .subtitle-box input::placeholder {
+  .SlateEditor .title-box .input::placeholder, .SlateEditor .subtitle-box .input::placeholder, .CreatePost .title-box .input::placeholder, .CreatePost .subtitle-box .input::placeholder {
     font-weight: normal; }
+  .SlateEditor .title-box .untouched, .SlateEditor .subtitle-box .untouched, .CreatePost .title-box .untouched, .CreatePost .subtitle-box .untouched {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: normal; }
+  .SlateEditor .title-box #sections, .SlateEditor .subtitle-box #sections, .CreatePost .title-box #sections, .CreatePost .subtitle-box #sections {
+    -moz-appearance: none;
+    -webkit-appearance: none; }
+  .SlateEditor .title-box #sections::-ms-expand, .SlateEditor .subtitle-box #sections::-ms-expand, .CreatePost .title-box #sections::-ms-expand, .CreatePost .subtitle-box #sections::-ms-expand {
+    display: none; }
+  .SlateEditor .title-box #sections:hover, .SlateEditor .subtitle-box #sections:hover, .CreatePost .title-box #sections:hover, .CreatePost .subtitle-box #sections:hover {
+    cursor: pointer; }
 
 .SlateEditor .editor, .CreatePost .editor {
   background: #262626;
@@ -233,12 +243,14 @@ pre {
 
 .preview .title-box, .preview .subtitle-box, .preview .text-box {
   background: #262626; }
+  .preview .title-box .input, .preview .title-box .editor, .preview .subtitle-box .input, .preview .subtitle-box .editor, .preview .text-box .input, .preview .text-box .editor {
+    background: #171717; }
 
 @media (max-width: 500px) {
   body .SlateEditor .title-box, body .SlateEditor .subtitle-box {
     margin-bottom: 1.5rem;
     flex-direction: column; }
-    body .SlateEditor .title-box input, body .SlateEditor .subtitle-box input {
+    body .SlateEditor .title-box .input, body .SlateEditor .subtitle-box .input {
       margin-top: 1rem;
       text-align: center;
       max-width: 100%;

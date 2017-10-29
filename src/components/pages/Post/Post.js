@@ -71,7 +71,7 @@ class Post extends Component {
     }
     render() {
         // console.log(this.state.fav)
-        console.log(this.props.selectedPost.published)
+        // console.log(this.props.selectedPost.published)
         let post = this.props.selectedPost || ``;
         let { user } = this.props || ``;
         return (
@@ -127,8 +127,8 @@ class Post extends Component {
                             <div className='subtitle-box publish' onClick={this.publish} >
                                 Publish
                             </div>
-                            <Link className='subtitle-box' to={`/admin/editpost/${post.id}`} >
-                                Back to Editor
+                            <Link className='subtitle-box' to={`/admin/editpost/${post.id}`} onClick={() => this.props.match.params.postid} >
+                                Go to Editor
                             </Link>
                         </div>
                         :

@@ -39,6 +39,10 @@ class Navbar extends Component {
                                 null
                         }
 
+                        <NavigationButton url='/admin/users' className='navigation-button'>
+                            Users
+                        </NavigationButton>
+
                     </div>
                     <NavigationToggle />
                 </div>

@@ -311,12 +311,17 @@ export default function reducer(state = initialState, action) {
 
         case SELECT_POST + FULFILLED:
             // CHECK FAVORITES TO SEE IF POST IS IN FAVORITES
-            if (state.favorites.length) {
+            if (state.favorites.length && action.payload) {
                 if (state.favorites.filter(fav => fav.id == action.payload.id).length) {
                     postIsFavorite = true;
                 }
             }
-            let body = html.deserialize(action.payload.body)
+            let body = initialState.selectedPostbody;
+            if (action.payload) {
+                if (action.payload.body) {
+                    body = html.deserialize(action.payload.body)
+                }
+            }    
             console.log(body)
             // RETURN SELECTED POST AND IF IT IS IN FAVORITES
             return Object.assign({}, state, { selectedPost: action.payload, selectedPostBody: body, postIsFavorite });
@@ -339,7 +344,7 @@ export default function reducer(state = initialState, action) {
         case GET_FAVORITES + FULFILLED:
             postIsFavorite = false
             // CHECK SELECTED POST TO SEE IF POST IS IN FAVORITES
-            if (state.selectedPost) {
+            if (state.selectedPost && action.payload) {
                 if (state.selectedPost.id) {
                     console.log(state.user.id)
                     console.log(state.selectedPost.id)

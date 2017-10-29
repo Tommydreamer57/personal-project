@@ -11,6 +11,7 @@ import AdminHome from './components/admin/AdminHome/AdminHome';
 import CreatePost from './components/admin/CreatePost/CreatePost';
 import SlateEditor from './components/admin/SlateEditor/SlateEditor';
 import EditPost from './components/admin/EditPost/EditPost';
+import Users from './components/admin/Users/Users';
 import Favorites from './components/pages/Favorites/Favorites';
 
 class App extends Component {
@@ -27,6 +28,7 @@ class App extends Component {
               <Route exact path='/admin/' component={AdminHome} />
               <Route path='/admin/createpost' component={CreatePost} />
               <Route path='/admin/editpost/:postid' component={SlateEditor} />
+              <Route path='/admin/users' component={Users} />
               <Route path='/favorites' component={Favorites} />
             </Switch>
           </div>

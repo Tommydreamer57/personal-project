@@ -1,4 +1,12 @@
 module.exports = {
+    getUsers: (req, res, next) => {
+        const db = req.app.get('db');
+        db.admin_read_users()
+            .then(users => {
+                res.status(200).send(users)
+            })
+        .catch(() => res.status(500).send(''))
+    },
     getSections: (req, res, next) => {
         const db = req.app.get('db');
         db.admin_read_sections()
@@ -21,7 +29,7 @@ module.exports = {
             .then(posts => {
                 res.status(200).send(posts)
             })
-        .catch(() => res.status(500).send(''))
+            .catch(() => res.status(500).send(''))
     },
     getPostById: (req, res, next) => {
         const db = req.app.get('db');
@@ -33,7 +41,7 @@ module.exports = {
     },
     createPost: (req, res, next) => {
         const db = req.app.get('db');
-        db.admin_create_post([req.body.section, req.body.subsection, req.body.title, req.body.subtitle, req.body.imgurl, 10])
+        db.admin_create_post([req.body.section, req.body.subsection, req.body.title, req.body.subtitle, req.body.body, req.body.imgurl, 10])
             .then(post => {
                 res.status(200).send(post)
             })

@@ -14,12 +14,23 @@ export function Avatar(props) {
     )
 }
 
-export function UserTile(props) {
-    let date = new Date(props.date)
-    console.log(date)
+export function UserTile({ user }) {
+    console.log(user)
     return (
         <div className='UserTile'>
-            {props.name}&nbsp;&nbsp;&nbsp;at&nbsp;&nbsp;{`${date.getHours()}:${date.getMinutes()} on ${month(date.getMonth())} ${date.getDate()}, ${date.getFullYear()}`}
+            <Avatar name={user.first_name || user.username} />
+            <div className='user-tile'>
+                <div className='user-header'>
+                    {user.id}&nbsp;
+                    {user.first_name}&nbsp;
+                    {user.last_name}&nbsp;
+                    {user.username}&nbsp;                    
+                </div>
+                <div className='user-body'>
+                    {user.email}&nbsp;
+                    {user.provider}&nbsp;
+                </div>
+            </div>
         </div>
     )
 }

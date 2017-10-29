@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { alertWarning, alertAdd } from '../../../../../ducks/reducer';
 import { Reply, Submit } from '../../../../reusable/Buttons/Button';
-import { UserTile, Avatar } from '../../../../reusable/PostTile/PostTile';
+import { Avatar } from '../../../../reusable/PostTile/PostTile';
 import Response from './Response/Response';
 import axios from 'axios';
 import DateStamp, { month } from '../../../../reusable/dates/dates';

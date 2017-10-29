@@ -189,7 +189,7 @@ pre {
   justify-content: space-between;
   padding-left: 2rem;
   padding-right: 2rem; }
-  .CreatePost .input-box input, .CreatePost .subtitle-box input, .CreatePost .create-box input {
+  .CreatePost .input-box .input, .CreatePost .subtitle-box .input, .CreatePost .create-box .input {
     background: #262626;
     color: white;
     border: none;
@@ -197,19 +197,22 @@ pre {
     width: 15rem;
     padding: 0 0.5rem; }
 
+.CreatePost select {
+  text-align-last: right; }
+
 .CreatePost .title-box * {
   display: flex;
   width: 100%;
   justify-content: center; }
 
-.CreatePost .subtitle-box input, .CreatePost .create-box input {
+.CreatePost .subtitle-box .input, .CreatePost .create-box .input {
   font-size: 1.75rem; }
 
 .CreatePost .create-box {
   background: #0D0D0D;
   border-radius: 0.5rem;
   justify-content: center;
-  color: rgba(90, 200, 255, 0.8);
+  color: rgba(90, 200, 255, 0.7);
   font-weight: bold; }
 
 .CreatePost .create-box:hover {
