@@ -30,6 +30,11 @@ export function month(num) {
     }
 }
 
+function dd(num) {
+    if (String(num).length > 1) return num;
+    else return ('0' + String(num))
+}
+
 export default function DateStamp(props) {
     if (props) {
         if (props.date) {
@@ -38,10 +43,10 @@ export default function DateStamp(props) {
             return (
                 <div className='DateStamp'>
                     <div className='short-date'>
-                        {`${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`}
+                        {`${dd(date.getMonth() + 1)}/${dd(date.getDate())}/${date.getFullYear()}`}
                     </div>
                     <div className='full-date'>
-                        {`${month(date.getMonth())} ${date.getDate()}, ${date.getFullYear()} at ${date.getHours()}:${date.getMinutes()}`}
+                        {`${month(date.getMonth())} ${date.getDate()}, ${date.getFullYear()} at ${date.getHours()}:${dd(date.getMinutes())}`}
                     </div>
                 </div>
             )

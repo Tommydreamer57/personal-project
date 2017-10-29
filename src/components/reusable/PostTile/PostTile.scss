@@ -10,6 +10,65 @@ $favan: 14px;
 
 // CLASSES
 
+.UserTile {
+    position: relative;
+    width: calc(100%-1rem);
+    display: flex;
+    align-items: stretch;
+    // align-content: stretch;
+    background: $dark;
+    padding: 0.25rem;
+    margin: 0.5rem;
+    .user-avatar {
+        // position: absolute;
+        // height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        // margin: 0.25rem 0;
+    }
+    .user-tile {
+        width: 100%;
+        padding: 0.25rem;
+        padding-left: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        .user-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0.25rem 0;
+            font-size: $fnormalmedium;
+        }
+        .user-info {
+            display: none;
+            // width: 100%;
+            background: $mediumdark;
+            margin-top: 0.25rem;
+            padding: 0.5rem 0;
+            .user-body {
+                width: calc(100% - 2rem);
+                display: flex;
+                justify-content: space-between;
+                margin: 0 1rem;
+                padding: 0.5rem 0;
+                .visits {
+                    width: auto;
+                    display: flex;
+                    color: $white5;
+                }
+            }
+        }
+    }
+    .user-tile:hover {
+        .user-info {
+            display: block;
+        }
+    }
+}
+
 .PostTile {
     width: calc(100% - 1rem);
     position: relative;    

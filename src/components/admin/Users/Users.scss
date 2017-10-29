@@ -1,0 +1,11 @@
+@import '../../../theme';
+
+.Users {
+    .users-box {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background: $darkest;
+        padding: 0.5rem;
+    }
+}

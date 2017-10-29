@@ -183,6 +183,50 @@ pre {
   to {
     color: #6432dc; } }
 
+.UserTile {
+  position: relative;
+  width: calc(100%-1rem);
+  display: flex;
+  align-items: stretch;
+  background: #171717;
+  padding: 0.25rem;
+  margin: 0.5rem; }
+  .UserTile .user-avatar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; }
+  .UserTile .user-tile {
+    width: 100%;
+    padding: 0.25rem;
+    padding-left: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; }
+    .UserTile .user-tile .user-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0.25rem 0;
+      font-size: 1.25rem; }
+    .UserTile .user-tile .user-info {
+      display: none;
+      background: #1C1C1C;
+      margin-top: 0.25rem;
+      padding: 0.5rem 0; }
+      .UserTile .user-tile .user-info .user-body {
+        width: calc(100% - 2rem);
+        display: flex;
+        justify-content: space-between;
+        margin: 0 1rem;
+        padding: 0.5rem 0; }
+        .UserTile .user-tile .user-info .user-body .visits {
+          width: auto;
+          display: flex;
+          color: rgba(255, 255, 255, 0.5); }
+  .UserTile .user-tile:hover .user-info {
+    display: block; }
+
 .PostTile {
   width: calc(100% - 1rem);
   position: relative;

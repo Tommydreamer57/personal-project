@@ -18,17 +18,24 @@ export function UserTile({ user }) {
     console.log(user)
     return (
         <div className='UserTile'>
-            <Avatar name={user.first_name || user.username} />
+            <div className='user-avatar'>
+                <Avatar name={user.first_name || user.username} />
+            </div>
             <div className='user-tile'>
                 <div className='user-header'>
-                    {user.id}&nbsp;
-                    {user.first_name}&nbsp;
-                    {user.last_name}&nbsp;
-                    {user.username}&nbsp;                    
+                    <div>ID&nbsp;{user.id}&nbsp;</div>
+                    <div>{user.first_name}&nbsp;{user.last_name}&nbsp;</div>
+                    <div>{user.username}&nbsp;</div>
                 </div>
-                <div className='user-body'>
-                    {user.email}&nbsp;
-                    {user.provider}&nbsp;
+                <div className='user-info'>
+                    <div className='user-body'>
+                        <div>{user.email}&nbsp;</div>
+                        <div>{user.provider}&nbsp;</div>
+                    </div>
+                    <div className='user-body'>
+                        <div className='visits'>Total visits:&nbsp;{user.visits}</div>
+                        <div className='visits'>Last visit:&nbsp;<DateStamp date={user.date} /></div>
+                    </div>
                 </div>
             </div>
         </div>

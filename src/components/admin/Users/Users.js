@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Navbar from '../../reusable/Navbar/Navbar';
 import axios from 'axios';
 import { UserTile } from '../../reusable/PostTile/PostTile';
+import './Users.css';
 
 class Users extends Component {
     constructor(props) {
@@ -29,20 +30,24 @@ class Users extends Component {
                 <div className='subtitle-box'>
                     Click a user to view info
                 </div>
-                <div className='post-box'>
-                    {
-                        this.state.users.length ?
-                            this.state.users.map((user, i) => {
-                                return (
-                                    <UserTile
-                                        key={i}
-                                        user={user}
-                                    />
-                                )
-                            })
-                            :
-                            null
-                    }
+                <div className='text-box'>                
+                    <div className='users-box'>
+                        {/* <div className='post-box'> */}
+                        {
+                            this.state.users.length ?
+                                this.state.users.map((user, i) => {
+                                    return (
+                                        <UserTile
+                                            key={i}
+                                            user={user}
+                                        />
+                                    )
+                                })
+                                :
+                                null
+                        }
+                        {/* </div> */}
+                    </div>
                 </div>
                 <Navbar />
             </div>

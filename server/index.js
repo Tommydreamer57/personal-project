@@ -38,7 +38,7 @@ passport.use(new Auth0Strategy({
     const db = app.get('db');
     db.find_user([String(profile.identities[0].user_id)]).then(user => {
         if (user[0]) {
-            db.add_visit([String(user[0].user_id)])
+            db.add_visit([String(user[0].auth_id)])
             return done(null, user[0].auth_id)
         }
         else {
@@ -78,7 +78,7 @@ passport.use(new Auth0Strategy({
                         profile.picture,
                         profile.identities[0].user_id,
                         null,
-                        profile.provider
+                        'profile.provider'
                     ])
                         .then(user => done(null, user[0].auth_id))
                     break;    
