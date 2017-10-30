@@ -33,7 +33,7 @@ passport.use(new Auth0Strategy({
     clientID: process.env.AUTH_CLIENT_ID,
     clientSecret: process.env.AUTH_CLIENT_SECRET,
     callbackURL: process.env.CALLBACK_URL,
-    allowedConnections: ['github', 'facebook']
+    allowedConnections: ['github', 'facebook', 'google-oauth2']
 }, function (accessToken, refreshToken, extraParams, profile, done) {
     const db = app.get('db');
     db.find_user([String(profile.identities[0].user_id)]).then(user => {
@@ -54,7 +54,10 @@ passport.use(new Auth0Strategy({
                         null,
                         profile.provider
                     ])
-                        .then(user => done(null, user[0].auth_id))
+                        .then(user => {
+                            db.add_visit([String(user[0].auth_id)])
+                            done(null, user[0].auth_id)
+                        })
                     break;
                 case 'facebook':
                     db.create_user([
@@ -67,7 +70,10 @@ passport.use(new Auth0Strategy({
                         profile.gender,
                         profile.provider
                     ])
-                        .then(user => done(null, user[0].auth_id))
+                        .then(user => {
+                            db.add_visit([String(user[0].auth_id)])
+                            done(null, user[0].auth_id)
+                        })
                     break;
                 case 'google-oauth2':
                     db.create_user([
@@ -78,9 +84,12 @@ passport.use(new Auth0Strategy({
                         profile.picture,
                         profile.identities[0].user_id,
                         null,
-                        'profile.provider'
+                        profile.provider
                     ])
-                        .then(user => done(null, user[0].auth_id))
+                        .then(user => {
+                            db.add_visit([String(user[0].auth_id)])
+                            done(null, user[0].auth_id)
+                        })
                     break;    
             }
         }
