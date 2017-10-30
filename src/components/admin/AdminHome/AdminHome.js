@@ -91,12 +91,6 @@ class AdminHome extends Component {
                         <div className='text-box'>
                             <div className='subtitle'>Please log in as admin</div>
                             <LoginButton>Login</LoginButton>
-                            {
-                                this.state.redirect ?
-                                    <Redirect to='/' />
-                                    :
-                                    null
-                            }
                         </div>
                         <Navbar />
                     </div>
