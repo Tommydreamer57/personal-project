@@ -47,7 +47,7 @@ class Comment extends Component {
         console.log(this.props.id)
         console.log(this.props.user.id)
         console.log(this.state.input)
-        axios.post(`/responses/${this.props.id}`, {
+        axios.post(`/api/responses/${this.props.id}`, {
             userid: this.props.user.id,
             body: this.state.input
         })
@@ -64,7 +64,7 @@ class Comment extends Component {
     componentDidMount() {
         console.log('comment getting responses')
         console.log(this.props.id)
-        axios.get(`/responses/${this.props.id}`)
+        axios.get(`/api/responses/${this.props.id}`)
             .then(response => {
                 console.log('comment got responses')
                 console.log(response.data)

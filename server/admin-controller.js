@@ -32,6 +32,9 @@ module.exports = {
             .catch(() => res.status(500).send(''))
     },
     getPostById: (req, res, next) => {
+        // console.log(req.body)
+        console.log('admin postid:')
+        console.log(req.params.postid)
         const db = req.app.get('db');
         db.admin_read_post_by_id([req.params.postid])
             .then(post => {

@@ -16,7 +16,7 @@ class SectionTile extends Component {
     }
     componentDidMount() {
         if (this.props.parent == 'admin') {
-            axios.get(`/admin/posts/${this.props.title}`)
+            axios.get(`/api/admin/posts/${this.props.title}`)
                 .then(response => {
                     console.log('SectionTile got posts')
                     console.log(this.props.title)
@@ -27,7 +27,7 @@ class SectionTile extends Component {
                 })
         }
         else {
-            axios.get(`/posts/${this.props.title}`)
+            axios.get(`/api/posts/${this.props.title}`)
                 .then(response => {
                     console.log('SectionTile got posts')
                     console.log(this.props.title)
@@ -36,7 +36,7 @@ class SectionTile extends Component {
                         posts: response.data
                     })
                 })
-            axios.get(`subsections/${this.props.title}`)
+            axios.get(`/api/subsections/${this.props.title}`)
                 .then(response => {
                     console.log('SectionTile got subsections')
                     console.log(response.data)
@@ -49,6 +49,8 @@ class SectionTile extends Component {
         console.log(this.props.title)
     }
     render() {
+        console.log(this.props.title)
+        console.log(this.props.parent)
         return (
             <div className='SectionTile'>
                 <div className='section-title-wrapper' onClick={() => this.props.function(this.props.title)} >
@@ -73,7 +75,7 @@ class SectionTile extends Component {
                                     date={post.date}
                                     key={post.id}
                                     id={post.id}
-                                    function={this.props.selectPost}
+                                    function={this.props.parent == 'admin' ? this.props.adminSelectPost : this.props.selectPost}
                                     phfunction={this.props.selectPost}
                                     fav={this.props.parent == 'admin' ? false : favorite}
                                     parent={this.props.parent}

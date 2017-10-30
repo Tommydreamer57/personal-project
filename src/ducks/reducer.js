@@ -73,7 +73,7 @@ export function getUser() {
 // CONTENT
 
 export function getSections() {
-    let sections = axios.get(`/sections`)
+    let sections = axios.get(`/api/sections`)
         .then(response => {
             console.log('redux got sections')
             console.log(response.data);
@@ -100,7 +100,7 @@ export function clearSelectedSection() {
 }
 
 export function getSubsections(section) {
-    let subsections = axios.get(`/subsections/${section}`)
+    let subsections = axios.get(`/api/subsections/${section}`)
         .then(response => {
             console.log('redux got subsections')
             console.log(response.data)
@@ -113,7 +113,7 @@ export function getSubsections(section) {
 }
 
 export function getPosts(section) {
-    let posts = axios.get(`/posts/${section}`)
+    let posts = axios.get(`/api/posts/${section}`)
         .then(response => {
             console.log('redux got posts')
             console.log(response.data);
@@ -133,7 +133,7 @@ export function clearPosts() {
 }
 
 export function selectPost(postid) {
-    let post = axios.get(`/post/${postid}`)
+    let post = axios.get(`/api/post/${postid}`)
         .then(response => {
             console.log('redux got post')
             console.log(response.data)
@@ -153,7 +153,7 @@ export function clearSelectedPost() {
 }
 
 export function adminSelectPost(postid) {
-    let post = axios.get(`/admin/post/${postid}`)
+    let post = axios.get(`/api/admin/post/${postid}`)
         .then(response => {
             console.log('redux selected admin post')
             console.log(response.data)
@@ -169,7 +169,7 @@ export function adminSelectPost(postid) {
 // COMMENTS
 
 export function getComments(postid) {
-    let comments = axios.get(`/comments/${postid}`)
+    let comments = axios.get(`/api/comments/${postid}`)
         .then(response => {
             console.log('redux got comments')
             console.log(response.data)
@@ -184,7 +184,7 @@ export function getComments(postid) {
 
 export function postComment(postid, userid, body) {
     console.log(postid)
-    let comments = axios.post(`/comments/${postid}`, { userid, body })
+    let comments = axios.post(`/api/comments/${postid}`, { userid, body })
         .then(response => {
             console.log('redux posted comment')
             console.log(response.data)
@@ -200,7 +200,7 @@ export function postComment(postid, userid, body) {
 // FAVORITES
 
 export function getFavorites(userid) {
-    let favorites = axios.get(`/favorites/${userid || null}`)
+    let favorites = axios.get(`/api/favorites/${userid || null}`)
         .then(response => {
             console.log('redux got favorites')
             console.log(response.data)
@@ -214,7 +214,7 @@ export function getFavorites(userid) {
 }
 
 export function addFavorite(userid, postid) {
-    let favorites = axios.post(`/favorites/${userid}/${postid}`)
+    let favorites = axios.post(`/api/favorites/${userid}/${postid}`)
         .then(response => {
             console.log('redux added favorite')
             console.log(response.data)
@@ -228,7 +228,7 @@ export function addFavorite(userid, postid) {
 }
 
 export function removeFavorite(userid, postid) {
-    let favorites = axios.delete(`/favorites/${userid}/${postid}`)
+    let favorites = axios.delete(`/api/favorites/${userid}/${postid}`)
         .then(response => {
             console.log('redux deleted favorite')
             console.log(response.data)
@@ -316,7 +316,7 @@ export default function reducer(state = initialState, action) {
                     postIsFavorite = true;
                 }
             }
-            let body = initialState.selectedPostbody;
+            let body = html.deserialize(`<p>loading page</p>`);
             if (action.payload) {
                 if (action.payload.body) {
                     body = html.deserialize(action.payload.body)

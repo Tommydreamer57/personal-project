@@ -42,19 +42,22 @@ class Home extends Component {
                 </div>
                 <div className='post-box'>
                     {
-                        this.props.sections.length ?
-                            this.props.sections.map((item, i) => {
-                                {/* console.log(item); */ }
-                                return (
-                                    <SectionTile
-                                        key={i}
-                                        url={`/section/${item.section || ``}`}
-                                        title={item.section}
-                                        key={i}
-                                        function={this.props.selectSection}
-                                    />
-                                );
-                            })
+                        this.props.sections ?
+                            this.props.sections.length ?
+                                this.props.sections.map((item, i) => {
+                                    {/* console.log(item); */ }
+                                    return (
+                                        <SectionTile
+                                            key={i}
+                                            url={`/section/${item.section || ``}`}
+                                            title={item.section}
+                                            key={i}
+                                            function={this.props.selectSection}
+                                        />
+                                    );
+                                })
+                                :
+                                null
                             :
                             null
                     }

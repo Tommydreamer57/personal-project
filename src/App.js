@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import logo from './logo.svg';
 import './reset.css';
 import './App.css';
@@ -17,25 +17,23 @@ import Favorites from './components/pages/Favorites/Favorites';
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div className='App'>
-          <div className='main'>
-            <Switch>
-              <Route exact path='/' component={Login} />              
-              <Route path='/home' component={Home} />
-              <Route path='/section/:section' component={Section} />
-              <Route path='/posts/:postid' component={Post} />
-              <Route exact path='/admin/' component={AdminHome} />
-              <Route path='/admin/createpost' component={CreatePost} />
-              <Route path='/admin/editpost/:postid' component={SlateEditor} />
-              <Route path='/admin/users' component={Users} />
-              <Route path='/favorites' component={Favorites} />
-            </Switch>
-          </div>
+      <div className='App'>
+        <div className='main'>
+          <Switch>
+            <Route exact path='/' component={Login} />
+            <Route path='/home' component={Home} />
+            <Route path='/section/:section' component={Section} />
+            <Route path='/posts/:postid' component={Post} />
+            <Route exact path='/admin/' component={AdminHome} />
+            <Route path='/admin/createpost' component={CreatePost} />
+            <Route path='/admin/editpost/:postid' component={SlateEditor} />
+            <Route path='/admin/users' component={Users} />
+            <Route path='/favorites' component={Favorites} />
+          </Switch>
         </div>
-      </Router>
+      </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

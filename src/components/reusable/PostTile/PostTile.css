@@ -210,10 +210,12 @@ pre {
       margin: 0.25rem 0;
       font-size: 1.25rem; }
     .UserTile .user-tile .user-info {
-      display: none;
+      overflow: hidden;
       background: #1C1C1C;
+      color: rgba(255, 255, 255, 0.5);
       margin-top: 0.25rem;
-      padding: 0.5rem 0; }
+      padding: 0.5rem 0;
+      transition: height .5s; }
       .UserTile .user-tile .user-info .user-body {
         width: calc(100% - 2rem);
         display: flex;
@@ -222,10 +224,9 @@ pre {
         padding: 0.5rem 0; }
         .UserTile .user-tile .user-info .user-body .visits {
           width: auto;
-          display: flex;
-          color: rgba(255, 255, 255, 0.5); }
+          display: flex; }
   .UserTile .user-tile:hover .user-info {
-    display: block; }
+    height: auto; }
 
 .PostTile {
   width: calc(100% - 1rem);

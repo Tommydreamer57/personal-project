@@ -38,7 +38,7 @@ class SlateEditor extends Component {
     }
     save = () => {
         let string = html.serialize(this.state.state)
-        axios.put(`/admin/slate/body/${this.state.id}`, { string })
+        axios.put(`/api/admin/slate/body/${this.state.id}`, { string })
             .then(response => {
                 console.log(response.data)
                 this.props.adminSelectPost(this.state.id)

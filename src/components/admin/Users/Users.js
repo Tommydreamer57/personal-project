@@ -13,7 +13,7 @@ class Users extends Component {
         }
     }
     componentDidMount() {
-        axios.get(`/admin/users`)
+        axios.get(`/api/admin/users`)
             .then(response => {
                 console.log(response.data)
                 this.setState({

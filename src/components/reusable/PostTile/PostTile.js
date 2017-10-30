@@ -84,7 +84,7 @@ export default function PostTile(props) {
                         </div>
                         :
                         props.parent == 'admin' ?
-                            <Link to={`/admin/editpost/${props.id}`} className='button-placeholder' onClick={props.phfunction} >
+                            <Link to={`/admin/editpost/${props.id}`} className='button-placeholder' onClick={props.function} >
                                 <div className='circle'>
                                     <div className='inner-circle' />
                                 </div>

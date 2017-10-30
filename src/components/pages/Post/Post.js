@@ -30,7 +30,7 @@ class Post extends Component {
             this.props.addFavorite(this.props.user.id, this.props.selectedPost.id)
     }
     publish = () => {
-        axios.put(`/admin/publish/${this.props.selectedPost.id}`)
+        axios.put(`/api/admin/publish/${this.props.selectedPost.id}`)
             .then(() => {
                 this.props.selectPost(this.props.selectedPost.id)
             })
@@ -38,6 +38,7 @@ class Post extends Component {
     componentDidMount() {
         // GETS POST FROM DB IF NOT ALREADY ON REDUX STATE
         let { postid } = this.props.match.params
+
         if (!this.props.selectedPost.id) {
             if (this.props.user.admin) {
                 console.log('post selecting admin post')
@@ -55,8 +56,17 @@ class Post extends Component {
         if (!this.props.user.id) {
             console.log('post getting user')
             this.props.getUser()
-                .then(user => {
-                    this.props.getFavorites(user.value.id)
+                .then(response => {
+                    console.log(response.value)
+                    if (response.value) {
+                        if (response.value.admin) {
+                            this.props.adminSelectPost(postid)
+                        }
+                    }
+                    else {
+                        this.props.selectPost(postid)
+                    }
+                    this.props.getFavorites(response.value.id)
                 })
         }
         // GETS FAVORITES FROM REDUX STATE
@@ -72,8 +82,10 @@ class Post extends Component {
     render() {
         // console.log(this.state.fav)
         // console.log(this.props.selectedPost.published)
-        let post = this.props.selectedPost || ``;
+        let post = this.props.selectedPost || { id: 0, published: true };
         let { user } = this.props || ``;
+        console.log(this.props.selectedPostBody)
+        console.log(post)
         return (
             <div className={post.published ? 'Post' : 'Post preview'} >
                 {

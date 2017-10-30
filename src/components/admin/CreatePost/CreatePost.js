@@ -42,7 +42,7 @@ class CreatePost extends Component {
             body.section = body.newSection
         }
 
-        axios.post(`/admin/create/${this.props.user.id}`, body)
+        axios.post(`/api/admin/create/${this.props.user.id}`, body)
             .then(response => {
                 console.log(response.data)
                 this.setState({
@@ -59,7 +59,7 @@ class CreatePost extends Component {
         })
     }
     componentDidMount() {
-        axios.get(`/admin/sections`)
+        axios.get(`/api/admin/sections`)
             .then(response => {
                 this.setState({
                 sections: response.data

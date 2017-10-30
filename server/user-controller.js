@@ -26,6 +26,8 @@ module.exports = {
             .catch(() => res.status(500).send('getPostsBySection broke'))
     },
     getPostById: (req, res, next) => {
+        console.log('user postid')
+        console.log(req.params.postid)
         const db = req.app.get('db');
         db.read_post_by_id([req.params.postid])
             .then(post => {

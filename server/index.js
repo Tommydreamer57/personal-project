@@ -17,7 +17,7 @@ const app = express();
 
 massive(CONNECTION_STRING).then(db => app.set('db', db));
 
-app.use(express.static(`${__dirname}/../public/build`));
+app.use(express.static(`${__dirname}/../build`));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(session({
@@ -94,6 +94,7 @@ app.get(`/auth/callback`, passport.authenticate(`auth0`, {
     failureRedirect: `/auth`
 }))
 app.get(`/auth/me`, (req, res, next) => {
+    console.log(req.user)
     if (!req.user) {
         return res.status(400).send('user not found');
     }
@@ -102,7 +103,7 @@ app.get(`/auth/me`, (req, res, next) => {
 app.get(`/auth/logout`, (req, res, next) => {
     let { user } = req
     req.logOut();
-    res.redirect(302, `http://localhost:3000/`)
+    res.redirect(302, `/`)
 })
 
 
@@ -110,56 +111,56 @@ app.get(`/auth/logout`, (req, res, next) => {
 
 // USER
 
-app.get(`/user/:username`, uc.getUserByUsername)
+app.get(`/api/user/:username`, uc.getUserByUsername)
 
 // CONTENT
 
-app.get(`/sections`, uc.getSections)
-app.get(`/subsections/:section`, uc.getSubsectionsBySection)
-app.get(`/posts/:section`, uc.getPostsBySection)
-app.get(`/post/:postid`, uc.getPostById)
+app.get(`/api/sections`, uc.getSections)
+app.get(`/api/subsections/:section`, uc.getSubsectionsBySection)
+app.get(`/api/posts/:section`, uc.getPostsBySection)
+app.get(`/api/post/:postid`, uc.getPostById)
 
 // COMMENTS
 
-app.get(`/comments/:postid`, uc.getCommentsByPost)
-app.post(`/comments/:postid`, uc.addCommentToPost)
-app.get(`/responses/:commentid`, uc.getResponsesByComment)
-app.post(`/responses/:commentid`, uc.addResponseToComment)
+app.get(`/api/comments/:postid`, uc.getCommentsByPost)
+app.post(`/api/comments/:postid`, uc.addCommentToPost)
+app.get(`/api/responses/:commentid`, uc.getResponsesByComment)
+app.post(`/api/responses/:commentid`, uc.addResponseToComment)
 
 // FAVORITES
 
-app.get(`/favorites/:userid`, uc.getFavoritesByUser)
-app.post(`/favorites/:userid/:postid`, uc.addFavoriteToUser)
-app.delete(`/favorites/:userid/:postid`, uc.removeFavorite)
+app.get(`/api/favorites/:userid`, uc.getFavoritesByUser)
+app.post(`/api/favorites/:userid/:postid`, uc.addFavoriteToUser)
+app.delete(`/api/favorites/:userid/:postid`, uc.removeFavorite)
 
 // ADMIN
 
-app.get(`/admin/users`, ac.getUsers)
+app.get(`/api/admin/users`, ac.getUsers)
 
-app.get(`/admin/sections`, ac.getSections)
-app.get(`/admin/posts`, ac.getPosts)
-app.get(`/admin/posts/:sectionid`, ac.getPostsBySection)
-app.get(`/admin/post/:postid`, ac.getPostById)
-app.post(`/admin/create/:adminid`, ac.createPost)
-app.put(`/admin/editpost/:postid`, ac.editPost)
-app.put(`/admin/publish/:postid`, ac.publishPost)
-app.put(`/admin/unpublish/:postid`, ac.unpublishPost)
+app.get(`/api/admin/sections`, ac.getSections)
+app.get(`/api/admin/posts`, ac.getPosts)
+app.get(`/api/admin/posts/:sectionid`, ac.getPostsBySection)
+app.get(`/api/admin/post/:postid`, ac.getPostById)
+app.post(`/api/admin/create/:adminid`, ac.createPost)
+app.put(`/api/admin/editpost/:postid`, ac.editPost)
+app.put(`/api/admin/publish/:postid`, ac.publishPost)
+app.put(`/api/admin/unpublish/:postid`, ac.unpublishPost)
 
-app.put(`/admin/slate/body/:postid`, ac.editPostBody)
+app.put(`/api/admin/slate/body/:postid`, ac.editPostBody)
 
 // SLATE PRACTICE - HTML
 
-app.get(`/admin/html/:id`, ac.readHtml)
-app.post(`.admin/html/`, ac.addHtml)
+app.get(`/api/admin/html/:id`, ac.readHtml)
+app.post(`/api/admin/html/`, ac.addHtml)
 
 // MY OWN ENDPOINTS ABOVE
 
 
-// const path = require('path')
+const path = require('path')
 
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, '../public/build/index.html'));
-// })
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+})
 
 
 passport.serializeUser(function (id, done) {

@@ -43,11 +43,14 @@ $favan: 14px;
             font-size: $fnormalmedium;
         }
         .user-info {
-            display: none;
+            // height: 0;
+            overflow: hidden;
             // width: 100%;
             background: $mediumdark;
+            color: $white5;
             margin-top: 0.25rem;
             padding: 0.5rem 0;
+            transition: height .5s;
             .user-body {
                 width: calc(100% - 2rem);
                 display: flex;
@@ -57,14 +60,13 @@ $favan: 14px;
                 .visits {
                     width: auto;
                     display: flex;
-                    color: $white5;
                 }
             }
         }
     }
     .user-tile:hover {
         .user-info {
-            display: block;
+            height: auto;
         }
     }
 }
