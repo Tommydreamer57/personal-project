@@ -99,8 +99,8 @@ passport.use(new Auth0Strategy({
 
 app.get(`/auth/`, passport.authenticate(`auth0`));
 app.get(`/auth/callback`, passport.authenticate(`auth0`, {
-    successRedirect: `/home`,
-    failureRedirect: `/auth`
+    successRedirect: process.env.SUCCESS_REDIRECT,
+    failureRedirect: process.env.FAILURE_REDIRECT
 }))
 app.get(`/auth/me`, (req, res, next) => {
     console.log(req.user)
