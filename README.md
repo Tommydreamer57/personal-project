@@ -58,6 +58,14 @@ Admins may click the 'Edit Post' button to edit the post.
 
 Users may comment directly on the post or respond to other users' comments.
 
+## Navigation:
+
+<p align="center">
+    <img src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/Navbar.PNG" width="700">
+</p>
+
+The navigation bar is hidden on the left and can be accessed through a smooth hover transition.
+
 ## Admin Page:
 
 <p align="center">
