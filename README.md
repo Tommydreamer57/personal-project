@@ -16,9 +16,7 @@ Live at  >>>  http://personalproject.thomaslowry.me
 
 ## Mobile Responsive
 
-The full site is mobile responsive.
-
-View previews of the mobile site at the bottom of this page.
+The full site is mobile responsive. View previews of the mobile site at the bottom of this page.
 
 ## Landing
 
@@ -123,26 +121,14 @@ Click the 'Go to Editor' button to make further changes to the post before publi
 
 ## Mobile Site
 
-<p align="center">
-    <img src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Home.PNG" width="300">
-</p>
+[Home](https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Home.PNG)
 
-<p align="center">
-    <img src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Navbar.PNG" width="300">
-</p>
+[Navbar](https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Navbar.PNG)
 
-<p align="center">
-    <img src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Post.PNG" width="300">
-</p>
+[Post](https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Post.PNG)
 
-<p align="center">
-    <img src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Post - Bottom.PNG" width="300">
-</p>
+[Post - Bottom](https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Post - Bottom.PNG)
 
-<p align="center">
-    <img src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Comment Box.PNG" width="300">
-</p>
+[Comment Box](https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Comment Box.PNG)
 
-<p align="center">
-    <img src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Commenting.PNG" width="300">
-</p>
+[Commenting](https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Commenting.PNG)
