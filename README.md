@@ -121,14 +121,14 @@ Click the 'Go to Editor' button to make further changes to the post before publi
 
 ## Mobile Site
 
-![Home](https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Home.PNG)
+![Home](https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Home.PNG =300x)
 
-![Navbar](https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Navbar.PNG)
+![Navbar](https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Navbar.PNG =300x)
 
-![Post](https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Post.PNG)
+![Post](https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Post.PNG =300x)
 
-![PostBottom](https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Post - Bottom.PNG)
+![PostBottom](https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Post%20-%20Bottom.PNG =300x)
 
-![CommentBox](https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Comment Box.PNG)
+![CommentBox](https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Comment%20Box.PNG =300x)
 
-![Commenting](https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Commenting.PNG)
+![Commenting](https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Commenting.PNG =300x)
