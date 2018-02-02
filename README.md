@@ -121,29 +121,26 @@ Click the 'Go to Editor' button to make further changes to the post before publi
 
 ## Mobile Site
 
-<div style="display: flex;" >
 <p>
-    <img align="left" src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Home.PNG" width="30%">
+    <img align="center" src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Home.PNG" width="30%">
 </p>
 
 <p>
-    <img align="auto" src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Navbar.PNG" width="30%">
+    <img align="center" src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Navbar.PNG" width="30%">
 </p>
 
 <p>
-    <img align="auto" src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Post.PNG" width="30%">
+    <img align="center" src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Post.PNG" width="30%">
 </p>
 
 <p>
-    <img align="auto" src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Post%20-%20Bottom.PNG" width="30%">
+    <img align="center" src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Post%20-%20Bottom.PNG" width="30%">
 </p>
 
 <p>
-    <img align="auto" src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Comment%20Box.PNG" width="30%">
+    <img align="center" src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Comment%20Box.PNG" width="30%">
 </p>
 
 <p>
-    <img align="auto" src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Commenting.PNG" width="30%">
+    <img align="center" src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Commenting.PNG" width="30%">
 </p>
-
-</div>
