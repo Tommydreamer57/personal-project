@@ -49,12 +49,12 @@ class Navbar extends Component {
                         }
 
                         {
-                            this.props.user.admin ?
-                                <NavigationButton url='/admin/users' className='navigation-button'>
-                                    Users
-                                </NavigationButton>
-                                :
-                                null
+                            // this.props.user.admin ?
+                            //     <NavigationButton url='/admin/users' className='navigation-button'>
+                            //         Users
+                            //     </NavigationButton>
+                            //     :
+                            //     null
                         }
 
                     </div>
