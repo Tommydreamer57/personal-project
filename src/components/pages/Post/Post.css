@@ -7,6 +7,9 @@
 /**MARGINS**/
 /**MEDIA QUERIES**/
 /**TAGS**/
+html, body {
+  background: black; }
+
 i {
   font-style: italic; }
 
@@ -107,7 +110,7 @@ pre {
 
 @media (max-width: 740px) {
   .welcome-box {
-    font-size: 4rem; } }
+    font-size: 3rem; } }
 
 .text-box {
   color: rgba(90, 200, 255, 0.7);

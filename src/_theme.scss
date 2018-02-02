@@ -117,6 +117,10 @@ $querythin: 500px;
 
 /**TAGS**/
 
+html, body {
+    background: black;
+}
+
 i {
     font-style: italic;
 }
@@ -248,7 +252,7 @@ pre {
 
 @media (max-width: $querymedium) {
     .welcome-box {
-        font-size: 4rem;
+        font-size: 3rem;
     }
 }
 
