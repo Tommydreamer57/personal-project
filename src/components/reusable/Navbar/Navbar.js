@@ -7,14 +7,23 @@ class Navbar extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            open: false
         }
+    }
+    toggleOpen = () => {
+        if (window.innerWidth > 740) return
+        else {
+            let open = !this.state.open
+            this.setState({
+                open
+            })
+        }    
     }
     render() {
         let { id } = this.props.user || ``
         return (
             <div className='Navbar'>
-                <div className='navigation-bar-wrapper' >
+                <div className={this.state.open ? 'navigation-bar-wrapper-open navigation-bar-wrapper' : 'navigation-bar-wrapper navigation-bar-wrapper-closed'} onClick={this.toggleOpen} >
                     <div className='navigation-bar' >
                         {
                             id ?
@@ -51,8 +60,7 @@ class Navbar extends Component {
                     </div>
                     <NavigationToggle />
                 </div>
-                <div className='navigation-shadow' />
-                <div className='responsive-shadow' />
+                <div className={window.innerWidth > 740 ? 'navigation-shadow' : 'responsive-shadow'} onClick={this.toggleOpen} />
             </div>
         )
     }

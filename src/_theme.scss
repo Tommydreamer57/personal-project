@@ -240,6 +240,18 @@ pre {
     @extend .box-wrapper ;
 }
 
+.welcome-box {
+    @extend .title-box ;
+    font-size: 5rem;
+    padding: 2rem;
+}
+
+@media (max-width: $querymedium) {
+    .welcome-box {
+        font-size: 4rem;
+    }
+}
+
 .subtitle-box {
     @extend .box-wrapper ;
     @extend .subtitle ;

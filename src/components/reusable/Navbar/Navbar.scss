@@ -98,26 +98,25 @@
     }
 
     .navigation-shadow {
-        position: fixed;
-        top: $navheight;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: 0;
-        background: linear-gradient(0deg, black, $faded);
-        transition: top .8s, height .8s;
-        transition-delay: none;
-        z-index: 10001;
+        display: none;
     }
 
-    .navigation-bar-wrapper:hover {
+    .responsive-shadow {
+        position: fixed;
+        background-image: linear-gradient(180deg, black, $faded);
+        top: 0;
+        width: 100%;
+        height: 0;
+        transition: top .8s, height .4s;
+    }
+
+    .navigation-bar-wrapper-open {
         .navigation-bar {
             width: 100%;
             display: flex;
             top: $navheight;
         }
-        + .navigation-shadow {
-            display: none;
+        + .responsive-shadow {
             top: $opennav;
             height: 100vh;
         }

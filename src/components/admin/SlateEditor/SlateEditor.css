@@ -35,7 +35,7 @@ pre {
 .none {
   display: none; }
 
-.title, .title-box {
+.title, .title-box, .welcome-box {
   color: #5ac8ff;
   font-family: Ubuntu;
   font-size: 3rem;
@@ -48,7 +48,7 @@ pre {
   font-size: 2rem;
   margin-bottom: 1rem; }
 
-.box-wrapper, .title-box, .subtitle-box, .text-box {
+.box-wrapper, .title-box, .welcome-box, .subtitle-box, .text-box {
   background: #121212;
   padding: 1rem;
   margin: 0 25vw 3rem;
@@ -86,20 +86,28 @@ pre {
   color: rgba(255, 255, 255, 0.5); }
 
 @media (max-width: 1000px) {
-  .box-wrapper, .title-box, .subtitle-box, .text-box {
+  .box-wrapper, .title-box, .welcome-box, .subtitle-box, .text-box {
     margin: 0 15vw 3rem; } }
 
 @media (max-width: 850px) {
-  .box-wrapper, .title-box, .subtitle-box, .text-box {
+  .box-wrapper, .title-box, .welcome-box, .subtitle-box, .text-box {
     margin: 0 12vw 3rem; } }
 
 @media (max-width: 740px) {
-  .box-wrapper, .title-box, .subtitle-box, .text-box {
+  .box-wrapper, .title-box, .welcome-box, .subtitle-box, .text-box {
     margin: 0 8vw 3rem; } }
 
 @media (max-width: 500px) {
-  .box-wrapper, .title-box, .subtitle-box, .text-box {
+  .box-wrapper, .title-box, .welcome-box, .subtitle-box, .text-box {
     margin: 0 2vw 3rem; } }
+
+.welcome-box {
+  font-size: 5rem;
+  padding: 2rem; }
+
+@media (max-width: 740px) {
+  .welcome-box {
+    font-size: 4rem; } }
 
 .text-box {
   color: rgba(90, 200, 255, 0.7);
@@ -108,7 +116,7 @@ pre {
   display: auto;
   text-align: left;
   padding: 1rem 1.5rem; }
-  .text-box .title, .text-box .title-box, .text-box .subtitle, .text-box .subtitle-box {
+  .text-box .title, .text-box .title-box, .text-box .welcome-box, .text-box .subtitle, .text-box .subtitle-box {
     padding: 0.75rem 2rem 0.75rem; }
   .text-box .subtitle + div, .text-box .subtitle-box + div {
     margin-top: 1rem; }
@@ -183,17 +191,17 @@ pre {
   to {
     color: #6432dc; } }
 
-.SlateEditor .title-box, .SlateEditor .subtitle-box, .SlateEditor .text-box, .CreatePost .title-box, .CreatePost .subtitle-box, .CreatePost .text-box {
+.SlateEditor .title-box, .SlateEditor .welcome-box, .SlateEditor .subtitle-box, .SlateEditor .text-box, .CreatePost .title-box, .CreatePost .welcome-box, .CreatePost .subtitle-box, .CreatePost .text-box {
   background: #0D0D0D;
   color: rgba(90, 200, 255, 0.8);
   border-radius: 0.5rem; }
 
-.SlateEditor .title-box, .SlateEditor .subtitle-box, .CreatePost .title-box, .CreatePost .subtitle-box {
+.SlateEditor .title-box, .SlateEditor .welcome-box, .SlateEditor .subtitle-box, .CreatePost .title-box, .CreatePost .welcome-box, .CreatePost .subtitle-box {
   flex-direction: row;
   justify-content: space-between;
   padding-left: 2rem;
   padding-right: 2rem; }
-  .SlateEditor .title-box .input, .SlateEditor .subtitle-box .input, .CreatePost .title-box .input, .CreatePost .subtitle-box .input {
+  .SlateEditor .title-box .input, .SlateEditor .welcome-box .input, .SlateEditor .subtitle-box .input, .CreatePost .title-box .input, .CreatePost .welcome-box .input, .CreatePost .subtitle-box .input {
     background: #0D0D0D;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -206,21 +214,21 @@ pre {
     font-weight: bold;
     max-width: 60%;
     text-overflow: ellipsis; }
-  .SlateEditor .title-box .input:focus, .SlateEditor .subtitle-box .input:focus, .CreatePost .title-box .input:focus, .CreatePost .subtitle-box .input:focus {
+  .SlateEditor .title-box .input:focus, .SlateEditor .welcome-box .input:focus, .SlateEditor .subtitle-box .input:focus, .CreatePost .title-box .input:focus, .CreatePost .welcome-box .input:focus, .CreatePost .subtitle-box .input:focus {
     background: #262626;
     color: rgba(255, 255, 255, 0.7);
     font-weight: normal; }
-  .SlateEditor .title-box .input::placeholder, .SlateEditor .subtitle-box .input::placeholder, .CreatePost .title-box .input::placeholder, .CreatePost .subtitle-box .input::placeholder {
+  .SlateEditor .title-box .input::placeholder, .SlateEditor .welcome-box .input::placeholder, .SlateEditor .subtitle-box .input::placeholder, .CreatePost .title-box .input::placeholder, .CreatePost .welcome-box .input::placeholder, .CreatePost .subtitle-box .input::placeholder {
     font-weight: normal; }
-  .SlateEditor .title-box .untouched, .SlateEditor .subtitle-box .untouched, .CreatePost .title-box .untouched, .CreatePost .subtitle-box .untouched {
+  .SlateEditor .title-box .untouched, .SlateEditor .welcome-box .untouched, .SlateEditor .subtitle-box .untouched, .CreatePost .title-box .untouched, .CreatePost .welcome-box .untouched, .CreatePost .subtitle-box .untouched {
     color: rgba(255, 255, 255, 0.5);
     font-weight: normal; }
-  .SlateEditor .title-box #sections, .SlateEditor .subtitle-box #sections, .CreatePost .title-box #sections, .CreatePost .subtitle-box #sections {
+  .SlateEditor .title-box #sections, .SlateEditor .welcome-box #sections, .SlateEditor .subtitle-box #sections, .CreatePost .title-box #sections, .CreatePost .welcome-box #sections, .CreatePost .subtitle-box #sections {
     -moz-appearance: none;
     -webkit-appearance: none; }
-  .SlateEditor .title-box #sections::-ms-expand, .SlateEditor .subtitle-box #sections::-ms-expand, .CreatePost .title-box #sections::-ms-expand, .CreatePost .subtitle-box #sections::-ms-expand {
+  .SlateEditor .title-box #sections::-ms-expand, .SlateEditor .welcome-box #sections::-ms-expand, .SlateEditor .subtitle-box #sections::-ms-expand, .CreatePost .title-box #sections::-ms-expand, .CreatePost .welcome-box #sections::-ms-expand, .CreatePost .subtitle-box #sections::-ms-expand {
     display: none; }
-  .SlateEditor .title-box #sections:hover, .SlateEditor .subtitle-box #sections:hover, .CreatePost .title-box #sections:hover, .CreatePost .subtitle-box #sections:hover {
+  .SlateEditor .title-box #sections:hover, .SlateEditor .welcome-box #sections:hover, .SlateEditor .subtitle-box #sections:hover, .CreatePost .title-box #sections:hover, .CreatePost .welcome-box #sections:hover, .CreatePost .subtitle-box #sections:hover {
     cursor: pointer; }
 
 .SlateEditor .editor, .CreatePost .editor {
@@ -241,16 +249,16 @@ pre {
   justify-content: center;
   color: rgba(90, 200, 255, 0.8); }
 
-.preview .title-box, .preview .subtitle-box, .preview .text-box {
+.preview .title-box, .preview .welcome-box, .preview .subtitle-box, .preview .text-box {
   background: #262626; }
-  .preview .title-box .input, .preview .title-box .editor, .preview .subtitle-box .input, .preview .subtitle-box .editor, .preview .text-box .input, .preview .text-box .editor {
+  .preview .title-box .input, .preview .welcome-box .input, .preview .title-box .editor, .preview .welcome-box .editor, .preview .subtitle-box .input, .preview .subtitle-box .editor, .preview .text-box .input, .preview .text-box .editor {
     background: #171717; }
 
 @media (max-width: 500px) {
-  body .SlateEditor .title-box, body .SlateEditor .subtitle-box {
+  body .SlateEditor .title-box, body .SlateEditor .welcome-box, body .SlateEditor .subtitle-box {
     margin-bottom: 1.5rem;
     flex-direction: column; }
-    body .SlateEditor .title-box .input, body .SlateEditor .subtitle-box .input {
+    body .SlateEditor .title-box .input, body .SlateEditor .welcome-box .input, body .SlateEditor .subtitle-box .input {
       margin-top: 1rem;
       text-align: center;
       max-width: 100%;

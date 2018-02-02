@@ -11,6 +11,9 @@ export default class Login extends Component {
     render() {
         return (
             <div className='Login'>
+                <div className="welcome-box">
+                    Welcome
+                </div>
                 <div className='subtitle-box'>
                     <a href={process.env.REACT_APP_LOGIN}>LOGIN</a>
                 </div>
