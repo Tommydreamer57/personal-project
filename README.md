@@ -121,6 +121,7 @@ Click the 'Go to Editor' button to make further changes to the post before publi
 
 ## Mobile Site
 
+<div style="display: flex; flex-flow: row wrap; " >
 <p align="left">
     <img src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Home.PNG" width="300">
 </p>
@@ -135,16 +136,14 @@ Click the 'Go to Editor' button to make further changes to the post before publi
 
 <p>
     <img align="left" src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Post%20-%20Bottom.PNG" width="300">
+</p>
 
+<p>
     <img align="center" src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Comment%20Box.PNG" width="300">
+</p>
 
+<p>
     <img align="right" src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Commenting.PNG" width="300">
 </p>
 
-<div style="display: flex;" >
-    <img align="left" src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Post%20-%20Bottom.PNG" width="300">
-
-    <img align="center" src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Comment%20Box.PNG" width="300">
-
-    <img align="right" src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Commenting.PNG" width="300">
 </div>
