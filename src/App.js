@@ -27,7 +27,7 @@ class App extends Component {
             <Route exact path='/admin/' component={AdminHome} />
             <Route path='/admin/createpost' component={CreatePost} />
             <Route path='/admin/editpost/:postid' component={SlateEditor} />
-            <Route path='/admin/users' component={Users} />
+            {/* <Route path='/admin/users' component={Users} /> */}
             <Route path='/favorites' component={Favorites} />
           </Switch>
         </div>
