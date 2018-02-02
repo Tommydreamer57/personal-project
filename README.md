@@ -124,25 +124,25 @@ Click the 'Go to Editor' button to make further changes to the post before publi
 ## Mobile Site
 
 <p align="center">
-    <img src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Home.PNG">
+    <img src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Home.PNG" width="300">
 </p>
 
 <p align="center">
-    <img src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Navbar.PNG">
+    <img src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Navbar.PNG" width="300">
 </p>
 
 <p align="center">
-    <img src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Post.PNG">
+    <img src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Post.PNG" width="300">
 </p>
 
 <p align="center">
-    <img src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Post - Bottom.PNG">
+    <img src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Post - Bottom.PNG" width="300">
 </p>
 
 <p align="center">
-    <img src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Comment Box.PNG">
+    <img src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Comment Box.PNG" width="300">
 </p>
 
 <p align="center">
-    <img src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Commenting.PNG">
+    <img src="https://github.com/Tommydreamer57/personal-project/blob/master/src/assets/mobile/Commenting.PNG" width="300">
 </p>
