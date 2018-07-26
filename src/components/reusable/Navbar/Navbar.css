@@ -165,7 +165,7 @@ pre {
 /**WELCOME ANIMATION**/
 @keyframes welcome {
   from {
-    color: transparent; }
+    color: rgba(0, 0, 0, 0); }
   to {
     color: #5ac8ff; } }
 
@@ -174,7 +174,7 @@ pre {
   from {
     color: #6432dc; }
   to {
-    color: transparent; } }
+    color: rgba(0, 0, 0, 0); } }
 
 @keyframes added {
   from {
@@ -214,7 +214,7 @@ pre {
   z-index: 999; }
 
 .Navbar .navigation-shadow {
-  background: linear-gradient(90deg, black, transparent);
+  background: linear-gradient(90deg, black, rgba(0, 0, 0, 0));
   height: 100%;
   width: 0;
   position: fixed;
@@ -270,7 +270,7 @@ pre {
     display: none; }
   .responsive-shadow {
     position: fixed;
-    background-image: linear-gradient(180deg, black, transparent);
+    background-image: linear-gradient(180deg, black, rgba(0, 0, 0, 0));
     top: 0;
     width: 100%;
     height: 0;

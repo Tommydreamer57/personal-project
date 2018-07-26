@@ -1,4 +1,4 @@
-UPDATE posts
+UPDATE blog_posts
 SET
     section = $2,
     subsection = $3,

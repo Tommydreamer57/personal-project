@@ -6,4 +6,4 @@ CREATE TABLE comments (
     date TIMESTAMP,
     FOREIGN KEY (postid) REFERENCES posts(id),
     FOREIGN KEY (userid) REFERENCES users(id)
-)
+);

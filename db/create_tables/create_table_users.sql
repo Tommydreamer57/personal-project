@@ -11,4 +11,4 @@ CREATE TABLE users (
     gender VARCHAR(20),
     provider VARCHAR(40),
     admin BOOLEAN
-)
+);

@@ -1,2 +1,2 @@
-SELECT DISTINCT section FROM posts
+SELECT DISTINCT section FROM blog_posts
 WHERE published = true

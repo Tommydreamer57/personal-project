@@ -10,4 +10,4 @@ CREATE TABLE posts (
     published BOOLEAN,
     author_id integer
     FOREIGN KEY (author_id) REFERENCES (users.id)
-)
+);

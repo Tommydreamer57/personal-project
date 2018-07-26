@@ -166,7 +166,7 @@ pre {
 /**WELCOME ANIMATION**/
 @keyframes welcome {
   from {
-    color: transparent; }
+    color: rgba(0, 0, 0, 0); }
   to {
     color: #5ac8ff; } }
 
@@ -175,7 +175,7 @@ pre {
   from {
     color: #6432dc; }
   to {
-    color: transparent; } }
+    color: rgba(0, 0, 0, 0); } }
 
 @keyframes added {
   from {

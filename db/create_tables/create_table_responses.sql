@@ -6,4 +6,4 @@ CREATE TABLE responses (
     date TIMESTAMP,
     FOREIGN KEY (commentid) REFERENCES comments(id),
     FOREIGN KEY (userid) REFERENCES users(id)
-)
+);

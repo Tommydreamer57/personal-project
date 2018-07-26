@@ -1,2 +1,2 @@
-SELECT * FROM posts
+SELECT * FROM blog_posts
 WHERE id = $1

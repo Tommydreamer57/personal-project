@@ -1,1 +1,1 @@
-SELECT * FROM comments
+SELECT * FROM blog_comments

@@ -15,7 +15,7 @@ module.exports = {
             .then(subsections => {
                 res.send(subsections)
             })
-        .catch(() => res.status(500).send('getSubSectionsBySection broke'))
+            .catch(() => res.status(500).send('getSubSectionsBySection broke'))
     },
     getPostsBySection: (req, res, next) => {
         const db = req.app.get('db');
@@ -54,15 +54,22 @@ module.exports = {
             .catch(() => res.status(500).send('getCommentsByPost broke'))
     },
     addCommentToPost: (req, res, next) => {
+        console.log("adding comment to post - userid: " + req.body.userid + " postid: " + req.params.postid + " body: " + req.body.body)
         const db = req.app.get('db');
         db.add_comment([req.body.userid, req.params.postid, req.body.body])
             .then(() => db.read_comments(req.params.postid)
                 .then(comments => {
                     res.send(comments)
                 })
-                .catch(() => res.status(500).send('addCommentToPost read_comments broke'))
+                .catch((err) => {
+                    console.log(err);
+                    res.status(500).send('addCommentToPost read_comments broke')
+                })
             )
-            .catch(() => res.status(500).send('addCommentToPost broke'))
+            .catch((err) => {
+                console.log(err);
+                res.status(500).send('addCommentToPost broke')
+            })
     },
     getResponsesByComment: (req, res, next) => {
         const db = req.app.get('db');

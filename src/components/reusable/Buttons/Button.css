@@ -165,7 +165,7 @@ pre {
 /**WELCOME ANIMATION**/
 @keyframes welcome {
   from {
-    color: transparent; }
+    color: rgba(0, 0, 0, 0); }
   to {
     color: #5ac8ff; } }
 
@@ -174,7 +174,7 @@ pre {
   from {
     color: #6432dc; }
   to {
-    color: transparent; } }
+    color: rgba(0, 0, 0, 0); } }
 
 @keyframes added {
   from {
@@ -216,7 +216,7 @@ pre {
   padding: 0.25rem 2rem;
   font-size: 1.5rem;
   color: #6432dc;
-  border: 2px solid transparent;
+  border: 2px solid rgba(0, 0, 0, 0);
   border-radius: 2rem;
   transition: background-color .3s, color .3s, font-weight .3s, padding .3s; }
 
